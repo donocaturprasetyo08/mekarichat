@@ -6,7 +6,7 @@
       <class name="webautomation.mekarichat.AppTest">
         <methods>
           <include name="createChromeDriver"/>
-          <include name="listContact"/>
+          <include name="searchContactWithJobs"/>
           <include name="quitChromeDriver"/>
         </methods>
       </class> <!-- webautomation.mekarichat.AppTest -->

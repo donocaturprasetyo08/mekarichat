@@ -3,6 +3,7 @@ package webautomation.mekarichat;
 import java.util.List;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -131,7 +132,7 @@ public class AppTest extends BaseWebDriver
     /**
      * Chat List Test :-)
      */
-    @Test(testName = "User menyematkan pesan", description = "User dapat menyematkan pesan")
+    @Test(testName = "MC-003-05", description = "User menyematkan pesan")
     public void pinTest() {
     	String email = "emailMekari";
     	String password = "passwordMekari";
@@ -152,11 +153,12 @@ public class AppTest extends BaseWebDriver
 
     @Test(testName = "MC-003-03", description = "User dapat melihat status Online/Offline pada Private Chat")
     public void checkStatusChatOnlineOffline() {
-    	String email = "emailMekari";
-    	String password = "passwordMekari";
+    	String email = "donocatur@qiscus.cx";
+    	String password = "tanpapassword08";
     	loginPage.testLogin(email, password);
     	
     	chatList.chatTab();
+    	ShareUtils.hardWait(5);
     	
     	String online = "background-color: rgb(0, 159, 97);";
     	String value = "style";
@@ -164,7 +166,7 @@ public class AppTest extends BaseWebDriver
     	String status = chatRoom.statusChat(value);
     	System.out.println(status);
     	
-    	if (status == online) {
+    	if (status.equals(online)) {
     		System.out.println("Status Online");
     	}else {
     		System.out.println("Status Offline");
@@ -431,24 +433,158 @@ public class AppTest extends BaseWebDriver
     	String actualResults = contactPage.titleContact();
     	Assert.assertEquals(actualResults, expectedResults);
     	
-    	List<WebElement> listContact;
-		try {
-			listContact = contactPage.listName();
-			System.out.println(listContact.size());
-//			for(int i = 0; i<listContact;i++) {
-//					boolean name = listContact.get(i).isDisplayed();
-//					String names = listContact.get(i).getText();
-//					List<WebElement> listJobs = contactPage.listJobs();
-//					String jobs = listJobs.get(i).getText();
-//					if (Assert.assertTrue(true, names)){
-//						System.out.println("Contact list is Found");
-//						System.out.println(name);
-//						System.out.println(jobs);
-//					}
-//			}
-		} catch (Exception e) {
-			System.out.println("Search Chat with Combination Filter Post In and From is Not Found");
+    	List<WebElement> listStatus = contactPage.listStatus();
+    	String value = "style";
+    	String online = "background-color: rgb(0, 159, 97);";
+		System.out.println("jumlah kontak: " + listStatus.size() + "\n");
+		for(int i = 0; i<listStatus.size();i++) {
+			String status = listStatus.get(i).getAttribute(value);
+			List<WebElement> listName = contactPage.listName();
+			String nama = listName.get(i).getText();
+			List<WebElement> listJobs = contactPage.listJobs();
+			String jobs = listJobs.get(i).getText();
+			List<WebElement> listImg = contactPage.imgLoaded();
+			Boolean ImagePresent = (Boolean) ((JavascriptExecutor)driver.get()).executeScript("return arguments[0].complete && typeof arguments[0].naturalWidth != \"undefined\" && arguments[0].naturalWidth > 0", listImg.get(i));
+			if (status.equals(online) && !ImagePresent){
+				System.out.println(nama);
+				System.out.println(jobs);
+				System.out.println("Status Online"+"\n");
+				System.out.println("Image not displayed.");
+			}else {
+				System.out.println(nama);
+				System.out.println(jobs);
+				System.out.println("Status Offline"+"\n");
+				System.out.println("Img display");
+			}
 		}
     	
     }
+    
+    @Test(testName = "MC-007-02", description = "User melihat status Online/Offline pada Contact")
+    public void statusOnlineOfflineListContact() {
+    	String email = "emailMekari";
+    	String password = "passwordMekari";
+    	loginPage.testLogin(email, password);
+    	ShareUtils.hardWait(5);
+    	
+    	contactPage.contactPage();
+    	
+    	String expectedResults = "Contacts";
+    	String actualResults = contactPage.titleContact();
+    	Assert.assertEquals(actualResults, expectedResults);
+    	
+    	List<WebElement> listStatus = contactPage.listStatus();
+    	String value = "style";
+    	String online = "background-color: rgb(0, 159, 97);";
+		System.out.println(listStatus.size());
+		for(int i = 0; i<listStatus.size();i++) {
+			String status = listStatus.get(i).getAttribute(value);
+			List<WebElement> listName = contactPage.listName();
+			String nama = listName.get(i).getText();
+			if (status.equals(online)){
+				System.out.println(nama);
+				System.out.println("Status Online berwarna hijau"+"\n");
+			}else {
+				System.out.println(nama);
+				System.out.println("Status Offline berwarna abu-abu"+"\n");
+			}
+		}
+    }
+    
+    @Test(testName = "MC-007-03", description = "User melakukan pencarian kontak berdasarkan nama")
+    public void searchContactWithName() {
+    	String email = "emailMekari";
+    	String password = "passwordMekari";
+    	loginPage.testLogin(email, password);
+    	ShareUtils.hardWait(5);
+    	
+    	contactPage.contactPage();
+    	
+    	String expectedResults = "Contacts";
+    	String actualResults = contactPage.titleContact();
+    	Assert.assertEquals(actualResults, expectedResults);
+    	
+    	String text = "mic";
+    	contactPage.searchText(text);
+    	
+    	ShareUtils.hardWait(5);
+    	List<WebElement> listData;
+		try {
+			listData = contactPage.listName();
+			System.out.println("Jumlah kontak yang ditemukan :" + listData.size() + "\n");
+			for(int i = 0; i<listData.size();i++) {
+					String name = listData.get(i).getText();
+					if ((name.toLowerCase().contains(text.toLowerCase()))){
+						Assert.assertTrue(true, text);
+						System.out.println(name);
+						System.out.println("Search Contact with Name is Found" + "\n");
+					}
+			}
+		} catch (Exception e) {
+			String message = contactPage.getMessage();
+			System.out.println(message);
+		}
+    }
+
+    @Test(testName = "MC-007-04", description = "User melakukan pencarian kontak berdasarkan job position")
+    public void searchContactWithJobs() {
+    	String email = "emailMekari";
+    	String password = "passwordMekari";
+    	loginPage.testLogin(email, password);
+    	ShareUtils.hardWait(5);
+    	
+    	contactPage.contactPage();
+    	
+    	String expectedResults = "Contacts";
+    	String actualResults = contactPage.titleContact();
+    	Assert.assertEquals(actualResults, expectedResults);
+    	
+    	String text = "dir";
+    	contactPage.searchText(text);
+    	ShareUtils.hardWait(5);
+    	List<WebElement> listData;
+		try {
+			listData = contactPage.listJobs();
+			System.out.println("Jumlah kontak yang ditemukan :" + listData.size() + "\n");
+			for(int i = 0; i<listData.size();i++) {
+					String jobs = listData.get(i).getText();
+					if ((jobs.toLowerCase().contains(text.toLowerCase()))){
+						Assert.assertTrue(true, text);
+						System.out.println(jobs);
+						System.out.println("Search Contact with Jobs is Found" + "\n");
+					}
+			}
+		} catch (Exception e) {
+			String message = contactPage.getMessage();
+			System.out.println(message);
+		}
+    }
+
+    @Test(testName = "MC-007-05", description = "User mengakses private chat room melalui tab Contacts")
+    public void accessPrivateRoomFromTabsContacts() {
+    	String email = "emailMekari";
+    	String password = "passwordMekari";
+    	loginPage.testLogin(email, password);
+    	ShareUtils.hardWait(5);
+    	
+    	contactPage.contactPage();
+    	
+    	String expectedResults = "Contacts";
+    	String actualResults = contactPage.titleContact();
+    	Assert.assertEquals(actualResults, expectedResults);
+    	
+    	String text = "delta";
+    	contactPage.searchText(text);
+    	ShareUtils.hardWait(2);
+    	
+    	contactPage.listChat();
+    	boolean startChat = contactPage.getStartChat();
+    	
+    	if(startChat == true) {
+    		System.out.println("User dapat mengakses private chat room melalui tab Contacts");
+    	}else {
+    		System.out.println("Failed");
+    	}
+    }
+
 }

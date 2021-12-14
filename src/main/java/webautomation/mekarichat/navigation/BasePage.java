@@ -83,8 +83,18 @@ public class BasePage {
 		explicitWait.get().until(ExpectedConditions.elementToBeClickable(locator));
 		return driver.get().findElement(locator).isDisplayed();
 	}
+	
 	protected final String getAttribute(By locator, String value) {
 		explicitWait.get().until(ExpectedConditions.elementToBeClickable(locator));
 		return driver.get().findElement(locator).getAttribute(value);
 	}
+	
+	protected final boolean findImgLoaded(By locator) {
+		explicitWait.get().until(ExpectedConditions.elementToBeClickable(locator));
+		WebElement ImageFile = driver.get().findElement(locator);
+		Boolean ImagePresent = (Boolean) ((JavascriptExecutor)driver.get()).executeScript("return arguments[0].complete && typeof arguments[0].naturalWidth != \"undefined\" && arguments[0].naturalWidth > 0", ImageFile);
+		return ImagePresent;
+	} 
+	
+	
 }

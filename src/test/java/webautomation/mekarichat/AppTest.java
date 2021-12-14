@@ -52,7 +52,7 @@ public class AppTest extends BaseWebDriver
     public void loginWithValidEmailandWrongPassword()
     {
     	String email = "emailMekari";
-    	String password = "passwordMekari";
+    	String password = "12345678";
     	loginPage.testLogin(email, password);
     	String actualResults = loginPage.getNotif();
     	System.out.println(actualResults);   
@@ -62,7 +62,7 @@ public class AppTest extends BaseWebDriver
     public void loginWithWrongEmailandValidPassword()
     {
     	String email = "abcd@gmail.com";
-    	String password = "1122334455";
+    	String password = "passwordMekari";
     	loginPage.testLogin(email, password);
     	String actualResults = loginPage.getNotif();
     	System.out.println(actualResults);   

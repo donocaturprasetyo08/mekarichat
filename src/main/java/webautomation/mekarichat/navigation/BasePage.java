@@ -96,5 +96,25 @@ public class BasePage {
 		return ImagePresent;
 	} 
 	
+	protected String getUrl() {
+		return driver.get().getCurrentUrl();
+	}
 	
+	protected String getTitle() {
+		return driver.get().getTitle();
+	}
+	
+	protected final boolean passwordHidden(By locator) {
+		explicitWait.get().until(ExpectedConditions.elementToBeClickable(locator));
+		WebElement input = driver.get().findElement(locator);
+    	boolean isEncrypted = input.getAttribute("type").equals("password");
+		return isEncrypted;
+	}
+	
+	protected final boolean passwordShowed(By locator) {
+		explicitWait.get().until(ExpectedConditions.elementToBeClickable(locator));
+		WebElement input = driver.get().findElement(locator);
+    	boolean isEncrypted = input.getAttribute("type").equals("text");
+		return isEncrypted;
+	}
 }

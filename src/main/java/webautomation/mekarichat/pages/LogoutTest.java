@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import io.qameta.allure.Step;
 import webautomation.mekarichat.navigation.BasePage;
 import webautomation.mekarichat.utils.ShareUtils;
 
@@ -11,7 +12,6 @@ public class LogoutTest extends BasePage{
 	
 	By tabMenu = By.xpath("//span[@class='mr-2 ml-2 text-capitalize cursor-pointer']");
 	By signOut = By.xpath("//div[@id='top-nav-signout']");
-	
 	By textH2 = By.xpath("//h2[normalize-space()='Sign in']");
 
 	public LogoutTest(ThreadLocal<WebDriver> driver, ThreadLocal<WebDriverWait> explicitWait) {
@@ -19,14 +19,16 @@ public class LogoutTest extends BasePage{
 		// TODO Auto-generated constructor stub
 	}
 	
+	@Step("3# user melakukan logout")
 	public void logOut() {
 		clickAndWaitByXpath(tabMenu);
 		ShareUtils.hardWait(5);
 		clickAndWaitByXpath(signOut);
 	}
 	
-	public String getLogout() {
-		return getText(textH2);
+	@Step("4# verify berhasil logout")
+	public boolean verifyLogout() {
+		return findElement(textH2);
 	}
-
+	
 }

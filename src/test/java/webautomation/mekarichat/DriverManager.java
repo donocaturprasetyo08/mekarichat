@@ -2,5 +2,7 @@ package webautomation.mekarichat;
 
 public interface DriverManager {
 	void createChromeDriver();
-	void quitChromeDriver();
+	void quitBase();
+	void setupBase();
+	void setAllureEnvironment();
 }

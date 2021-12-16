@@ -51,5 +51,4 @@ public class CommonPage extends BasePage {
 			driver.get().navigate().refresh();
 		}
 	}
-
 }

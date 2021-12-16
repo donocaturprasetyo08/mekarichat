@@ -7,15 +7,11 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import io.qameta.allure.Step;
 import webautomation.mekarichat.navigation.BasePage;
 import webautomation.mekarichat.utils.ShareUtils;
 
-public class SearchMessage extends BasePage {
-	
-	By inputSearch = By.xpath("//input[@placeholder='Search or start new chat']");
-	By titleSearchRecent = By.xpath("//span[@class='text-truncate']");
-	By titleSearchContact = By.xpath("//span[@class='break-word']");	
-	By jobSearch = By.xpath("//span[@class='text-slate text-truncate job-position job-position-contact']");
+public class SearchChatPage extends BasePage {
 	
 	By buttonSearch = By.xpath("//div[@id='left-nav-universal-search']");
 	By inputSearching = By.xpath("//input[@id='inputSearchChat']");
@@ -28,31 +24,24 @@ public class SearchMessage extends BasePage {
 	By isiPesan = By.xpath("//span[@class='bg-info']");
 	
 	By buttonFilterPostIn = By.xpath("//input[@placeholder='All Chats']");
-	
-	
-	public SearchMessage(ThreadLocal<WebDriver> driver, ThreadLocal<WebDriverWait> explicitWait) {
+	By titleTabs = By.xpath("//span[normalize-space()='Search Chat']");
+
+	public SearchChatPage(ThreadLocal<WebDriver> driver, ThreadLocal<WebDriverWait> explicitWait) {
 		super(driver, explicitWait);
 		// TODO Auto-generated constructor stub
 	}
 	
-	public void searchText(String text) {
-		searchText(inputSearch, text);
-	}
-	
-	public List<WebElement> listSearchRecent() {
-		return getList(titleSearchRecent);
-	}
-	
-	public List<WebElement> listSearchContact() {
-		return getList(titleSearchContact);
-	}
-	
-	public List<WebElement> jobSearch() {
-		return getList(jobSearch);
-	}
-	
-	public void searchChatFilterFrom(String text, String select) {
+	public void tabsSearch() {
 		clickAndWaitByXpath(buttonSearch);
+	}
+	
+	@Step("4# verify halaman tabs search")
+	public String getTitleTab() {
+		return getText(titleTabs);
+	}
+	
+	@Step("5# user melakukan pencarian dengan kata: {0} dan filter form : {1}")
+	public void searchChatFilterFrom(String text, String select) {
 		setText(inputSearching, text);
 		ShareUtils.hardWait(5);
 		clickAndWaitByXpath(buttonFilterFrom);
@@ -60,8 +49,8 @@ public class SearchMessage extends BasePage {
 		ShareUtils.hardWait(5);
 	}
 	
+	@Step("5# user melakukan pencarian dengan kata: {0} dan filter post in : {1}")
 	public void searchChatFilterPostIn(String text, String select) {
-		clickAndWaitByXpath(buttonSearch);
 		setText(inputSearching, text);
 		ShareUtils.hardWait(5);
 		clickAndWaitByXpath(buttonFilterPostIn);
@@ -70,7 +59,6 @@ public class SearchMessage extends BasePage {
 	}
 	
 	public void searchChatFilterFromAndPostIn(String text, String selectPostIn, String selectFrom) {
-		clickAndWaitByXpath(buttonSearch);
 		setText(inputSearching, text);
 		ShareUtils.hardWait(5);
 		clickAndWaitByXpath(buttonFilterPostIn);
@@ -81,8 +69,8 @@ public class SearchMessage extends BasePage {
 		ShareUtils.hardWait(5);
 	}
 	
+	@Step("5# user melakukan pencarian dengan kata: {0}")
 	public void searchChatNoFilter(String text) {
-		clickAndWaitByXpath(buttonSearch);
 		setText(inputSearching, text);
 		ShareUtils.hardWait(5);
 	}
@@ -98,4 +86,5 @@ public class SearchMessage extends BasePage {
 	public List<WebElement> listDateSearchChat() {
 		return getList(dateChat);
 	}
+
 }

@@ -7,6 +7,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import io.qameta.allure.Step;
 import webautomation.mekarichat.navigation.BasePage;
 
 public class ContactPage extends BasePage{
@@ -32,26 +33,32 @@ public class ContactPage extends BasePage{
 		clickAndWaitByXpath(contactMenu);
 	}
 	
+	@Step("6# verify informasi nama kontak urut")
 	public List<WebElement> listName() {
 		return getList(name);
 	}
 	
+	@Step("7# verify informasi jobs position")
 	public List<WebElement> listJobs() {
 		return getList(jobs);
 	}
 	
+	@Step("5# verify informasi status online/offline")
 	public List<WebElement> listStatus() {
 		return getList(status);
 	}
 	
+	@Step("4# verify halaman tabs contacts")
 	public String titleContact() {
 		return getText(titleContact);
 	}
 	
+	@Step("8# verify informasi foto profile loaded")
 	public List<WebElement> imgLoaded() {
 		return getList(img);
 	}
 	
+	@Step("6# usert melakukan pencarian dengan kata : {0}")
 	public void searchText(String text) {
 		searchText(inputSearch, text);
 	}
@@ -64,8 +71,14 @@ public class ContactPage extends BasePage{
 		clickAndWaitByXpath(listContact);
 	}
 	
+	@Step("7# verify akses private chat room")
 	public boolean getStartChat() {
 		return findElement(startChat);
+	}
+	
+	@Step("5# verify informasi status online/offline")
+	public List<WebElement> listStatusInfo() {
+		return getList(status);
 	}
 	
 }

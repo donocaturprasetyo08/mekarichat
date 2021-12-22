@@ -32,14 +32,14 @@ public class Logout extends BaseWebDriver{
     public void logoutFromMekariChat()
     {
 		String actualResults = loginPage.getTitlePage();
-		String expectedResults = "Mekari Account";
+		String expectedResults = DataUtils.titlePageLogin;
 		Assert.assertEquals(actualResults, expectedResults);
 		
 		String email = DataUtils.emailMekari;
     	String password = DataUtils.passwordMekari;
     	loginPage.inputEmailPassword(email, password);
     	
-    	String expectedResults1 = "https://messenger.mekari.com/dashboard";
+    	String expectedResults1 = DataUtils.urlDashboard;
     	String actualResults1 = loginPage.getUrlPage();
     	Assert.assertEquals(actualResults1, expectedResults1);
     	

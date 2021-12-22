@@ -25,31 +25,31 @@ public class ChatListPage extends BasePage {
 		// TODO Auto-generated constructor stub
 	}
 	
-	@Step("5# user melakukan pin chat")
+	@Step("# user melakukan pin chat")
 	public void pinChat() {
 		clickAndWaitByJavaScript(dropdownChat);
 		ShareUtils.hardWait(3);
 		clickAndWaitByJavaScript(pinChat);
 	}
 	
-	@Step("7# user melakukan unpin chat")
+	@Step("# user melakukan unpin chat")
 	public void unpinChat() {
 		clickAndWaitByJavaScript(dropdownChat);
 		ShareUtils.hardWait(3);
 		clickAndWaitByJavaScript(unpinChat);
 	}
 	
-	@Step("6# Verify pin chat")
+	@Step("# Verify pin chat")
 	public boolean findPinImage() {
 		return findElement(pinImage);
 	}
 	
-	@Step("5# verify status online/offline : {0}")
+	@Step("# verify status online/offline : {0}")
 	public String statusChat(String value) {
 		return getAttribute(statusChat, value);
 	}
 	
-	@Step("4# verify tab chat list")
+	@Step("# verify tab chat list")
 	public String titleTabChat() {
 		return getText(titleChat);
 	}

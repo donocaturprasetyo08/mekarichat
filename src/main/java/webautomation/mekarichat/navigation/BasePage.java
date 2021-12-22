@@ -47,10 +47,20 @@ public class BasePage {
 		JavascriptExecutor js = (JavascriptExecutor) driver.get();  
 		js.executeScript("return arguments[0].scrollIntoView();", element);
 	}
-	protected final void uploadAvatar(By locator, String location) {
+	protected final void changePicture(By locator, String location) {
 		explicitWait.get().until(ExpectedConditions.elementToBeClickable(locator));
 		WebElement uploadElement = driver.get().findElement(locator);
 		uploadElement.sendKeys(location);
+	}
+	protected final void changePictureJavaexecutor(By locator, String location) {
+		explicitWait.get().until(ExpectedConditions.elementToBeClickable(locator));
+		WebElement element = driver.get().findElement(locator);
+		JavascriptExecutor js = (JavascriptExecutor) driver.get();
+		js.executeScript("arguments[0].style.display='block';", element);
+		element.sendKeys(location);
+		js.executeScript("arguments[0].style.display='none!important';", element);
+		
+		
 	}
 	protected final void selectFromOptions(By locator, String select) {
 		explicitWait.get().until(ExpectedConditions.elementToBeClickable(locator));
@@ -87,6 +97,11 @@ public class BasePage {
 	protected final String getAttribute(By locator, String value) {
 		explicitWait.get().until(ExpectedConditions.elementToBeClickable(locator));
 		return driver.get().findElement(locator).getAttribute(value);
+	}
+	
+	protected final boolean getAttributeVerify(By locator, String value, String contains) {
+		explicitWait.get().until(ExpectedConditions.elementToBeClickable(locator));
+		return driver.get().findElement(locator).getAttribute(value).contains(contains);
 	}
 	
 	protected final boolean findImgLoaded(By locator) {

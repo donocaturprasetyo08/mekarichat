@@ -19,14 +19,14 @@ public class LogoutTest extends BasePage{
 		// TODO Auto-generated constructor stub
 	}
 	
-	@Step("3# user melakukan logout")
+	@Step("# user melakukan logout")
 	public void logOut() {
 		clickAndWaitByXpath(tabMenu);
 		ShareUtils.hardWait(5);
 		clickAndWaitByXpath(signOut);
 	}
 	
-	@Step("4# verify berhasil logout")
+	@Step("# verify berhasil logout")
 	public boolean verifyLogout() {
 		return findElement(textH2);
 	}

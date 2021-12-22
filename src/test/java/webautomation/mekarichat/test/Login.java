@@ -28,17 +28,17 @@ public class Login extends BaseWebDriver {
 	@Test
     public void loginWithValidEmailandPassword()
     {
-		String actualResults1 = loginPage.getTitlePage();
-		String expectedResults1 = "Mekari Account";
-		Assert.assertEquals(actualResults1, expectedResults1);
+		String actualResults = loginPage.getTitlePage();
+		String expectedResults = DataUtils.titlePageLogin;
+		Assert.assertEquals(actualResults, expectedResults);
 		
 		String email = DataUtils.emailMekari;
     	String password = DataUtils.passwordMekari;
     	loginPage.inputEmailPassword(email, password);
     	
-    	String expectedResults = "https://messenger.mekari.com/dashboard";
-    	String actualResults = loginPage.getUrlPage();
-    	Assert.assertEquals(actualResults, expectedResults);
+    	String expectedResults1 = DataUtils.urlDashboard;
+    	String actualResults1 = loginPage.getUrlPage();
+    	Assert.assertEquals(actualResults1, expectedResults1);
     }
     
 	@Severity(SeverityLevel.CRITICAL)	
@@ -48,16 +48,16 @@ public class Login extends BaseWebDriver {
     @Test
     public void loginWithValidEmailandWrongPassword()
     {
-		String actualResults1 = loginPage.getTitlePage();
-		String expectedResults1 = "Mekari Account";
-		Assert.assertEquals(actualResults1, expectedResults1);
+		String actualResults = loginPage.getTitlePage();
+		String expectedResults = DataUtils.titlePageLogin;
+		Assert.assertEquals(actualResults, expectedResults);
 		
 		String email = DataUtils.emailMekari;
     	String password = "12345678";
     	loginPage.inputEmailPassword(email, password);
     	
-    	boolean actualResults = loginPage.notifFailed();
-    	Assert.assertTrue(actualResults);  
+    	boolean actualResults1 = loginPage.notifFailed();
+    	Assert.assertTrue(actualResults1);  
     }
     
 	@Severity(SeverityLevel.CRITICAL)	
@@ -67,16 +67,16 @@ public class Login extends BaseWebDriver {
     @Test
     public void loginWithWrongEmailandValidPassword()
     {
-    	String actualResults1 = loginPage.getTitlePage();
-		String expectedResults1 = "Mekari Account";
-		Assert.assertEquals(actualResults1, expectedResults1);
+		String actualResults = loginPage.getTitlePage();
+		String expectedResults = DataUtils.titlePageLogin;
+		Assert.assertEquals(actualResults, expectedResults);
 		
 		String email = "abcd@mail.co";
     	String password = DataUtils.passwordMekari;
     	loginPage.inputEmailPassword(email, password);
     	
-    	boolean actualResults = loginPage.notifFailed();
-    	Assert.assertTrue(actualResults);  
+    	boolean actualResults1 = loginPage.notifFailed();
+    	Assert.assertTrue(actualResults1);  
     }
     
 	@Severity(SeverityLevel.CRITICAL)	
@@ -86,16 +86,16 @@ public class Login extends BaseWebDriver {
     @Test
     public void loginWithWrongEmailandPassword()
     {
-		String actualResults1 = loginPage.getTitlePage();
-		String expectedResults1 = "Mekari Account";
-		Assert.assertEquals(actualResults1, expectedResults1);
+		String actualResults = loginPage.getTitlePage();
+		String expectedResults = DataUtils.titlePageLogin;
+		Assert.assertEquals(actualResults, expectedResults);
 		
 		String email = "abcd@mail.co";
     	String password = "12345678";
     	loginPage.inputEmailPassword(email, password);
     	
-    	boolean actualResults = loginPage.notifFailed();
-    	Assert.assertTrue(actualResults);   
+    	boolean actualResults1 = loginPage.notifFailed();
+    	Assert.assertTrue(actualResults1);   
     }
     
 	@Severity(SeverityLevel.NORMAL)	
@@ -105,9 +105,9 @@ public class Login extends BaseWebDriver {
 	@Test
     public void checkPasswordShowed()
     {
-		String actualResults1 = loginPage.getTitlePage();
-		String expectedResults1 = "Mekari Account";
-		Assert.assertEquals(actualResults1, expectedResults1);
+		String actualResults = loginPage.getTitlePage();
+		String expectedResults = DataUtils.titlePageLogin;
+		Assert.assertEquals(actualResults, expectedResults);
 		
     	String password = "12345678";
     	loginPage.setPassword(password);
@@ -123,9 +123,9 @@ public class Login extends BaseWebDriver {
 	@Test
     public void checkPasswordHidden()
     {
-		String actualResults1 = loginPage.getTitlePage();
-		String expectedResults1 = "Mekari Account";
-		Assert.assertEquals(actualResults1, expectedResults1);
+		String actualResults = loginPage.getTitlePage();
+		String expectedResults = DataUtils.titlePageLogin;
+		Assert.assertEquals(actualResults, expectedResults);
 		
 		String password = "12345678";
     	loginPage.setPassword(password);

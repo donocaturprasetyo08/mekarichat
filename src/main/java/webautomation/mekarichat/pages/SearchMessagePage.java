@@ -22,17 +22,17 @@ public class SearchMessagePage extends BasePage {
 		// TODO Auto-generated constructor stub
 	}
 	
-	@Step("5# user melakukan pencarian berdasarkan nama/jobs dengan kata: {0}")
+	@Step("# user melakukan pencarian berdasarkan nama/jobs dengan kata: {0}")
 	public void searchText(String text) {
 		searchText(inputSearch, text);
 	}
 	
-	@Step("6# Verify pada recents chat room")
+	@Step("# Verify pada recents chat room")
 	public List<WebElement> listSearchRecent() {
 		return getList(titleSearchRecent);
 	}
 	
-	@Step("7# Verify pada contact chat room")
+	@Step("# Verify pada contact chat room")
 	public List<WebElement> listSearchContact() {
 		return getList(titleSearchContact);
 	}

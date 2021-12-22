@@ -24,12 +24,12 @@ public class LoginPage extends BasePage {
 		PageFactory.initElements(driver.get(), this);
 	}
 	
-	@Step("1# verifikasi halaman login mekari chat")
+	@Step("# verifikasi halaman login mekari chat")
 	public String getTitlePage() {
 		return getTitle();
 	}
 		
-	@Step("2# user input email: {0} dan password: {1}")
+	@Step("# user input email: {0} dan password: {1}")
 	public void inputEmailPassword(String email, String password) {
 		ShareUtils.hardWait(2);
 		setText(inputEmail, email);
@@ -38,12 +38,12 @@ public class LoginPage extends BasePage {
 		ShareUtils.hardWait(10);
 	}
 	
-	@Step("3# verifikasi login berhasil")
+	@Step("# verifikasi login berhasil")
 	public String getUrlPage() {
 		return getUrl();
 	}
 	
-	@Step("3# verifikasi login gagal")
+	@Step("# verifikasi login gagal")
 	public boolean notifFailed() {
 		return findElement(notifMessage);	
 	}
@@ -52,23 +52,23 @@ public class LoginPage extends BasePage {
 		return getText(notifMessage);	
 	}
 	
-	@Step("2# user input password{0}")
+	@Step("# user input password{0}")
 	public void setPassword(String password) {
 		setText(inputPassword, password);
 	}
 	
-	@Step("3# user click show password")
+	@Step("# user click show password")
 	public void clickShowPassword() {
 		clickAndWaitByXpath(showPassword);
 		ShareUtils.hardWait(5);
 	}
 	
-	@Step("4# verify password showed")
+	@Step("# verify password showed")
 	public boolean showPassword() {
 		return passwordShowed(inputPassword);
 	}
 	
-	@Step("3# verify password hidden")
+	@Step("# verify password hidden")
 	public boolean hiddenPassword() {
 		return passwordHidden(inputPassword);
 	}

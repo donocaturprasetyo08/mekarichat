@@ -31,18 +31,19 @@ public class ChatList extends BaseWebDriver{
     @Test
     public void checkStatusChatOnlineOffline() {
 		String actualResults = loginPage.getTitlePage();
-		String expectedResults = "Mekari Account";
-		Assert.assertEquals(expectedResults, actualResults);
+		String expectedResults = DataUtils.titlePageLogin;
+		Assert.assertEquals(actualResults, expectedResults);
 		
 		String email = DataUtils.emailMekari;
     	String password = DataUtils.passwordMekari;
     	loginPage.inputEmailPassword(email, password);
     	
-    	String expectedResults1 = "https://messenger.mekari.com/dashboard";
+    	String expectedResults1 = DataUtils.urlDashboard;
     	String actualResults1 = loginPage.getUrlPage();
-    	Assert.assertEquals(expectedResults1, actualResults1);
+    	Assert.assertEquals(actualResults1, expectedResults1);
+    	ShareUtils.hardWait(3);
     	
-    	String expectedResults2 = "Chats";
+    	String expectedResults2 = DataUtils.titleChatTabs;
     	String actualResults2 = chatList.titleTabChat();
     	Assert.assertEquals(expectedResults2, actualResults2);
     	
@@ -66,18 +67,19 @@ public class ChatList extends BaseWebDriver{
 	@Test
     public void pinTest() {
 		String actualResults = loginPage.getTitlePage();
-		String expectedResults = "Mekari Account";
-		Assert.assertEquals(expectedResults, actualResults);
+		String expectedResults = DataUtils.titlePageLogin;
+		Assert.assertEquals(actualResults, expectedResults);
 		
 		String email = DataUtils.emailMekari;
     	String password = DataUtils.passwordMekari;
     	loginPage.inputEmailPassword(email, password);
     	
-    	String expectedResults1 = "https://messenger.mekari.com/dashboard";
+    	String expectedResults1 = DataUtils.urlDashboard;
     	String actualResults1 = loginPage.getUrlPage();
-    	Assert.assertEquals(expectedResults1, actualResults1);
+    	Assert.assertEquals(actualResults1, expectedResults1);
+    	ShareUtils.hardWait(3);
     	
-    	String expectedResults2 = "Chats";
+    	String expectedResults2 = DataUtils.titleChatTabs;
     	String actualResults2 = chatList.titleTabChat();
     	Assert.assertEquals(expectedResults2, actualResults2);
     	

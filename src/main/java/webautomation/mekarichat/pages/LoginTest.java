@@ -24,12 +24,12 @@ public class LoginTest extends BasePage {
 		PageFactory.initElements(driver.get(), this);
 	}
 	
-	@Step("getting login page title step...")
+	@Step("# getting login page title")
 	public String getTitle() {
 		return driver.get().getTitle();
 	}
 		
-	@Step("login with username: {0} and password: {1} step...")
+	@Step("# login with username: {0} and password: {1}")
 	public void testLogin(String email, String password) {
 		ShareUtils.hardWait(5);
 		setText(inputEmail, email);

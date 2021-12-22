@@ -9,6 +9,8 @@
       <class name="webautomation.mekarichat.test.Contacts"/>
       <class name="webautomation.mekarichat.test.SearchChat"/>
       <class name="webautomation.mekarichat.test.SearchMessage"/>
+      <class name="webautomation.mekarichat.test.Account"/>
+      <class name="webautomation.mekarichat.test.Channels"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

@@ -35,12 +35,12 @@ public class SearchChatPage extends BasePage {
 		clickAndWaitByXpath(buttonSearch);
 	}
 	
-	@Step("4# verify halaman tabs search")
+	@Step("# verify halaman tabs search")
 	public String getTitleTab() {
 		return getText(titleTabs);
 	}
 	
-	@Step("5# user melakukan pencarian dengan kata: {0} dan filter form : {1}")
+	@Step("# user melakukan pencarian dengan kata: {0} dan filter form : {1}")
 	public void searchChatFilterFrom(String text, String select) {
 		setText(inputSearching, text);
 		ShareUtils.hardWait(5);
@@ -48,8 +48,8 @@ public class SearchChatPage extends BasePage {
 		searchText(filterSelect, select);
 		ShareUtils.hardWait(5);
 	}
-	
-	@Step("5# user melakukan pencarian dengan kata: {0} dan filter post in : {1}")
+
+	@Step("# user melakukan pencarian dengan kata: {0} dan filter post in : {1}")
 	public void searchChatFilterPostIn(String text, String select) {
 		setText(inputSearching, text);
 		ShareUtils.hardWait(5);
@@ -58,6 +58,7 @@ public class SearchChatPage extends BasePage {
 		ShareUtils.hardWait(5);
 	}
 	
+	@Step("# user melakukan pencarian dengan kata: {0}, filter post in : {1} dan filter from : {2}")
 	public void searchChatFilterFromAndPostIn(String text, String selectPostIn, String selectFrom) {
 		setText(inputSearching, text);
 		ShareUtils.hardWait(5);
@@ -69,7 +70,7 @@ public class SearchChatPage extends BasePage {
 		ShareUtils.hardWait(5);
 	}
 	
-	@Step("5# user melakukan pencarian dengan kata: {0}")
+	@Step("# user melakukan pencarian dengan kata: {0}")
 	public void searchChatNoFilter(String text) {
 		setText(inputSearching, text);
 		ShareUtils.hardWait(5);

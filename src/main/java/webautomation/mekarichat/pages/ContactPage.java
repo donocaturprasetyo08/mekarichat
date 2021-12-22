@@ -33,32 +33,32 @@ public class ContactPage extends BasePage{
 		clickAndWaitByXpath(contactMenu);
 	}
 	
-	@Step("6# verify informasi nama kontak urut")
+	@Step("# verify informasi nama kontak urut")
 	public List<WebElement> listName() {
 		return getList(name);
 	}
 	
-	@Step("7# verify informasi jobs position")
+	@Step("# verify informasi jobs position")
 	public List<WebElement> listJobs() {
 		return getList(jobs);
 	}
 	
-	@Step("5# verify informasi status online/offline")
+	@Step("# verify informasi status online/offline")
 	public List<WebElement> listStatus() {
 		return getList(status);
 	}
 	
-	@Step("4# verify halaman tabs contacts")
+	@Step("# verify halaman tabs contacts")
 	public String titleContact() {
 		return getText(titleContact);
 	}
 	
-	@Step("8# verify informasi foto profile loaded")
+	@Step("# verify informasi foto profile loaded")
 	public List<WebElement> imgLoaded() {
 		return getList(img);
 	}
 	
-	@Step("6# usert melakukan pencarian dengan kata : {0}")
+	@Step("# usert melakukan pencarian dengan kata : {0}")
 	public void searchText(String text) {
 		searchText(inputSearch, text);
 	}
@@ -71,12 +71,12 @@ public class ContactPage extends BasePage{
 		clickAndWaitByXpath(listContact);
 	}
 	
-	@Step("7# verify akses private chat room")
+	@Step("# verify akses private chat room")
 	public boolean getStartChat() {
 		return findElement(startChat);
 	}
 	
-	@Step("5# verify informasi status online/offline")
+	@Step("# verify informasi status online/offline")
 	public List<WebElement> listStatusInfo() {
 		return getList(status);
 	}

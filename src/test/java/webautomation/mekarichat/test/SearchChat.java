@@ -32,19 +32,7 @@ public class SearchChat extends BaseWebDriver {
 	@Feature("Test Case ID : MC-006-02")
 	@Story("User melakukan pencarian pesan pada Search Message  dengan menggunakan filter From")
 	@Test
-	public void searchOnTabSearchWithFilterFrom() {
-		String actualResults = loginPage.getTitlePage();
-		String expectedResults = DataUtils.titlePageLogin;
-		Assert.assertEquals(actualResults, expectedResults);
-		
-		String email = DataUtils.emailMekari;
-    	String password = DataUtils.passwordMekari;
-    	loginPage.inputEmailPassword(email, password);
-    	
-    	String expectedResults1 = DataUtils.urlDashboard;
-    	String actualResults1 = loginPage.getUrlPage();
-    	Assert.assertEquals(actualResults1, expectedResults1);
-    	
+	public void searchOnTabSearchWithFilterFrom() {	
     	searchChat.tabsSearch();
     	String expectedResults2 = DataUtils.titleSearchTabs;
     	String actualResults2 = searchChat.getTitleTab();
@@ -85,19 +73,7 @@ public class SearchChat extends BaseWebDriver {
 	@Feature("Test Case ID : MC-006-03")
 	@Story("User melakukan pencarian pesan pada Search Message dengan menggunakan filter Post In")
 	@Test
-    public void searchChatWithFilterPostIn() {
-		String actualResults = loginPage.getTitlePage();
-		String expectedResults = DataUtils.titlePageLogin;
-		Assert.assertEquals(actualResults, expectedResults);
-		
-		String email = DataUtils.emailMekari;
-    	String password = DataUtils.passwordMekari;
-    	loginPage.inputEmailPassword(email, password);
-    	
-    	String expectedResults1 = DataUtils.urlDashboard;
-    	String actualResults1 = loginPage.getUrlPage();
-    	Assert.assertEquals(actualResults1, expectedResults1);
-    	
+    public void searchChatWithFilterPostIn() {    	
     	searchChat.tabsSearch();
     	String expectedResults2 = DataUtils.titleSearchTabs;
     	String actualResults2 = searchChat.getTitleTab();
@@ -139,18 +115,6 @@ public class SearchChat extends BaseWebDriver {
 	@Story("User melakukan pencarian pesan pada Search Message tanpa filter")
 	@Test
     public void searchChatWithNoFilter() {
-		String actualResults = loginPage.getTitlePage();
-		String expectedResults = DataUtils.titlePageLogin;
-		Assert.assertEquals(actualResults, expectedResults);
-		
-		String email = DataUtils.emailMekari;
-    	String password = DataUtils.passwordMekari;
-    	loginPage.inputEmailPassword(email, password);
-    	
-    	String expectedResults1 = DataUtils.urlDashboard;
-    	String actualResults1 = loginPage.getUrlPage();
-    	Assert.assertEquals(actualResults1, expectedResults1);
-    	
     	searchChat.tabsSearch();
     	String expectedResults2 = DataUtils.titleSearchTabs;
     	String actualResults2 = searchChat.getTitleTab();
@@ -191,18 +155,6 @@ public class SearchChat extends BaseWebDriver {
 	@Story("User melakukan pencarian pesan pada Search Message dengan menggunakan filter Post In dan filter From")
 	@Test
     public void searchChatWithFilterPostInAndFrom() {
-		String actualResults = loginPage.getTitlePage();
-		String expectedResults = DataUtils.titlePageLogin;
-		Assert.assertEquals(actualResults, expectedResults);
-		
-		String email = DataUtils.emailMekari;
-    	String password = DataUtils.passwordMekari;
-    	loginPage.inputEmailPassword(email, password);
-    	
-    	String expectedResults1 = DataUtils.urlDashboard;
-    	String actualResults1 = loginPage.getUrlPage();
-    	Assert.assertEquals(actualResults1, expectedResults1);
-    	
     	searchChat.tabsSearch();
     	String expectedResults2 = DataUtils.titleSearchTabs;
     	String actualResults2 = searchChat.getTitleTab();

@@ -12,16 +12,13 @@ import io.qameta.allure.SeverityLevel;
 import io.qameta.allure.Story;
 import webautomation.mekarichat.BaseWebDriver;
 import webautomation.mekarichat.TestAllureListener;
-import webautomation.mekarichat.pages.LoginPage;
 import webautomation.mekarichat.pages.LogoutTest;
-import webautomation.mekarichat.utils.DataUtils;
 import webautomation.mekarichat.utils.ShareUtils;
 
 @Listeners({TestAllureListener.class})
 @Epic("Logout")
 public class Logout extends BaseWebDriver{
 	
-	LoginPage loginPage = new LoginPage(driver, explicitWait);
 	LogoutTest logoutTest = new LogoutTest(driver, explicitWait);
 	
 	@Severity(SeverityLevel.CRITICAL)	
@@ -31,18 +28,6 @@ public class Logout extends BaseWebDriver{
     @Test
     public void logoutFromMekariChat()
     {
-		String actualResults = loginPage.getTitlePage();
-		String expectedResults = DataUtils.titlePageLogin;
-		Assert.assertEquals(actualResults, expectedResults);
-		
-		String email = DataUtils.emailMekari;
-    	String password = DataUtils.passwordMekari;
-    	loginPage.inputEmailPassword(email, password);
-    	
-    	String expectedResults1 = DataUtils.urlDashboard;
-    	String actualResults1 = loginPage.getUrlPage();
-    	Assert.assertEquals(actualResults1, expectedResults1);
-    	
     	ShareUtils.hardWait(5);
     	logoutTest.logOut();
     	ShareUtils.hardWait(5);

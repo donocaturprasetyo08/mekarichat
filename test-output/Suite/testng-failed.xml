@@ -11,6 +11,23 @@
           <include name="quitBase"/>
         </methods>
       </class> <!-- webautomation.mekarichat.test.Logout -->
+      <class name="webautomation.mekarichat.test.Channels">
+        <methods>
+          <include name="setAllureEnvironment"/>
+          <include name="setupBase"/>
+          <include name="accessJoinChannel"/>
+          <include name="quitBase"/>
+        </methods>
+      </class> <!-- webautomation.mekarichat.test.Channels -->
+      <class name="webautomation.mekarichat.test.PrivateChat">
+        <methods>
+          <include name="setAllureEnvironment"/>
+          <include name="userSendImage"/>
+          <include name="setupBase"/>
+          <include name="userSendVideo"/>
+          <include name="quitBase"/>
+        </methods>
+      </class> <!-- webautomation.mekarichat.test.PrivateChat -->
     </classes>
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->

@@ -10,14 +10,14 @@ import io.qameta.allure.Feature;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
 import io.qameta.allure.Story;
-import webautomation.mekarichat.BaseWebDriver;
+import webautomation.mekarichat.BaseWebLogin;
 import webautomation.mekarichat.TestAllureListener;
 import webautomation.mekarichat.pages.LoginPage;
 import webautomation.mekarichat.utils.DataUtils;
 
 @Listeners({TestAllureListener.class})
 @Epic("Login")
-public class Login extends BaseWebDriver {
+public class Login extends BaseWebLogin {
 
 	LoginPage loginPage = new LoginPage(driver, explicitWait);
 	

@@ -52,16 +52,37 @@ public class BasePage {
 		WebElement uploadElement = driver.get().findElement(locator);
 		uploadElement.sendKeys(location);
 	}
+	protected final void uploadPicture(By locator, String location) {
+		WebElement element = driver.get().findElement(locator);
+		JavascriptExecutor js = (JavascriptExecutor) driver.get();  
+		js.executeScript("arguments[0].style.display='block';", element);
+		element.sendKeys(location);
+	}
+	protected final void playVideo(By locator) {
+		WebElement video = driver.get().findElement(locator);
+		JavascriptExecutor js = (JavascriptExecutor) driver.get();  
+		js.executeScript("return arguments[0].play()", video);
+	}
+	protected final void pauseVideo(By locator) {
+		WebElement video = driver.get().findElement(locator);
+		JavascriptExecutor js = (JavascriptExecutor) driver.get();  
+		js.executeScript("return arguments[0].pause()", video);
+	}
+	protected final boolean verifyStatusVideo(By locator) {
+		WebElement video = driver.get().findElement(locator);
+		JavascriptExecutor js = (JavascriptExecutor) driver.get();  
+		boolean ImagePresent = (boolean) js.executeScript("return arguments[0].paused", video);
+		return ImagePresent;
+	}
 	protected final void changePictureJavaexecutor(By locator, String location) {
-		explicitWait.get().until(ExpectedConditions.elementToBeClickable(locator));
+		//explicitWait.get().until(ExpectedConditions.elementToBeClickable(locator));
 		WebElement element = driver.get().findElement(locator);
 		JavascriptExecutor js = (JavascriptExecutor) driver.get();
 		js.executeScript("arguments[0].style.display='block';", element);
 		element.sendKeys(location);
-		js.executeScript("arguments[0].style.display='none!important';", element);
-		
-		
+		js.executeScript("arguments[0].style.display='none!important';", element);	
 	}
+	
 	protected final void selectFromOptions(By locator, String select) {
 		explicitWait.get().until(ExpectedConditions.elementToBeClickable(locator));
 		Select clickData = new Select(driver.get().findElement(locator));
@@ -77,6 +98,12 @@ public class BasePage {
 		WebElement element = driver.get().findElement(locator);
 		return element.getAttribute("href");
 	}
+	protected final String getCssValue(By locator, String value) {
+		explicitWait.get().until(ExpectedConditions.elementToBeClickable(locator));
+		WebElement element = driver.get().findElement(locator);
+		return element.getCssValue(value);
+	}
+	
 	protected final void searchText(By locator, String text) {
 		explicitWait.get().until(ExpectedConditions.elementToBeClickable(locator));
 		WebElement element = driver.get().findElement(locator);

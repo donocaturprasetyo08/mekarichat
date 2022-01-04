@@ -55,11 +55,11 @@ function toggleAllBoxes() {
 <body>
 <h2 align='center'>Test</h2><table border='1' align="center">
 <tr>
-<td>Tests passed/Failed/Skipped:</td><td>18/1/0</td>
+<td>Tests passed/Failed/Skipped:</td><td>28/4/0</td>
 </tr><tr>
-<td>Started on:</td><td>Thu Dec 16 14:29:45 WIB 2021</td>
+<td>Started on:</td><td>Fri Dec 31 10:45:34 WIB 2021</td>
 </tr>
-<tr><td>Total time:</td><td>456 seconds (456020 ms)</td>
+<tr><td>Total time:</td><td>836 seconds (836799 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -75,13 +75,85 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
+<td title='webautomation.mekarichat.test.PrivateChat.userSendVideo()'><b>userSendVideo</b><br>Test class: webautomation.mekarichat.test.PrivateChat</td>
+<td><div><pre>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//input[@id=&apos;chat-room-attach&apos;]&quot;}
+  (Session info: chrome=96.0.4664.110)
+For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element
+Build info: version: &apos;4.0.0-beta-3&apos;, revision: &apos;5d108f9a67&apos;
+System info: host: &apos;MacBook-Pro-Astaroth.local&apos;, ip: &apos;fe80:0:0:0:880:c1b:1704:9bed%en0&apos;, os.name: &apos;Mac OS X&apos;, os.arch: &apos;x86_64&apos;, os.version: &apos;11.1&apos;, java.version: &apos;16.0.1&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [c5264d7a1df8653e3d936c0e45b9b948, findElement {using=xpath, value=//input[@id=&apos;chat-room-attach&apos;]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 96.0.4664.110, chrome: {chromedriverVersion: 96.0.4664.45 (76e4c1bb2ab46..., userDataDir: /var/folders/gr/pnfzzss51zd...}, goog:chromeOptions: {debuggerAddress: localhost:57659}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: MAC, platformName: MAC, proxy: Proxy(), se:cdp: ws://localhost:57659/devtoo..., se:cdpVersion: 96.0.4664.110, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: c5264d7a1df8653e3d936c0e45b9b948
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:198)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:131)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:52)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:184)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:153)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:128)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:619)
+	at org.openqa.selenium.remote.RemoteWebDriver$Mechanism$2.findElement(RemoteWebDriver.java:1258)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:386)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:380)
+	at webautomation.mekarichat.navigation.BasePage.uploadPicture(BasePage.java:56)
+	at webautomation.mekarichat.pages.PrivateChatPage.upload(PrivateChatPage.java:71)
+	at webautomation.mekarichat.test.PrivateChat.userSendVideo(PrivateChat.java:124)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630)
+	at java.base/java.lang.Thread.run(Thread.java:831)
+... Removed 16 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1800653829", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1800653829'><pre>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//input[@id=&apos;chat-room-attach&apos;]&quot;}
+  (Session info: chrome=96.0.4664.110)
+For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element
+Build info: version: &apos;4.0.0-beta-3&apos;, revision: &apos;5d108f9a67&apos;
+System info: host: &apos;MacBook-Pro-Astaroth.local&apos;, ip: &apos;fe80:0:0:0:880:c1b:1704:9bed%en0&apos;, os.name: &apos;Mac OS X&apos;, os.arch: &apos;x86_64&apos;, os.version: &apos;11.1&apos;, java.version: &apos;16.0.1&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [c5264d7a1df8653e3d936c0e45b9b948, findElement {using=xpath, value=//input[@id=&apos;chat-room-attach&apos;]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 96.0.4664.110, chrome: {chromedriverVersion: 96.0.4664.45 (76e4c1bb2ab46..., userDataDir: /var/folders/gr/pnfzzss51zd...}, goog:chromeOptions: {debuggerAddress: localhost:57659}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: MAC, platformName: MAC, proxy: Proxy(), se:cdp: ws://localhost:57659/devtoo..., se:cdpVersion: 96.0.4664.110, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: c5264d7a1df8653e3d936c0e45b9b948
+	at jdk.internal.reflect.GeneratedConstructorAccessor32.newInstance(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:198)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:131)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:52)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:184)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:153)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:128)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:619)
+	at org.openqa.selenium.remote.RemoteWebDriver$Mechanism$2.findElement(RemoteWebDriver.java:1258)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:386)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:380)
+	at webautomation.mekarichat.navigation.BasePage.uploadPicture(BasePage.java:56)
+	at webautomation.mekarichat.pages.PrivateChatPage.upload(PrivateChatPage.java:71)
+	at webautomation.mekarichat.test.PrivateChat.userSendVideo(PrivateChat.java:124)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:567)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630)
+	at java.base/java.lang.Thread.run(Thread.java:831)
+</pre></div></td>
+<td>21</td>
+<td>webautomation.mekarichat.test.PrivateChat@2de6f1bc</td></tr>
+<tr>
 <td title='webautomation.mekarichat.test.Logout.logoutFromMekariChat()'><b>logoutFromMekariChat</b><br>Test class: webautomation.mekarichat.test.Logout</td>
 <td><div><pre>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for element to be clickable: By.xpath: //input[@id=&apos;new-signin-button&apos;] (tried for 60 second(s) with 500 milliseconds interval)
 Build info: version: &apos;4.0.0-beta-3&apos;, revision: &apos;5d108f9a67&apos;
-System info: host: &apos;MacBook-Pro-Astaroth.local&apos;, ip: &apos;fe80:0:0:0:443:3f97:c9b6:b037%en0&apos;, os.name: &apos;Mac OS X&apos;, os.arch: &apos;x86_64&apos;, os.version: &apos;10.16&apos;, java.version: &apos;16.0.1&apos;
+System info: host: &apos;MacBook-Pro-Astaroth.local&apos;, ip: &apos;fe80:0:0:0:880:c1b:1704:9bed%en0&apos;, os.name: &apos;Mac OS X&apos;, os.arch: &apos;x86_64&apos;, os.version: &apos;11.1&apos;, java.version: &apos;16.0.1&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 96.0.4664.110, chrome: {chromedriverVersion: 96.0.4664.45 (76e4c1bb2ab46..., userDataDir: /var/folders/gr/pnfzzss51zd...}, goog:chromeOptions: {debuggerAddress: localhost:49191}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: MAC, platformName: MAC, proxy: Proxy(), se:cdp: ws://localhost:49191/devtoo..., se:cdpVersion: 96.0.4664.110, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
-Session ID: ead97e4799b44b7412243bbc61d1f8df
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 96.0.4664.110, chrome: {chromedriverVersion: 96.0.4664.45 (76e4c1bb2ab46..., userDataDir: /var/folders/gr/pnfzzss51zd...}, goog:chromeOptions: {debuggerAddress: localhost:54920}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: MAC, platformName: MAC, proxy: Proxy(), se:cdp: ws://localhost:54920/devtoo..., se:cdpVersion: 96.0.4664.110, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: e6d6039724de5f712676888ed1d60447
 	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:138)
 	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:231)
 	at webautomation.mekarichat.navigation.BasePage.clickAndWaitByXpath(BasePage.java:25)
@@ -90,13 +162,13 @@ Session ID: ead97e4799b44b7412243bbc61d1f8df
 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130)
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630)
 	at java.base/java.lang.Thread.run(Thread.java:831)
-... Removed 12 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1273489270", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1273489270'><pre>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for element to be clickable: By.xpath: //input[@id=&apos;new-signin-button&apos;] (tried for 60 second(s) with 500 milliseconds interval)
+... Removed 12 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace499720033", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace499720033'><pre>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for element to be clickable: By.xpath: //input[@id=&apos;new-signin-button&apos;] (tried for 60 second(s) with 500 milliseconds interval)
 Build info: version: &apos;4.0.0-beta-3&apos;, revision: &apos;5d108f9a67&apos;
-System info: host: &apos;MacBook-Pro-Astaroth.local&apos;, ip: &apos;fe80:0:0:0:443:3f97:c9b6:b037%en0&apos;, os.name: &apos;Mac OS X&apos;, os.arch: &apos;x86_64&apos;, os.version: &apos;10.16&apos;, java.version: &apos;16.0.1&apos;
+System info: host: &apos;MacBook-Pro-Astaroth.local&apos;, ip: &apos;fe80:0:0:0:880:c1b:1704:9bed%en0&apos;, os.name: &apos;Mac OS X&apos;, os.arch: &apos;x86_64&apos;, os.version: &apos;11.1&apos;, java.version: &apos;16.0.1&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 96.0.4664.110, chrome: {chromedriverVersion: 96.0.4664.45 (76e4c1bb2ab46..., userDataDir: /var/folders/gr/pnfzzss51zd...}, goog:chromeOptions: {debuggerAddress: localhost:49191}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: MAC, platformName: MAC, proxy: Proxy(), se:cdp: ws://localhost:49191/devtoo..., se:cdpVersion: 96.0.4664.110, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
-Session ID: ead97e4799b44b7412243bbc61d1f8df
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 96.0.4664.110, chrome: {chromedriverVersion: 96.0.4664.45 (76e4c1bb2ab46..., userDataDir: /var/folders/gr/pnfzzss51zd...}, goog:chromeOptions: {debuggerAddress: localhost:54920}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: MAC, platformName: MAC, proxy: Proxy(), se:cdp: ws://localhost:54920/devtoo..., se:cdpVersion: 96.0.4664.110, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: e6d6039724de5f712676888ed1d60447
 	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:138)
 	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:231)
 	at webautomation.mekarichat.navigation.BasePage.clickAndWaitByXpath(BasePage.java:25)
@@ -119,7 +191,125 @@ Session ID: ead97e4799b44b7412243bbc61d1f8df
 	at java.base/java.lang.Thread.run(Thread.java:831)
 </pre></div></td>
 <td>62</td>
-<td>webautomation.mekarichat.test.Logout@31a3f4de</td></tr>
+<td>webautomation.mekarichat.test.Logout@304d0259</td></tr>
+<tr>
+<td title='webautomation.mekarichat.test.PrivateChat.userSendImage()'><b>userSendImage</b><br>Test class: webautomation.mekarichat.test.PrivateChat</td>
+<td><div><pre>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//input[@id=&apos;chat-room-attach&apos;]&quot;}
+  (Session info: chrome=96.0.4664.110)
+For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element
+Build info: version: &apos;4.0.0-beta-3&apos;, revision: &apos;5d108f9a67&apos;
+System info: host: &apos;MacBook-Pro-Astaroth.local&apos;, ip: &apos;fe80:0:0:0:880:c1b:1704:9bed%en0&apos;, os.name: &apos;Mac OS X&apos;, os.arch: &apos;x86_64&apos;, os.version: &apos;11.1&apos;, java.version: &apos;16.0.1&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [b25ffd0e07fae4dd4dea1a4ad49fce25, findElement {using=xpath, value=//input[@id=&apos;chat-room-attach&apos;]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 96.0.4664.110, chrome: {chromedriverVersion: 96.0.4664.45 (76e4c1bb2ab46..., userDataDir: /var/folders/gr/pnfzzss51zd...}, goog:chromeOptions: {debuggerAddress: localhost:57486}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: MAC, platformName: MAC, proxy: Proxy(), se:cdp: ws://localhost:57486/devtoo..., se:cdpVersion: 96.0.4664.110, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: b25ffd0e07fae4dd4dea1a4ad49fce25
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:198)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:131)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:52)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:184)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:153)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:128)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:619)
+	at org.openqa.selenium.remote.RemoteWebDriver$Mechanism$2.findElement(RemoteWebDriver.java:1258)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:386)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:380)
+	at webautomation.mekarichat.navigation.BasePage.uploadPicture(BasePage.java:56)
+	at webautomation.mekarichat.pages.PrivateChatPage.upload(PrivateChatPage.java:71)
+	at webautomation.mekarichat.test.PrivateChat.userSendImage(PrivateChat.java:84)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630)
+	at java.base/java.lang.Thread.run(Thread.java:831)
+... Removed 16 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1982123388", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1982123388'><pre>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//input[@id=&apos;chat-room-attach&apos;]&quot;}
+  (Session info: chrome=96.0.4664.110)
+For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element
+Build info: version: &apos;4.0.0-beta-3&apos;, revision: &apos;5d108f9a67&apos;
+System info: host: &apos;MacBook-Pro-Astaroth.local&apos;, ip: &apos;fe80:0:0:0:880:c1b:1704:9bed%en0&apos;, os.name: &apos;Mac OS X&apos;, os.arch: &apos;x86_64&apos;, os.version: &apos;11.1&apos;, java.version: &apos;16.0.1&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [b25ffd0e07fae4dd4dea1a4ad49fce25, findElement {using=xpath, value=//input[@id=&apos;chat-room-attach&apos;]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 96.0.4664.110, chrome: {chromedriverVersion: 96.0.4664.45 (76e4c1bb2ab46..., userDataDir: /var/folders/gr/pnfzzss51zd...}, goog:chromeOptions: {debuggerAddress: localhost:57486}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: MAC, platformName: MAC, proxy: Proxy(), se:cdp: ws://localhost:57486/devtoo..., se:cdpVersion: 96.0.4664.110, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: b25ffd0e07fae4dd4dea1a4ad49fce25
+	at jdk.internal.reflect.GeneratedConstructorAccessor32.newInstance(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:198)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:131)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:52)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:184)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:153)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:128)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:619)
+	at org.openqa.selenium.remote.RemoteWebDriver$Mechanism$2.findElement(RemoteWebDriver.java:1258)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:386)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:380)
+	at webautomation.mekarichat.navigation.BasePage.uploadPicture(BasePage.java:56)
+	at webautomation.mekarichat.pages.PrivateChatPage.upload(PrivateChatPage.java:71)
+	at webautomation.mekarichat.test.PrivateChat.userSendImage(PrivateChat.java:84)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:567)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630)
+	at java.base/java.lang.Thread.run(Thread.java:831)
+</pre></div></td>
+<td>21</td>
+<td>webautomation.mekarichat.test.PrivateChat@2de6f1bc</td></tr>
+<tr>
+<td title='webautomation.mekarichat.test.Channels.accessJoinChannel()'><b>accessJoinChannel</b><br>Test class: webautomation.mekarichat.test.Channels</td>
+<td><div><pre>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for element to be clickable: By.xpath: //span[normalize-space()=&apos;General&apos;] (tried for 60 second(s) with 500 milliseconds interval)
+Build info: version: &apos;4.0.0-beta-3&apos;, revision: &apos;5d108f9a67&apos;
+System info: host: &apos;MacBook-Pro-Astaroth.local&apos;, ip: &apos;fe80:0:0:0:880:c1b:1704:9bed%en0&apos;, os.name: &apos;Mac OS X&apos;, os.arch: &apos;x86_64&apos;, os.version: &apos;11.1&apos;, java.version: &apos;16.0.1&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 96.0.4664.110, chrome: {chromedriverVersion: 96.0.4664.45 (76e4c1bb2ab46..., userDataDir: /var/folders/gr/pnfzzss51zd...}, goog:chromeOptions: {debuggerAddress: localhost:56635}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: MAC, platformName: MAC, proxy: Proxy(), se:cdp: ws://localhost:56635/devtoo..., se:cdpVersion: 96.0.4664.110, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: e0153607a53f4fa17623ae3fed4c75b6
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:138)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:231)
+	at webautomation.mekarichat.navigation.BasePage.clickAndWaitByXpath(BasePage.java:25)
+	at webautomation.mekarichat.pages.ChannelsTabs.clickChannel(ChannelsTabs.java:101)
+	at webautomation.mekarichat.test.Channels.accessJoinChannel(Channels.java:261)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630)
+	at java.base/java.lang.Thread.run(Thread.java:831)
+... Removed 12 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1979630018", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1979630018'><pre>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for element to be clickable: By.xpath: //span[normalize-space()=&apos;General&apos;] (tried for 60 second(s) with 500 milliseconds interval)
+Build info: version: &apos;4.0.0-beta-3&apos;, revision: &apos;5d108f9a67&apos;
+System info: host: &apos;MacBook-Pro-Astaroth.local&apos;, ip: &apos;fe80:0:0:0:880:c1b:1704:9bed%en0&apos;, os.name: &apos;Mac OS X&apos;, os.arch: &apos;x86_64&apos;, os.version: &apos;11.1&apos;, java.version: &apos;16.0.1&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 96.0.4664.110, chrome: {chromedriverVersion: 96.0.4664.45 (76e4c1bb2ab46..., userDataDir: /var/folders/gr/pnfzzss51zd...}, goog:chromeOptions: {debuggerAddress: localhost:56635}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: MAC, platformName: MAC, proxy: Proxy(), se:cdp: ws://localhost:56635/devtoo..., se:cdpVersion: 96.0.4664.110, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: e0153607a53f4fa17623ae3fed4c75b6
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:138)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:231)
+	at webautomation.mekarichat.navigation.BasePage.clickAndWaitByXpath(BasePage.java:25)
+	at webautomation.mekarichat.pages.ChannelsTabs.clickChannel(ChannelsTabs.java:101)
+	at webautomation.mekarichat.test.Channels.accessJoinChannel(Channels.java:261)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:567)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630)
+	at java.base/java.lang.Thread.run(Thread.java:831)
+</pre></div></td>
+<td>82</td>
+<td>webautomation.mekarichat.test.Channels@7e62cfa3</td></tr>
 </table><p>
 <table width='100%' border='1' class='invocation-passed'>
 <tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
@@ -129,95 +319,145 @@ Session ID: ead97e4799b44b7412243bbc61d1f8df
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='webautomation.mekarichat.test.ChatList.checkStatusChatOnlineOffline()'><b>checkStatusChatOnlineOffline</b><br>Test class: webautomation.mekarichat.test.ChatList</td>
-<td></td>
-<td>44</td>
-<td>webautomation.mekarichat.test.ChatList@c27a3a2</td></tr>
-<tr>
 <td title='webautomation.mekarichat.test.SearchChat.searchChatWithNoFilter()'><b>searchChatWithNoFilter</b><br>Test class: webautomation.mekarichat.test.SearchChat</td>
 <td></td>
-<td>36</td>
-<td>webautomation.mekarichat.test.SearchChat@3e4e4c1</td></tr>
-<tr>
-<td title='webautomation.mekarichat.test.Login.loginWithValidEmailandPassword()'><b>loginWithValidEmailandPassword</b><br>Test class: webautomation.mekarichat.test.Login</td>
-<td></td>
-<td>16</td>
-<td>webautomation.mekarichat.test.Login@684b31de</td></tr>
-<tr>
-<td title='webautomation.mekarichat.test.SearchChat.searchChatWithFilterPostIn()'><b>searchChatWithFilterPostIn</b><br>Test class: webautomation.mekarichat.test.SearchChat</td>
-<td></td>
 <td>37</td>
-<td>webautomation.mekarichat.test.SearchChat@3e4e4c1</td></tr>
+<td>webautomation.mekarichat.test.SearchChat@59b65dce</td></tr>
 <tr>
-<td title='webautomation.mekarichat.test.SearchChat.searchOnTabSearchWithFilterFrom()'><b>searchOnTabSearchWithFilterFrom</b><br>Test class: webautomation.mekarichat.test.SearchChat</td>
+<td title='webautomation.mekarichat.test.PrivateChat.userSearchMessageOnChat()'><b>userSearchMessageOnChat</b><br>Test class: webautomation.mekarichat.test.PrivateChat</td>
 <td></td>
-<td>95</td>
-<td>webautomation.mekarichat.test.SearchChat@3e4e4c1</td></tr>
-<tr>
-<td title='webautomation.mekarichat.test.Login.loginWithValidEmailandWrongPassword()'><b>loginWithValidEmailandWrongPassword</b><br>Test class: webautomation.mekarichat.test.Login</td>
-<td></td>
-<td>14</td>
-<td>webautomation.mekarichat.test.Login@684b31de</td></tr>
-<tr>
-<td title='webautomation.mekarichat.test.Contacts.listContact()'><b>listContact</b><br>Test class: webautomation.mekarichat.test.Contacts</td>
-<td></td>
-<td>23</td>
-<td>webautomation.mekarichat.test.Contacts@c2584d3</td></tr>
-<tr>
-<td title='webautomation.mekarichat.test.SearchMessage.searchOnChatTab()'><b>searchOnChatTab</b><br>Test class: webautomation.mekarichat.test.SearchMessage</td>
-<td></td>
-<td>26</td>
-<td>webautomation.mekarichat.test.SearchMessage@410ae5ac</td></tr>
-<tr>
-<td title='webautomation.mekarichat.test.Contacts.accessPrivateRoomFromTabsContacts()'><b>accessPrivateRoomFromTabsContacts</b><br>Test class: webautomation.mekarichat.test.Contacts</td>
-<td></td>
-<td>24</td>
-<td>webautomation.mekarichat.test.Contacts@c2584d3</td></tr>
-<tr>
-<td title='webautomation.mekarichat.test.Contacts.searchContactWithJobs()'><b>searchContactWithJobs</b><br>Test class: webautomation.mekarichat.test.Contacts</td>
-<td></td>
-<td>26</td>
-<td>webautomation.mekarichat.test.Contacts@c2584d3</td></tr>
+<td>27</td>
+<td>webautomation.mekarichat.test.PrivateChat@2de6f1bc</td></tr>
 <tr>
 <td title='webautomation.mekarichat.test.Contacts.searchContactWithName()'><b>searchContactWithName</b><br>Test class: webautomation.mekarichat.test.Contacts</td>
 <td></td>
-<td>25</td>
-<td>webautomation.mekarichat.test.Contacts@c2584d3</td></tr>
-<tr>
-<td title='webautomation.mekarichat.test.SearchChat.searchChatWithFilterPostInAndFrom()'><b>searchChatWithFilterPostInAndFrom</b><br>Test class: webautomation.mekarichat.test.SearchChat</td>
-<td></td>
-<td>44</td>
-<td>webautomation.mekarichat.test.SearchChat@3e4e4c1</td></tr>
-<tr>
-<td title='webautomation.mekarichat.test.Login.checkPasswordHidden()'><b>checkPasswordHidden</b><br>Test class: webautomation.mekarichat.test.Login</td>
-<td></td>
-<td>0</td>
-<td>webautomation.mekarichat.test.Login@684b31de</td></tr>
+<td>24</td>
+<td>webautomation.mekarichat.test.Contacts@6f1a16fe</td></tr>
 <tr>
 <td title='webautomation.mekarichat.test.Login.loginWithWrongEmailandValidPassword()'><b>loginWithWrongEmailandValidPassword</b><br>Test class: webautomation.mekarichat.test.Login</td>
 <td></td>
 <td>18</td>
-<td>webautomation.mekarichat.test.Login@684b31de</td></tr>
+<td>webautomation.mekarichat.test.Login@1729ec00</td></tr>
 <tr>
-<td title='webautomation.mekarichat.test.Login.loginWithWrongEmailandPassword()'><b>loginWithWrongEmailandPassword</b><br>Test class: webautomation.mekarichat.test.Login</td>
+<td title='webautomation.mekarichat.test.SearchMessage.searchOnChatTab()'><b>searchOnChatTab</b><br>Test class: webautomation.mekarichat.test.SearchMessage</td>
 <td></td>
-<td>14</td>
-<td>webautomation.mekarichat.test.Login@684b31de</td></tr>
+<td>27</td>
+<td>webautomation.mekarichat.test.SearchMessage@60c73e58</td></tr>
+<tr>
+<td title='webautomation.mekarichat.test.SearchChat.searchChatWithFilterPostIn()'><b>searchChatWithFilterPostIn</b><br>Test class: webautomation.mekarichat.test.SearchChat</td>
+<td></td>
+<td>38</td>
+<td>webautomation.mekarichat.test.SearchChat@59b65dce</td></tr>
+<tr>
+<td title='webautomation.mekarichat.test.Account.changeProfileAccount()'><b>changeProfileAccount</b><br>Test class: webautomation.mekarichat.test.Account</td>
+<td></td>
+<td>29</td>
+<td>webautomation.mekarichat.test.Account@234cff57</td></tr>
+<tr>
+<td title='webautomation.mekarichat.test.Channels.tabsChannelForSeeDaftarChannel()'><b>tabsChannelForSeeDaftarChannel</b><br>Test class: webautomation.mekarichat.test.Channels</td>
+<td></td>
+<td>92</td>
+<td>webautomation.mekarichat.test.Channels@7e62cfa3</td></tr>
+<tr>
+<td title='webautomation.mekarichat.test.Channels.joinChannel()'><b>joinChannel</b><br>Test class: webautomation.mekarichat.test.Channels</td>
+<td></td>
+<td>25</td>
+<td>webautomation.mekarichat.test.Channels@7e62cfa3</td></tr>
+<tr>
+<td title='webautomation.mekarichat.test.Login.loginWithValidEmailandPassword()'><b>loginWithValidEmailandPassword</b><br>Test class: webautomation.mekarichat.test.Login</td>
+<td></td>
+<td>16</td>
+<td>webautomation.mekarichat.test.Login@1729ec00</td></tr>
+<tr>
+<td title='webautomation.mekarichat.test.PrivateChat.userSendMessage()'><b>userSendMessage</b><br>Test class: webautomation.mekarichat.test.PrivateChat</td>
+<td></td>
+<td>26</td>
+<td>webautomation.mekarichat.test.PrivateChat@2de6f1bc</td></tr>
+<tr>
+<td title='webautomation.mekarichat.test.SearchChat.searchOnTabSearchWithFilterFrom()'><b>searchOnTabSearchWithFilterFrom</b><br>Test class: webautomation.mekarichat.test.SearchChat</td>
+<td></td>
+<td>96</td>
+<td>webautomation.mekarichat.test.SearchChat@59b65dce</td></tr>
+<tr>
+<td title='webautomation.mekarichat.test.Contacts.listContact()'><b>listContact</b><br>Test class: webautomation.mekarichat.test.Contacts</td>
+<td></td>
+<td>23</td>
+<td>webautomation.mekarichat.test.Contacts@6f1a16fe</td></tr>
+<tr>
+<td title='webautomation.mekarichat.test.Account.infoAccount()'><b>infoAccount</b><br>Test class: webautomation.mekarichat.test.Account</td>
+<td></td>
+<td>27</td>
+<td>webautomation.mekarichat.test.Account@234cff57</td></tr>
+<tr>
+<td title='webautomation.mekarichat.test.PrivateChat.userViewProfileContact()'><b>userViewProfileContact</b><br>Test class: webautomation.mekarichat.test.PrivateChat</td>
+<td></td>
+<td>27</td>
+<td>webautomation.mekarichat.test.PrivateChat@2de6f1bc</td></tr>
+<tr>
+<td title='webautomation.mekarichat.test.SearchChat.searchChatWithFilterPostInAndFrom()'><b>searchChatWithFilterPostInAndFrom</b><br>Test class: webautomation.mekarichat.test.SearchChat</td>
+<td></td>
+<td>42</td>
+<td>webautomation.mekarichat.test.SearchChat@59b65dce</td></tr>
+<tr>
+<td title='webautomation.mekarichat.test.Channels.searchOnAvailableChannel()'><b>searchOnAvailableChannel</b><br>Test class: webautomation.mekarichat.test.Channels</td>
+<td></td>
+<td>85</td>
+<td>webautomation.mekarichat.test.Channels@7e62cfa3</td></tr>
+<tr>
+<td title='webautomation.mekarichat.test.Contacts.searchContactWithJobs()'><b>searchContactWithJobs</b><br>Test class: webautomation.mekarichat.test.Contacts</td>
+<td></td>
+<td>27</td>
+<td>webautomation.mekarichat.test.Contacts@6f1a16fe</td></tr>
+<tr>
+<td title='webautomation.mekarichat.test.ChatList.checkStatusChatOnlineOffline()'><b>checkStatusChatOnlineOffline</b><br>Test class: webautomation.mekarichat.test.ChatList</td>
+<td></td>
+<td>35</td>
+<td>webautomation.mekarichat.test.ChatList@58472096</td></tr>
+<tr>
+<td title='webautomation.mekarichat.test.Contacts.accessPrivateRoomFromTabsContacts()'><b>accessPrivateRoomFromTabsContacts</b><br>Test class: webautomation.mekarichat.test.Contacts</td>
+<td></td>
+<td>25</td>
+<td>webautomation.mekarichat.test.Contacts@6f1a16fe</td></tr>
+<tr>
+<td title='webautomation.mekarichat.test.Channels.searchOnYourChannel()'><b>searchOnYourChannel</b><br>Test class: webautomation.mekarichat.test.Channels</td>
+<td></td>
+<td>90</td>
+<td>webautomation.mekarichat.test.Channels@7e62cfa3</td></tr>
 <tr>
 <td title='webautomation.mekarichat.test.Contacts.statusOnlineOfflineListContact()'><b>statusOnlineOfflineListContact</b><br>Test class: webautomation.mekarichat.test.Contacts</td>
 <td></td>
 <td>20</td>
-<td>webautomation.mekarichat.test.Contacts@c2584d3</td></tr>
-<tr>
-<td title='webautomation.mekarichat.test.Login.checkPasswordShowed()'><b>checkPasswordShowed</b><br>Test class: webautomation.mekarichat.test.Login</td>
-<td></td>
-<td>6</td>
-<td>webautomation.mekarichat.test.Login@684b31de</td></tr>
+<td>webautomation.mekarichat.test.Contacts@6f1a16fe</td></tr>
 <tr>
 <td title='webautomation.mekarichat.test.ChatList.pinTest()'><b>pinTest</b><br>Test class: webautomation.mekarichat.test.ChatList</td>
 <td></td>
-<td>40</td>
-<td>webautomation.mekarichat.test.ChatList@c27a3a2</td></tr>
+<td>44</td>
+<td>webautomation.mekarichat.test.ChatList@58472096</td></tr>
+<tr>
+<td title='webautomation.mekarichat.test.Login.checkPasswordHidden()'><b>checkPasswordHidden</b><br>Test class: webautomation.mekarichat.test.Login</td>
+<td></td>
+<td>0</td>
+<td>webautomation.mekarichat.test.Login@1729ec00</td></tr>
+<tr>
+<td title='webautomation.mekarichat.test.Login.checkPasswordShowed()'><b>checkPasswordShowed</b><br>Test class: webautomation.mekarichat.test.Login</td>
+<td></td>
+<td>5</td>
+<td>webautomation.mekarichat.test.Login@1729ec00</td></tr>
+<tr>
+<td title='webautomation.mekarichat.test.Login.loginWithValidEmailandWrongPassword()'><b>loginWithValidEmailandWrongPassword</b><br>Test class: webautomation.mekarichat.test.Login</td>
+<td></td>
+<td>14</td>
+<td>webautomation.mekarichat.test.Login@1729ec00</td></tr>
+<tr>
+<td title='webautomation.mekarichat.test.Login.loginWithWrongEmailandPassword()'><b>loginWithWrongEmailandPassword</b><br>Test class: webautomation.mekarichat.test.Login</td>
+<td></td>
+<td>14</td>
+<td>webautomation.mekarichat.test.Login@1729ec00</td></tr>
+<tr>
+<td title='webautomation.mekarichat.test.PrivateChat.userStatusLastSeen()'><b>userStatusLastSeen</b><br>Test class: webautomation.mekarichat.test.PrivateChat</td>
+<td></td>
+<td>24</td>
+<td>webautomation.mekarichat.test.PrivateChat@2de6f1bc</td></tr>
 </table><p>
 </body>
 </html>

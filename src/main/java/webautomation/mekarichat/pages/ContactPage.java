@@ -29,7 +29,7 @@ public class ContactPage extends BasePage{
 		// TODO Auto-generated constructor stub
 	}
 	
-	public void contactPage() {
+	public void tabsContact() {
 		clickAndWaitByXpath(contactMenu);
 	}
 	

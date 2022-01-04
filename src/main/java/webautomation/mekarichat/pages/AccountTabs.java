@@ -17,8 +17,7 @@ public class AccountTabs extends BasePage {
 	By nama = By.xpath("//span[@class='font-weight-bold text-capitalize']");
 	By jobs = By.xpath("//span[@class='text-center text-slate text-capitalize mt-1']");
 	
-	//By changePicture = By.xpath("//div[@class='edit-avatar']//input[@id='changeAvatar']");
-	By uploadPicture = By.xpath("/html/body/div/div/div[1]/div[2]/div[2]/div[1]/div/input");
+	By uploadPicture = By.xpath("//input[@class='d-none']");
 
 	public AccountTabs(ThreadLocal<WebDriver> driver, ThreadLocal<WebDriverWait> explicitWait) {
 		super(driver, explicitWait);
@@ -56,8 +55,13 @@ public class AccountTabs extends BasePage {
 	@Step("# user change profile picture")
 	public void changePicture(String location) {
 		//clickAndWaitByXpath(changePicture);
-		changePicture(uploadPicture, location);
+		uploadPicture(uploadPicture, location);
 		ShareUtils.hardWait(2);
+	}
+	
+	@Step("# verify url profile picture uploaded")
+	public boolean verifyPictureUploaded(String value, String contains) {
+		return getAttributeVerify(img, value, contains);
 	}
 	
 	

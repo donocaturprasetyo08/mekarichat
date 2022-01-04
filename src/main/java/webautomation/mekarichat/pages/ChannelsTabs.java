@@ -9,6 +9,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import io.qameta.allure.Step;
 import webautomation.mekarichat.navigation.BasePage;
+import webautomation.mekarichat.utils.DataUtils;
 import webautomation.mekarichat.utils.ShareUtils;
 
 public class ChannelsTabs extends BasePage {
@@ -34,6 +35,10 @@ public class ChannelsTabs extends BasePage {
 	By channelInfo = By.xpath("//a[normalize-space()='Channel info']");
 	By buttonLeave = By.xpath("//span[@class='text-danger font-weight-bold']");
 	By buttonConfirmLeave = By.xpath("//button[@id='confirmButtonModal']");
+	
+	By testChannel = By.xpath("//span[normalize-space()='test']");
+	By inputText = By.xpath("//div[@id='customINputMessageForChannel']");
+	By verifyText = By.xpath("//span[normalize-space()='"+DataUtils.sendMessage+"']");
 
 	public ChannelsTabs(ThreadLocal<WebDriver> driver, ThreadLocal<WebDriverWait> explicitWait) {
 		super(driver, explicitWait);
@@ -109,4 +114,20 @@ public class ChannelsTabs extends BasePage {
 		ShareUtils.hardWait(2);
 		clickAndWaitByJavaScript(buttonConfirmLeave);
 	}
+	
+	@Step("# user membuka channel chat room")
+	public void chatRoomChannel() {
+		clickAndWaitByXpath(testChannel);
+	}
+	
+	@Step("# user send text : {0} at chat room channel")
+	public void sendText(String text) {
+		searchText(inputText, text);
+	}
+	
+	@Step("# verify send message")
+	public boolean verifyMessage() {
+		return findElement(verifyText);
+	}
+	
 }

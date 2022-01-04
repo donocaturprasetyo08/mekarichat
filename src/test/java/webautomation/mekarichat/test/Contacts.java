@@ -17,7 +17,6 @@ import io.qameta.allure.Story;
 import webautomation.mekarichat.BaseWebDriver;
 import webautomation.mekarichat.TestAllureListener;
 import webautomation.mekarichat.pages.ContactPage;
-import webautomation.mekarichat.pages.LoginPage;
 import webautomation.mekarichat.utils.DataUtils;
 import webautomation.mekarichat.utils.ShareUtils;
 
@@ -25,7 +24,6 @@ import webautomation.mekarichat.utils.ShareUtils;
 @Epic("Contacts")
 public class Contacts extends BaseWebDriver {
 	
-	LoginPage loginPage = new LoginPage(driver, explicitWait);
 	ContactPage contactPage = new ContactPage(driver, explicitWait);
 	
 	@Severity(SeverityLevel.CRITICAL)	
@@ -39,20 +37,7 @@ public class Contacts extends BaseWebDriver {
 	@Story("User melihat halaman Contacts Tab")
 	@Test
     public void listContact() {
-		String actualResults = loginPage.getTitlePage();
-		String expectedResults = DataUtils.titlePageLogin;
-		Assert.assertEquals(actualResults, expectedResults);
-		
-		String email = DataUtils.emailMekari;
-    	String password = DataUtils.passwordMekari;
-    	loginPage.inputEmailPassword(email, password);
-    	
-    	String expectedResults1 = DataUtils.urlDashboard;
-    	String actualResults1 = loginPage.getUrlPage();
-    	Assert.assertEquals(actualResults1, expectedResults1);
-    	ShareUtils.hardWait(3);
-    	
-    	contactPage.contactPage();
+    	contactPage.tabsContact();
     	String expectedResults2 = DataUtils.titleContactTabs;
     	String actualResults2 = contactPage.titleContact();
     	Assert.assertEquals(actualResults2, expectedResults2);
@@ -89,21 +74,8 @@ public class Contacts extends BaseWebDriver {
 	@Feature("Test Case ID : MC-007-02")
 	@Story("User melihat status Online/Offline pada Contact")
 	@Test
-    public void statusOnlineOfflineListContact() {
-		String actualResults = loginPage.getTitlePage();
-		String expectedResults = DataUtils.titlePageLogin;
-		Assert.assertEquals(actualResults, expectedResults);
-		
-		String email = DataUtils.emailMekari;
-    	String password = DataUtils.passwordMekari;
-    	loginPage.inputEmailPassword(email, password);
-    	
-    	String expectedResults1 = DataUtils.urlDashboard;
-    	String actualResults1 = loginPage.getUrlPage();
-    	Assert.assertEquals(actualResults1, expectedResults1);
-    	ShareUtils.hardWait(3);
-    	
-    	contactPage.contactPage();
+    public void statusOnlineOfflineListContact() {    	
+    	contactPage.tabsContact();
     	String expectedResults2 = DataUtils.titleContactTabs;
     	String actualResults2 = contactPage.titleContact();
     	Assert.assertEquals(actualResults2, expectedResults2);
@@ -129,20 +101,7 @@ public class Contacts extends BaseWebDriver {
 	@Story("User melakukan pencarian kontak berdasarkan nama")
 	@Test
     public void searchContactWithName() {
-		String actualResults = loginPage.getTitlePage();
-		String expectedResults = DataUtils.titlePageLogin;
-		Assert.assertEquals(actualResults, expectedResults);
-		
-		String email = DataUtils.emailMekari;
-    	String password = DataUtils.passwordMekari;
-    	loginPage.inputEmailPassword(email, password);
-    	
-    	String expectedResults1 = DataUtils.urlDashboard;
-    	String actualResults1 = loginPage.getUrlPage();
-    	Assert.assertEquals(actualResults1, expectedResults1);
-    	ShareUtils.hardWait(3);
-    	
-    	contactPage.contactPage();
+    	contactPage.tabsContact();
     	String expectedResults2 = DataUtils.titleContactTabs;
     	String actualResults2 = contactPage.titleContact();
     	Assert.assertEquals(actualResults2, expectedResults2);
@@ -182,20 +141,7 @@ public class Contacts extends BaseWebDriver {
 	@Story("User melakukan pencarian kontak berdasarkan job position")
 	@Test
     public void searchContactWithJobs() {
-		String actualResults = loginPage.getTitlePage();
-		String expectedResults = DataUtils.titlePageLogin;
-		Assert.assertEquals(actualResults, expectedResults);
-		
-		String email = DataUtils.emailMekari;
-    	String password = DataUtils.passwordMekari;
-    	loginPage.inputEmailPassword(email, password);
-    	
-    	String expectedResults1 = DataUtils.urlDashboard;
-    	String actualResults1 = loginPage.getUrlPage();
-    	Assert.assertEquals(actualResults1, expectedResults1);
-    	ShareUtils.hardWait(3);
-    	
-    	contactPage.contactPage();
+    	contactPage.tabsContact();
     	String expectedResults2 = DataUtils.titleContactTabs;
     	String actualResults2 = contactPage.titleContact();
     	Assert.assertEquals(actualResults2, expectedResults2);
@@ -226,21 +172,8 @@ public class Contacts extends BaseWebDriver {
 	@Feature("Test Case ID : MC-007-05")
 	@Story("User mengakses private chat room melalui tab Contacts")
 	@Test
-    public void accessPrivateRoomFromTabsContacts() {
-		String actualResults = loginPage.getTitlePage();
-		String expectedResults = DataUtils.titlePageLogin;
-		Assert.assertEquals(actualResults, expectedResults);
-		
-		String email = DataUtils.emailMekari;
-    	String password = DataUtils.passwordMekari;
-    	loginPage.inputEmailPassword(email, password);
-    	
-    	String expectedResults1 = DataUtils.urlDashboard;
-    	String actualResults1 = loginPage.getUrlPage();
-    	Assert.assertEquals(actualResults1, expectedResults1);
-    	ShareUtils.hardWait(3);
-    	
-    	contactPage.contactPage();
+    public void accessPrivateRoomFromTabsContacts() {   	
+    	contactPage.tabsContact();
     	String expectedResults2 = DataUtils.titleContactTabs;
     	String actualResults2 = contactPage.titleContact();
     	Assert.assertEquals(actualResults2, expectedResults2);

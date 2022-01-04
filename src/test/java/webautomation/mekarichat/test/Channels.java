@@ -16,15 +16,12 @@ import io.qameta.allure.Story;
 import webautomation.mekarichat.BaseWebDriver;
 import webautomation.mekarichat.TestAllureListener;
 import webautomation.mekarichat.pages.ChannelsTabs;
-import webautomation.mekarichat.pages.LoginPage;
 import webautomation.mekarichat.utils.DataUtils;
 import webautomation.mekarichat.utils.ShareUtils;
 
 @Listeners({TestAllureListener.class})
 @Epic("Channels")
 public class Channels extends BaseWebDriver {
-	
-	LoginPage loginPage = new LoginPage(driver, explicitWait);
 	ChannelsTabs channels = new ChannelsTabs(driver, explicitWait);
 	
 	@Severity(SeverityLevel.CRITICAL)	
@@ -35,19 +32,6 @@ public class Channels extends BaseWebDriver {
 	@Story("User mengakses tab Channels untuk melihat daftar Channel")
 	@Test
 	public void tabsChannelForSeeDaftarChannel() {
-		String actualResults = loginPage.getTitlePage();
-		String expectedResults = DataUtils.titlePageLogin;
-		Assert.assertEquals(actualResults, expectedResults);
-		
-		String email = DataUtils.emailMekari;
-    	String password = DataUtils.passwordMekari;
-    	loginPage.inputEmailPassword(email, password);
-    	
-    	String expectedResults1 = DataUtils.urlDashboard;
-    	String actualResults1 = loginPage.getUrlPage();
-    	Assert.assertEquals(actualResults1, expectedResults1);
-    	ShareUtils.hardWait(3);
-    	
     	channels.tabsChannel();
     	String expectedResults2 = DataUtils.titleChannelTabs;
     	String actualResults2 = channels.titleTab();
@@ -99,19 +83,6 @@ public class Channels extends BaseWebDriver {
 	@Story("User melakukan pencarian pada Available Channels ")
 	@Test
 	public void searchOnAvailableChannel() {
-		String actualResults = loginPage.getTitlePage();
-		String expectedResults = DataUtils.titlePageLogin;
-		Assert.assertEquals(actualResults, expectedResults);
-		
-		String email = DataUtils.emailMekari;
-    	String password = DataUtils.passwordMekari;
-    	loginPage.inputEmailPassword(email, password);
-    	
-    	String expectedResults1 = DataUtils.urlDashboard;
-    	String actualResults1 = loginPage.getUrlPage();
-    	Assert.assertEquals(actualResults1, expectedResults1);
-    	ShareUtils.hardWait(3);
-    	
     	channels.tabsChannel();
     	String expectedResults2 = DataUtils.titleChannelTabs;
     	String actualResults2 = channels.titleTab();
@@ -147,19 +118,6 @@ public class Channels extends BaseWebDriver {
 	@Story("User melakukan pencarian pada Your Channels")
 	@Test
 	public void searchOnYourChannel() {
-		String actualResults = loginPage.getTitlePage();
-		String expectedResults = DataUtils.titlePageLogin;
-		Assert.assertEquals(actualResults, expectedResults);
-		
-		String email = DataUtils.emailMekari;
-    	String password = DataUtils.passwordMekari;
-    	loginPage.inputEmailPassword(email, password);
-    	
-    	String expectedResults1 = DataUtils.urlDashboard;
-    	String actualResults1 = loginPage.getUrlPage();
-    	Assert.assertEquals(actualResults1, expectedResults1);
-    	ShareUtils.hardWait(3);
-    	
     	channels.tabsChannel();
     	String expectedResults2 = DataUtils.titleChannelTabs;
     	String actualResults2 = channels.titleTab();
@@ -196,19 +154,6 @@ public class Channels extends BaseWebDriver {
 	@Story("User bergabung dengan Channel yang tersedia pada Available Channels")
 	@Test
 	public void joinChannel() {
-		String actualResults = loginPage.getTitlePage();
-		String expectedResults = DataUtils.titlePageLogin;
-		Assert.assertEquals(actualResults, expectedResults);
-		
-		String email = DataUtils.emailMekari;
-    	String password = DataUtils.passwordMekari;
-    	loginPage.inputEmailPassword(email, password);
-    	
-    	String expectedResults1 = DataUtils.urlDashboard;
-    	String actualResults1 = loginPage.getUrlPage();
-    	Assert.assertEquals(actualResults1, expectedResults1);
-    	ShareUtils.hardWait(3);
-    	
     	channels.tabsChannel();
     	String expectedResults2 = DataUtils.titleChannelTabs;
     	String actualResults2 = channels.titleTab();
@@ -233,19 +178,6 @@ public class Channels extends BaseWebDriver {
 	@Story("User mengakses Channel yang sudah tergabung pada Your Channels ")
 	@Test
 	public void accessJoinChannel() {
-		String actualResults = loginPage.getTitlePage();
-		String expectedResults = DataUtils.titlePageLogin;
-		Assert.assertEquals(actualResults, expectedResults);
-		
-		String email = DataUtils.emailMekari;
-    	String password = DataUtils.passwordMekari;
-    	loginPage.inputEmailPassword(email, password);
-    	
-    	String expectedResults1 = DataUtils.urlDashboard;
-    	String actualResults1 = loginPage.getUrlPage();
-    	Assert.assertEquals(actualResults1, expectedResults1);
-    	ShareUtils.hardWait(3);
-    	
     	channels.tabsChannel();
     	String expectedResults2 = DataUtils.titleChannelTabs;
     	String actualResults2 = channels.titleTab();
@@ -258,6 +190,7 @@ public class Channels extends BaseWebDriver {
        	boolean yourTabs = channels.yourActive(value1, contains1);
  	    Assert.assertTrue(yourTabs);
     	
+ 	    ShareUtils.hardWait(2);
     	channels.clickChannel();
     	ShareUtils.hardWait(2);
     	boolean checkJoin = channels.verifyJoin();

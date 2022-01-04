@@ -11,6 +11,7 @@
       <class name="webautomation.mekarichat.test.SearchMessage"/>
       <class name="webautomation.mekarichat.test.Account"/>
       <class name="webautomation.mekarichat.test.Channels"/>
+      <class name="webautomation.mekarichat.test.PrivateChat"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

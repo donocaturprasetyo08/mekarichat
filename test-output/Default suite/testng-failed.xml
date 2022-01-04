@@ -3,14 +3,14 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="webautomation.mekarichat.test.Channels">
+      <class name="webautomation.mekarichat.test.Contacts">
         <methods>
+          <include name="listContact"/>
           <include name="setAllureEnvironment"/>
           <include name="setupBase"/>
-          <include name="searchOnYourChannel"/>
           <include name="quitBase"/>
         </methods>
-      </class> <!-- webautomation.mekarichat.test.Channels -->
+      </class> <!-- webautomation.mekarichat.test.Contacts -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

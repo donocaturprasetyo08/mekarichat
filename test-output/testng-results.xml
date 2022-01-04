@@ -1,29 +1,89 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="4" total="5" passed="1" failed="0" skipped="0">
+<testng-results ignored="0" total="6" passed="6" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2021-12-22T13:07:11 WIB" name="Default suite" finished-at="2021-12-22T13:07:52 WIB" duration-ms="40461">
+  <suite started-at="2022-01-04T10:34:24 WIB" name="Default suite" finished-at="2022-01-04T10:37:27 WIB" duration-ms="183528">
     <groups>
     </groups>
-    <test started-at="2021-12-22T13:07:11 WIB" name="Default test" finished-at="2021-12-22T13:07:52 WIB" duration-ms="40461">
-      <class name="webautomation.mekarichat.test.Channels">
-        <test-method is-config="true" signature="setAllureEnvironment()[pri:0, instance:webautomation.mekarichat.test.Channels@17fa1336]" started-at="2021-12-22T13:07:11 WIB" name="setAllureEnvironment" finished-at="2021-12-22T13:07:11 WIB" duration-ms="270" status="PASS">
+    <test started-at="2022-01-04T10:34:24 WIB" name="Default test" finished-at="2022-01-04T10:37:27 WIB" duration-ms="183528">
+      <class name="webautomation.mekarichat.test.Login">
+        <test-method is-config="true" signature="setAllureEnvironment()[pri:0, instance:webautomation.mekarichat.test.Login@987455b]" started-at="2022-01-04T10:34:23 WIB" name="setAllureEnvironment" finished-at="2022-01-04T10:34:24 WIB" duration-ms="241" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setAllureEnvironment -->
-        <test-method is-config="true" signature="setupBase()[pri:0, instance:webautomation.mekarichat.test.Channels@17fa1336]" started-at="2021-12-22T13:07:11 WIB" name="setupBase" finished-at="2021-12-22T13:07:22 WIB" duration-ms="10699" status="PASS">
+        <test-method is-config="true" signature="setupBase()[pri:0, instance:webautomation.mekarichat.test.Login@987455b]" started-at="2022-01-04T10:34:24 WIB" name="setupBase" finished-at="2022-01-04T10:34:44 WIB" duration-ms="20065" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setupBase -->
-        <test-method signature="accessJoinChannel()[pri:0, instance:webautomation.mekarichat.test.Channels@17fa1336]" started-at="2021-12-22T13:07:22 WIB" name="accessJoinChannel" finished-at="2021-12-22T13:07:51 WIB" duration-ms="29038" status="PASS">
+        <test-method signature="checkPasswordHidden()[pri:0, instance:webautomation.mekarichat.test.Login@987455b]" started-at="2022-01-04T10:34:44 WIB" name="checkPasswordHidden" finished-at="2022-01-04T10:34:45 WIB" duration-ms="578" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- accessJoinChannel -->
-        <test-method is-config="true" signature="quitBase()[pri:0, instance:webautomation.mekarichat.test.Channels@17fa1336]" started-at="2021-12-22T13:07:51 WIB" name="quitBase" finished-at="2021-12-22T13:07:52 WIB" duration-ms="211" status="PASS">
+        </test-method> <!-- checkPasswordHidden -->
+        <test-method is-config="true" signature="quitBase()[pri:0, instance:webautomation.mekarichat.test.Login@987455b]" started-at="2022-01-04T10:34:45 WIB" name="quitBase" finished-at="2022-01-04T10:34:45 WIB" duration-ms="228" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- quitBase -->
-      </class> <!-- webautomation.mekarichat.test.Channels -->
+        <test-method is-config="true" signature="setupBase()[pri:0, instance:webautomation.mekarichat.test.Login@987455b]" started-at="2022-01-04T10:34:45 WIB" name="setupBase" finished-at="2022-01-04T10:35:03 WIB" duration-ms="17797" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setupBase -->
+        <test-method signature="checkPasswordShowed()[pri:0, instance:webautomation.mekarichat.test.Login@987455b]" started-at="2022-01-04T10:35:03 WIB" name="checkPasswordShowed" finished-at="2022-01-04T10:35:08 WIB" duration-ms="5517" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- checkPasswordShowed -->
+        <test-method is-config="true" signature="quitBase()[pri:0, instance:webautomation.mekarichat.test.Login@987455b]" started-at="2022-01-04T10:35:08 WIB" name="quitBase" finished-at="2022-01-04T10:35:08 WIB" duration-ms="161" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- quitBase -->
+        <test-method is-config="true" signature="setupBase()[pri:0, instance:webautomation.mekarichat.test.Login@987455b]" started-at="2022-01-04T10:35:08 WIB" name="setupBase" finished-at="2022-01-04T10:35:25 WIB" duration-ms="16814" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setupBase -->
+        <test-method signature="loginWithValidEmailandPassword()[pri:0, instance:webautomation.mekarichat.test.Login@987455b]" started-at="2022-01-04T10:35:25 WIB" name="loginWithValidEmailandPassword" finished-at="2022-01-04T10:35:43 WIB" duration-ms="17389" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- loginWithValidEmailandPassword -->
+        <test-method is-config="true" signature="quitBase()[pri:0, instance:webautomation.mekarichat.test.Login@987455b]" started-at="2022-01-04T10:35:43 WIB" name="quitBase" finished-at="2022-01-04T10:35:43 WIB" duration-ms="152" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- quitBase -->
+        <test-method is-config="true" signature="setupBase()[pri:0, instance:webautomation.mekarichat.test.Login@987455b]" started-at="2022-01-04T10:35:43 WIB" name="setupBase" finished-at="2022-01-04T10:36:00 WIB" duration-ms="16921" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setupBase -->
+        <test-method signature="loginWithValidEmailandWrongPassword()[pri:0, instance:webautomation.mekarichat.test.Login@987455b]" started-at="2022-01-04T10:36:00 WIB" name="loginWithValidEmailandWrongPassword" finished-at="2022-01-04T10:36:15 WIB" duration-ms="14945" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- loginWithValidEmailandWrongPassword -->
+        <test-method is-config="true" signature="quitBase()[pri:0, instance:webautomation.mekarichat.test.Login@987455b]" started-at="2022-01-04T10:36:15 WIB" name="quitBase" finished-at="2022-01-04T10:36:15 WIB" duration-ms="146" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- quitBase -->
+        <test-method is-config="true" signature="setupBase()[pri:0, instance:webautomation.mekarichat.test.Login@987455b]" started-at="2022-01-04T10:36:15 WIB" name="setupBase" finished-at="2022-01-04T10:36:33 WIB" duration-ms="18241" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setupBase -->
+        <test-method signature="loginWithWrongEmailandPassword()[pri:0, instance:webautomation.mekarichat.test.Login@987455b]" started-at="2022-01-04T10:36:33 WIB" name="loginWithWrongEmailandPassword" finished-at="2022-01-04T10:36:48 WIB" duration-ms="15472" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- loginWithWrongEmailandPassword -->
+        <test-method is-config="true" signature="quitBase()[pri:0, instance:webautomation.mekarichat.test.Login@987455b]" started-at="2022-01-04T10:36:48 WIB" name="quitBase" finished-at="2022-01-04T10:36:49 WIB" duration-ms="160" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- quitBase -->
+        <test-method is-config="true" signature="setupBase()[pri:0, instance:webautomation.mekarichat.test.Login@987455b]" started-at="2022-01-04T10:36:49 WIB" name="setupBase" finished-at="2022-01-04T10:37:05 WIB" duration-ms="16764" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setupBase -->
+        <test-method signature="loginWithWrongEmailandValidPassword()[pri:0, instance:webautomation.mekarichat.test.Login@987455b]" started-at="2022-01-04T10:37:05 WIB" name="loginWithWrongEmailandValidPassword" finished-at="2022-01-04T10:37:27 WIB" duration-ms="21624" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- loginWithWrongEmailandValidPassword -->
+        <test-method is-config="true" signature="quitBase()[pri:0, instance:webautomation.mekarichat.test.Login@987455b]" started-at="2022-01-04T10:37:27 WIB" name="quitBase" finished-at="2022-01-04T10:37:27 WIB" duration-ms="191" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- quitBase -->
+      </class> <!-- webautomation.mekarichat.test.Login -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

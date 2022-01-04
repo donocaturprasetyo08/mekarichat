@@ -14,6 +14,7 @@ import webautomation.mekarichat.pages.ContactPage;
 import webautomation.mekarichat.pages.LoginPage;
 import webautomation.mekarichat.pages.LogoutTest;
 import webautomation.mekarichat.pages.SearchMessagePage;
+import webautomation.mekarichat.utils.DataUtils;
 import webautomation.mekarichat.utils.ShareUtils;
 
 /**
@@ -30,12 +31,12 @@ public class AppTest extends BaseWebDriver
 	ContactPage contactPage = new ContactPage(driver, explicitWait);
     
     public void listContactSortByAlphabet() {
-    	String email = "donocatur@qiscus.cx";
-    	String password = "tanpapassword08";
+    	String email = DataUtils.emailMekari;
+    	String password = DataUtils.passwordMekari;
     	loginPage.inputEmailPassword(email, password);
     	ShareUtils.hardWait(5);
     	
-    	contactPage.contactPage();
+    	contactPage.tabsContact();;
     	
     	String expectedResults = "Contacts";
     	String actualResults = contactPage.titleContact();

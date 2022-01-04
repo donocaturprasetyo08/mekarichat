@@ -19,10 +19,14 @@ public class ChatListPage extends BasePage {
 
 	By statusChat = By.xpath("//div[@id='listConversation59741797']//div[@class='status-circle']");
 	By titleChat = By.xpath("//span[normalize-space()='Chats']");
+	By tabChatList = By.xpath("//div[@id='left-nav-chat-list']");
 	
 	public ChatListPage(ThreadLocal<WebDriver> driver, ThreadLocal<WebDriverWait> explicitWait) {
 		super(driver, explicitWait);
 		// TODO Auto-generated constructor stub
+	}
+	public void tabChatList() {
+		clickAndWaitByXpath(tabChatList);
 	}
 	
 	@Step("# user melakukan pin chat")

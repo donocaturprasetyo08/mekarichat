@@ -5,19 +5,22 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 
 import com.google.common.collect.ImmutableMap;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import webautomation.mekarichat.pages.LoginPage;
+import webautomation.mekarichat.utils.DataUtils;
+
 import static com.github.automatedowl.tools.AllureEnvironmentWriter.allureEnvironmentWriter;
 
 public class BaseWebDriver implements DriverManager {
 	
 	protected static ThreadLocal<WebDriver> driver = new ThreadLocal<WebDriver>();
 	protected ThreadLocal<WebDriverWait> explicitWait = new ThreadLocal<WebDriverWait>();
+	LoginPage loginPage = new LoginPage(driver, explicitWait);
 	
 	public void createChromeDriver() {
 		WebDriverManager.chromedriver().setup();
@@ -27,18 +30,25 @@ public class BaseWebDriver implements DriverManager {
 		driver.get().manage().window().maximize();
 		explicitWait.set(new WebDriverWait(driver.get(), Duration.ofSeconds(60)));
 	}
+	
+	public void login() {
+		String email = DataUtils.emailMekari;
+    	String password = DataUtils.passwordMekari;
+    	loginPage.inputEmailPassword(email, password);
+	}
 
 	public synchronized static WebDriver getDriver() {
         return driver.get();
     }
 	
-	@BeforeMethod
+	@BeforeSuite
 	public void setupBase() {
 	createChromeDriver();
 	getDriver().get("https://messenger.mekari.com/dashboard");
+	login();
 	}
 	
-	@AfterMethod
+	@AfterSuite
 	public void quitBase() {
 		driver.get().close();
 	}

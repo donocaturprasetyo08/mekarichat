@@ -13,7 +13,6 @@ import io.qameta.allure.Story;
 import webautomation.mekarichat.BaseWebDriver;
 import webautomation.mekarichat.TestAllureListener;
 import webautomation.mekarichat.pages.ChatListPage;
-import webautomation.mekarichat.pages.LoginPage;
 import webautomation.mekarichat.utils.DataUtils;
 import webautomation.mekarichat.utils.ShareUtils;
 
@@ -22,7 +21,6 @@ import webautomation.mekarichat.utils.ShareUtils;
 public class ChatList extends BaseWebDriver{
 	
 	ChatListPage chatList = new ChatListPage(driver, explicitWait);
-	LoginPage loginPage = new LoginPage(driver, explicitWait);
 	
 	@Severity(SeverityLevel.CRITICAL)	
 	@Description("User dapat melihat status Online/Offline pada Private Chat")
@@ -30,18 +28,8 @@ public class ChatList extends BaseWebDriver{
 	@Story("User melihat status Online/Offline pada Private Chat")
     @Test
     public void checkStatusChatOnlineOffline() {
-		String actualResults = loginPage.getTitlePage();
-		String expectedResults = DataUtils.titlePageLogin;
-		Assert.assertEquals(actualResults, expectedResults);
-		
-		String email = DataUtils.emailMekari;
-    	String password = DataUtils.passwordMekari;
-    	loginPage.inputEmailPassword(email, password);
-    	
-    	String expectedResults1 = DataUtils.urlDashboard;
-    	String actualResults1 = loginPage.getUrlPage();
-    	Assert.assertEquals(actualResults1, expectedResults1);
-    	ShareUtils.hardWait(3);
+		chatList.tabChatList();
+		ShareUtils.hardWait(2);
     	
     	String expectedResults2 = DataUtils.titleChatTabs;
     	String actualResults2 = chatList.titleTabChat();
@@ -66,18 +54,8 @@ public class ChatList extends BaseWebDriver{
 	@Story("User menyematkan pesan")
 	@Test
     public void pinTest() {
-		String actualResults = loginPage.getTitlePage();
-		String expectedResults = DataUtils.titlePageLogin;
-		Assert.assertEquals(actualResults, expectedResults);
-		
-		String email = DataUtils.emailMekari;
-    	String password = DataUtils.passwordMekari;
-    	loginPage.inputEmailPassword(email, password);
-    	
-    	String expectedResults1 = DataUtils.urlDashboard;
-    	String actualResults1 = loginPage.getUrlPage();
-    	Assert.assertEquals(actualResults1, expectedResults1);
-    	ShareUtils.hardWait(3);
+		chatList.tabChatList();
+		ShareUtils.hardWait(2);
     	
     	String expectedResults2 = DataUtils.titleChatTabs;
     	String actualResults2 = chatList.titleTabChat();

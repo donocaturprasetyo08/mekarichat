@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
+
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
@@ -15,7 +16,9 @@ import io.qameta.allure.SeverityLevel;
 import io.qameta.allure.Story;
 import webautomation.mekarichat.BaseWebDriver;
 import webautomation.mekarichat.TestAllureListener;
+import webautomation.mekarichat.navigation.CommonPage;
 import webautomation.mekarichat.pages.ChannelsTabs;
+
 import webautomation.mekarichat.utils.DataUtils;
 import webautomation.mekarichat.utils.ShareUtils;
 
@@ -23,6 +26,7 @@ import webautomation.mekarichat.utils.ShareUtils;
 @Epic("Channels")
 public class Channels extends BaseWebDriver {
 	ChannelsTabs channels = new ChannelsTabs(driver, explicitWait);
+	CommonPage commonPage = new CommonPage(driver, explicitWait);
 	
 	@Severity(SeverityLevel.CRITICAL)	
 	@Description("User akan dapat melihat channel tabs : \n"
@@ -30,7 +34,7 @@ public class Channels extends BaseWebDriver {
 			+ "2. Available channel untuk Public Channel/Announcement Channel yang belum joined")
 	@Feature("Test Case ID : MC-008-01")
 	@Story("User mengakses tab Channels untuk melihat daftar Channel")
-	@Test
+	@Test(priority=1)
 	public void tabsChannelForSeeDaftarChannel() {
     	channels.tabsChannel();
     	String expectedResults2 = DataUtils.titleChannelTabs;
@@ -81,8 +85,9 @@ public class Channels extends BaseWebDriver {
 	@Description("User akan dapat melakukan pencarian pada Available Channel")
 	@Feature("Test Case ID : MC-008-02")
 	@Story("User melakukan pencarian pada Available Channels ")
-	@Test
+	@Test(priority=2)
 	public void searchOnAvailableChannel() {
+		commonPage.navigateBrowser("refresh");
     	channels.tabsChannel();
     	String expectedResults2 = DataUtils.titleChannelTabs;
     	String actualResults2 = channels.titleTab();
@@ -102,10 +107,12 @@ public class Channels extends BaseWebDriver {
     	ShareUtils.hardWait(2);
     	List<WebElement> listChannels;
 		try {
-			listChannels = channels.listChannelAvailable();
+			listChannels = channels.listSearchChannelAvailable();
 			for(int i = 0; i<listChannels.size();i++) {
-					boolean join = listChannels.get(i).isDisplayed();
-					Assert.assertTrue(join);
+					String list = listChannels.get(i).getText();
+					if ((list.toLowerCase().contains(text.toLowerCase()))){
+						Assert.assertTrue(true, text);
+					}
 			}
 		} catch (Exception e) {
 			System.out.println("List Available Channel can not find");
@@ -116,8 +123,9 @@ public class Channels extends BaseWebDriver {
 	@Description("User akan dapat melakukan pencarian pada Your Channel")
 	@Feature("Test Case ID : MC-008-03")
 	@Story("User melakukan pencarian pada Your Channels")
-	@Test
+	@Test(priority=3)
 	public void searchOnYourChannel() {
+		commonPage.navigateBrowser("refresh");
     	channels.tabsChannel();
     	String expectedResults2 = DataUtils.titleChannelTabs;
     	String actualResults2 = channels.titleTab();
@@ -138,10 +146,12 @@ public class Channels extends BaseWebDriver {
     	ShareUtils.hardWait(3);
        	List<WebElement> listYourChannels;
   		try {
-   			listYourChannels = channels.listYourChannel();
+   			listYourChannels = channels.listSearchChannelAvailable();
   			for(int i = 0; i<listYourChannels.size();i++) {
-  				boolean join = listYourChannels.get(i).isDisplayed();
-  				Assert.assertTrue(join);
+  				String list = listYourChannels.get(i).getText();
+				if ((list.toLowerCase().contains(text.toLowerCase()))){
+					Assert.assertTrue(true, text);
+				}	
   				}
     		} catch (Exception e) {
     			System.out.println("List Your Channel can not find");
@@ -152,8 +162,9 @@ public class Channels extends BaseWebDriver {
 	@Description("User akan bergabung dengan Channel yang tersedia pada Available Channels")
 	@Feature("Test Case ID : MC-008-04")
 	@Story("User bergabung dengan Channel yang tersedia pada Available Channels")
-	@Test
+	@Test(priority=4)
 	public void joinChannel() {
+		commonPage.navigateBrowser("refresh");
     	channels.tabsChannel();
     	String expectedResults2 = DataUtils.titleChannelTabs;
     	String actualResults2 = channels.titleTab();
@@ -176,8 +187,9 @@ public class Channels extends BaseWebDriver {
 			+ "2. User akan diarahkan ke dalam channel room ")
 	@Feature("Test Case ID : MC-008-05")
 	@Story("User mengakses Channel yang sudah tergabung pada Your Channels ")
-	@Test
+	@Test(priority=5)
 	public void accessJoinChannel() {
+		commonPage.navigateBrowser("refresh");
     	channels.tabsChannel();
     	String expectedResults2 = DataUtils.titleChannelTabs;
     	String actualResults2 = channels.titleTab();

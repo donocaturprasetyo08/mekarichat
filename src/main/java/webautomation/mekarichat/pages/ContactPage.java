@@ -73,7 +73,7 @@ public class ContactPage extends BasePage{
 	
 	@Step("# verify akses private chat room")
 	public boolean getStartChat() {
-		return findElement(startChat);
+		return displayElement(startChat);
 	}
 	
 	@Step("# verify informasi status online/offline")

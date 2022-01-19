@@ -1,11 +1,17 @@
 package webautomation.mekarichat;
 
 import java.time.Duration;
+import java.util.HashMap;
+import java.util.Map;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.annotations.AfterSuite;
+import org.testng.annotations.AfterClass;
+
+import org.testng.annotations.BeforeClass;
+
 import org.testng.annotations.BeforeSuite;
 
 import com.google.common.collect.ImmutableMap;
@@ -22,33 +28,40 @@ public class BaseWebDriver implements DriverManager {
 	protected ThreadLocal<WebDriverWait> explicitWait = new ThreadLocal<WebDriverWait>();
 	LoginPage loginPage = new LoginPage(driver, explicitWait);
 	
-	public void createChromeDriver() {
-		WebDriverManager.chromedriver().setup();
-		ChromeOptions options = new ChromeOptions();
-		options.setExperimentalOption("excludeSwitches", new String[] {"enable-automation"});
-		driver.set(new ChromeDriver(options));
-		driver.get().manage().window().maximize();
-		explicitWait.set(new WebDriverWait(driver.get(), Duration.ofSeconds(60)));
-	}
-	
+
 	public void login() {
 		String email = DataUtils.emailMekari;
     	String password = DataUtils.passwordMekari;
     	loginPage.inputEmailPassword(email, password);
 	}
+	
+	public void createChromeDriver() {
+		WebDriverManager.chromedriver().setup();
+		ChromeOptions options = new ChromeOptions();
+		options.setExperimentalOption("excludeSwitches", new String[] {"enable-automation"});
+		Map<String, Object> prefs = new HashMap<String, Object>();
+	    prefs.put("credentials_enable_service", false);
+	    prefs.put("profile.password_manager_enabled", false);
+	    options.setExperimentalOption("prefs", prefs);
+		driver.set(new ChromeDriver(options));
+		driver.get().manage().window().maximize();
+		explicitWait.set(new WebDriverWait(driver.get(), Duration.ofSeconds(60)));
+	}
+	
+	
 
 	public synchronized static WebDriver getDriver() {
         return driver.get();
     }
 	
-	@BeforeSuite
+	@BeforeClass
 	public void setupBase() {
 	createChromeDriver();
 	getDriver().get("https://messenger.mekari.com/dashboard");
 	login();
 	}
 	
-	@AfterSuite
+	@AfterClass
 	public void quitBase() {
 		driver.get().close();
 	}

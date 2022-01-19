@@ -45,6 +45,7 @@ public class SearchChatPage extends BasePage {
 		setText(inputSearching, text);
 		ShareUtils.hardWait(5);
 		clickAndWaitByXpath(buttonFilterFrom);
+		ShareUtils.hardWait(2);
 		searchText(filterSelect, select);
 		ShareUtils.hardWait(5);
 	}
@@ -54,6 +55,7 @@ public class SearchChatPage extends BasePage {
 		setText(inputSearching, text);
 		ShareUtils.hardWait(5);
 		clickAndWaitByXpath(buttonFilterPostIn);
+		ShareUtils.hardWait(2);
 		searchText(buttonFilterPostIn, select);
 		ShareUtils.hardWait(5);
 	}
@@ -63,9 +65,11 @@ public class SearchChatPage extends BasePage {
 		setText(inputSearching, text);
 		ShareUtils.hardWait(5);
 		clickAndWaitByXpath(buttonFilterPostIn);
+		ShareUtils.hardWait(2);
 		searchText(buttonFilterPostIn, selectPostIn);
 		ShareUtils.hardWait(5);
 		clickAndWaitByXpath(buttonFilterFrom);
+		ShareUtils.hardWait(2);
 		searchText(filterSelect, selectFrom);
 		ShareUtils.hardWait(5);
 	}

@@ -28,7 +28,7 @@ public class LogoutTest extends BasePage{
 	
 	@Step("# verify berhasil logout")
 	public boolean verifyLogout() {
-		return findElement(textH2);
+		return displayElement(textH2);
 	}
 	
 }

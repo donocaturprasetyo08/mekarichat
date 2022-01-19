@@ -5,11 +5,16 @@ import java.util.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import io.qameta.allure.Attachment;
+import webautomation.mekarichat.utils.ShareUtils;
 
 public class BasePage {
 	
@@ -35,6 +40,11 @@ public class BasePage {
 	protected final void setText(By locator, String text) {
 		explicitWait.get().until(ExpectedConditions.elementToBeClickable(locator));
 		driver.get().findElement(locator).sendKeys(text);
+	}
+	
+	protected final void clearText(By locator) {
+		explicitWait.get().until(ExpectedConditions.elementToBeClickable(locator));
+		driver.get().findElement(locator).clear();
 	}
 
 	protected final String getText(By locator) {
@@ -105,9 +115,10 @@ public class BasePage {
 	}
 	
 	protected final void searchText(By locator, String text) {
-		explicitWait.get().until(ExpectedConditions.elementToBeClickable(locator));
+		//explicitWait.get().until(ExpectedConditions.elementToBeClickable(locator));
 		WebElement element = driver.get().findElement(locator);
 		element.sendKeys(text);
+		ShareUtils.hardWait(2);
 		element.sendKeys(Keys.RETURN);
 	}
 	protected final List<WebElement> getList(By locator) {
@@ -116,11 +127,18 @@ public class BasePage {
 				driver.get().findElements(locator);
 		return listData;
 	}
-	protected final boolean findElement(By locator) {
+	protected final boolean displayElement(By locator) {
 		explicitWait.get().until(ExpectedConditions.elementToBeClickable(locator));
 		return driver.get().findElement(locator).isDisplayed();
 	}
-	
+	protected final boolean selectElement(By locator) {
+		explicitWait.get().until(ExpectedConditions.elementToBeClickable(locator));
+		return driver.get().findElement(locator).isSelected();
+	}
+	protected final boolean enableElement(By locator) {
+		explicitWait.get().until(ExpectedConditions.elementToBeClickable(locator));
+		return driver.get().findElement(locator).isEnabled();
+	}
 	protected final String getAttribute(By locator, String value) {
 		explicitWait.get().until(ExpectedConditions.elementToBeClickable(locator));
 		return driver.get().findElement(locator).getAttribute(value);
@@ -158,5 +176,16 @@ public class BasePage {
 		WebElement input = driver.get().findElement(locator);
     	boolean isEncrypted = input.getAttribute("type").equals("text");
 		return isEncrypted;
+	}
+	
+	protected final void sendText(By locator) {
+		explicitWait.get().until(ExpectedConditions.elementToBeClickable(locator));
+		WebElement element = driver.get().findElement(locator);
+		element.sendKeys(Keys.ENTER);
+	}
+	
+	@Attachment(value = "Screenshot", type = "image/png")
+	public byte[] screenshot() {
+	    return ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
 	}
 }

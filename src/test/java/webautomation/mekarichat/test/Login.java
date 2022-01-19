@@ -10,27 +10,33 @@ import io.qameta.allure.Feature;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
 import io.qameta.allure.Story;
-import webautomation.mekarichat.BaseWebLogin;
+import webautomation.mekarichat.BaseWebDriver;
 import webautomation.mekarichat.TestAllureListener;
 import webautomation.mekarichat.pages.LoginPage;
+import webautomation.mekarichat.pages.LogoutTest;
 import webautomation.mekarichat.utils.DataUtils;
+import webautomation.mekarichat.utils.ShareUtils;
 
 @Listeners({TestAllureListener.class})
 @Epic("Login")
-public class Login extends BaseWebLogin {
+public class Login extends BaseWebDriver {
 
 	LoginPage loginPage = new LoginPage(driver, explicitWait);
+	LogoutTest logoutTest = new LogoutTest(driver, explicitWait);
 	
 	@Severity(SeverityLevel.CRITICAL)	
 	@Description("Verifikasi login dengan email dan password yang benar")
 	@Feature("Test Case ID : MC-001-02")
 	@Story("User login dengan email dan password yang benar")
-	@Test
+	@Test(priority=6)
     public void loginWithValidEmailandPassword()
     {
 		String actualResults = loginPage.getTitlePage();
 		String expectedResults = DataUtils.titlePageLogin;
 		Assert.assertEquals(actualResults, expectedResults);
+		
+		loginPage.clearText();
+		ShareUtils.hardWait(2);
 		
 		String email = DataUtils.emailMekari;
     	String password = DataUtils.passwordMekari;
@@ -45,12 +51,18 @@ public class Login extends BaseWebLogin {
 	@Description("Verifikasi login dengan email yang benar dan password yang salah")
 	@Feature("Test Case ID : MC-001-03")
 	@Story("User login dengan email yang benar dan password yang salah")
-    @Test
+    @Test(priority=1)
     public void loginWithValidEmailandWrongPassword()
     {
+		ShareUtils.hardWait(2);
+    	logoutTest.logOut();
+    	ShareUtils.hardWait(2);
 		String actualResults = loginPage.getTitlePage();
 		String expectedResults = DataUtils.titlePageLogin;
 		Assert.assertEquals(actualResults, expectedResults);
+		
+		loginPage.clearText();
+		ShareUtils.hardWait(2);
 		
 		String email = DataUtils.emailMekari;
     	String password = "12345678";
@@ -64,12 +76,15 @@ public class Login extends BaseWebLogin {
 	@Description("Verifikasi login dengan email salah dan password yang benar")
 	@Feature("Test Case ID : MC-001-04")
 	@Story("User login dengan email yang salah dan password yang benar")
-    @Test
+    @Test(priority=2)
     public void loginWithWrongEmailandValidPassword()
     {
 		String actualResults = loginPage.getTitlePage();
 		String expectedResults = DataUtils.titlePageLogin;
 		Assert.assertEquals(actualResults, expectedResults);
+		
+		loginPage.clearText();
+		ShareUtils.hardWait(2);
 		
 		String email = "abcd@mail.co";
     	String password = DataUtils.passwordMekari;
@@ -83,12 +98,15 @@ public class Login extends BaseWebLogin {
 	@Description("Verifikasi login dengan email dan password yang salah")
 	@Feature("Test Case ID : MC-001-05")
 	@Story("User login dengan email dan password yang salah")
-    @Test
+    @Test(priority=3)
     public void loginWithWrongEmailandPassword()
     {
 		String actualResults = loginPage.getTitlePage();
 		String expectedResults = DataUtils.titlePageLogin;
 		Assert.assertEquals(actualResults, expectedResults);
+		
+		loginPage.clearText();
+		ShareUtils.hardWait(2);
 		
 		String email = "abcd@mail.co";
     	String password = "12345678";
@@ -102,12 +120,15 @@ public class Login extends BaseWebLogin {
 	@Description("User dapat melihat password")
 	@Feature("Test Case ID : MC-001-06")
 	@Story("User melihat password yang diisi")
-	@Test
+	@Test(priority=4)
     public void checkPasswordShowed()
     {
 		String actualResults = loginPage.getTitlePage();
 		String expectedResults = DataUtils.titlePageLogin;
 		Assert.assertEquals(actualResults, expectedResults);
+		
+		loginPage.clearText();
+		ShareUtils.hardWait(2);
 		
     	String password = "12345678";
     	loginPage.setPassword(password);
@@ -120,12 +141,15 @@ public class Login extends BaseWebLogin {
 	@Description("User dapat menyembunyikan password yang diisi")
 	@Feature("Test Case ID : MC-001-07")
 	@Story("User menyembunyikan password yang diisi")
-	@Test
+	@Test(priority=5)
     public void checkPasswordHidden()
     {
 		String actualResults = loginPage.getTitlePage();
 		String expectedResults = DataUtils.titlePageLogin;
 		Assert.assertEquals(actualResults, expectedResults);
+		
+		loginPage.clearText();
+		ShareUtils.hardWait(2);
 		
 		String password = "12345678";
     	loginPage.setPassword(password);

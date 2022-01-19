@@ -1,8 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
-  <test thread-count="5" name="Default test(failed)">
+<suite name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="Test(failed)">
     <classes>
+      <class name="webautomation.mekarichat.test.NewChat">
+        <methods>
+          <include name="setAllureEnvironment"/>
+          <include name="newChat"/>
+          <include name="setupBase"/>
+          <include name="quitBase"/>
+        </methods>
+      </class> <!-- webautomation.mekarichat.test.NewChat -->
+      <class name="webautomation.mekarichat.test.PrivateChat">
+        <methods>
+          <include name="userSendMessage"/>
+          <include name="setAllureEnvironment"/>
+          <include name="userSearchMessageOnChat"/>
+          <include name="userSendImage"/>
+          <include name="setupBase"/>
+          <include name="userSendMessageTextAndEmoji"/>
+          <include name="userSendVideo"/>
+          <include name="userViewProfileContact"/>
+          <include name="quitBase"/>
+          <include name="userStatusLastSeen"/>
+          <include name="userSendDoc"/>
+        </methods>
+      </class> <!-- webautomation.mekarichat.test.PrivateChat -->
       <class name="webautomation.mekarichat.test.Contacts">
         <methods>
           <include name="listContact"/>
@@ -11,6 +34,22 @@
           <include name="quitBase"/>
         </methods>
       </class> <!-- webautomation.mekarichat.test.Contacts -->
+      <class name="webautomation.mekarichat.test.Login">
+        <methods>
+          <include name="setAllureEnvironment"/>
+          <include name="setupBase"/>
+          <include name="checkPasswordShowed"/>
+          <include name="quitBase"/>
+        </methods>
+      </class> <!-- webautomation.mekarichat.test.Login -->
+      <class name="webautomation.mekarichat.test.Channels">
+        <methods>
+          <include name="joinChannel"/>
+          <include name="setAllureEnvironment"/>
+          <include name="setupBase"/>
+          <include name="quitBase"/>
+        </methods>
+      </class> <!-- webautomation.mekarichat.test.Channels -->
     </classes>
-  </test> <!-- Default test(failed) -->
-</suite> <!-- Failed suite [Default suite] -->
+  </test> <!-- Test(failed) -->
+</suite> <!-- Failed suite [Suite] -->

@@ -15,7 +15,7 @@ import io.qameta.allure.SeverityLevel;
 import io.qameta.allure.Story;
 import webautomation.mekarichat.BaseWebDriver;
 import webautomation.mekarichat.TestAllureListener;
-import webautomation.mekarichat.pages.LoginPage;
+import webautomation.mekarichat.navigation.CommonPage;
 import webautomation.mekarichat.pages.SearchChatPage;
 import webautomation.mekarichat.utils.DataUtils;
 import webautomation.mekarichat.utils.ShareUtils;
@@ -24,8 +24,8 @@ import webautomation.mekarichat.utils.ShareUtils;
 @Epic("Search Message")
 public class SearchChat extends BaseWebDriver {
 	
-	LoginPage loginPage = new LoginPage(driver, explicitWait);
 	SearchChatPage searchChat = new SearchChatPage(driver, explicitWait);
+	CommonPage commonPage = new CommonPage(driver, explicitWait);
 	
 	@Severity(SeverityLevel.CRITICAL)	
 	@Description("User akan dapat melakukan pencarian pesan pada Search Message dengan menggunakan filter From")
@@ -33,6 +33,7 @@ public class SearchChat extends BaseWebDriver {
 	@Story("User melakukan pencarian pesan pada Search Message  dengan menggunakan filter From")
 	@Test
 	public void searchOnTabSearchWithFilterFrom() {	
+		commonPage.navigateBrowser("refresh");
     	searchChat.tabsSearch();
     	String expectedResults2 = DataUtils.titleSearchTabs;
     	String actualResults2 = searchChat.getTitleTab();
@@ -73,7 +74,8 @@ public class SearchChat extends BaseWebDriver {
 	@Feature("Test Case ID : MC-006-03")
 	@Story("User melakukan pencarian pesan pada Search Message dengan menggunakan filter Post In")
 	@Test
-    public void searchChatWithFilterPostIn() {    	
+    public void searchChatWithFilterPostIn() { 
+		commonPage.navigateBrowser("refresh");
     	searchChat.tabsSearch();
     	String expectedResults2 = DataUtils.titleSearchTabs;
     	String actualResults2 = searchChat.getTitleTab();
@@ -115,6 +117,7 @@ public class SearchChat extends BaseWebDriver {
 	@Story("User melakukan pencarian pesan pada Search Message tanpa filter")
 	@Test
     public void searchChatWithNoFilter() {
+		commonPage.navigateBrowser("refresh");
     	searchChat.tabsSearch();
     	String expectedResults2 = DataUtils.titleSearchTabs;
     	String actualResults2 = searchChat.getTitleTab();
@@ -155,6 +158,7 @@ public class SearchChat extends BaseWebDriver {
 	@Story("User melakukan pencarian pesan pada Search Message dengan menggunakan filter Post In dan filter From")
 	@Test
     public void searchChatWithFilterPostInAndFrom() {
+		commonPage.navigateBrowser("refresh");
     	searchChat.tabsSearch();
     	String expectedResults2 = DataUtils.titleSearchTabs;
     	String actualResults2 = searchChat.getTitleTab();

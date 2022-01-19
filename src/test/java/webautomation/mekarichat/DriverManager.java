@@ -5,5 +5,4 @@ public interface DriverManager {
 	void quitBase();
 	void setupBase();
 	void setAllureEnvironment();
-	void login();
 }

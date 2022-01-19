@@ -16,6 +16,7 @@ import io.qameta.allure.SeverityLevel;
 import io.qameta.allure.Story;
 import webautomation.mekarichat.BaseWebDriver;
 import webautomation.mekarichat.TestAllureListener;
+import webautomation.mekarichat.navigation.CommonPage;
 import webautomation.mekarichat.pages.ContactPage;
 import webautomation.mekarichat.utils.DataUtils;
 import webautomation.mekarichat.utils.ShareUtils;
@@ -25,6 +26,7 @@ import webautomation.mekarichat.utils.ShareUtils;
 public class Contacts extends BaseWebDriver {
 	
 	ContactPage contactPage = new ContactPage(driver, explicitWait);
+	CommonPage commonPage = new CommonPage(driver, explicitWait);
 	
 	@Severity(SeverityLevel.CRITICAL)	
 	@Description("User akan dapat melihat halaman Contacts Tab: \n"
@@ -37,6 +39,7 @@ public class Contacts extends BaseWebDriver {
 	@Story("User melihat halaman Contacts Tab")
 	@Test
     public void listContact() {
+		commonPage.navigateBrowser("refresh");
     	contactPage.tabsContact();
     	String expectedResults2 = DataUtils.titleContactTabs;
     	String actualResults2 = contactPage.titleContact();
@@ -74,7 +77,8 @@ public class Contacts extends BaseWebDriver {
 	@Feature("Test Case ID : MC-007-02")
 	@Story("User melihat status Online/Offline pada Contact")
 	@Test
-    public void statusOnlineOfflineListContact() {    	
+    public void statusOnlineOfflineListContact() {  
+		commonPage.navigateBrowser("refresh");
     	contactPage.tabsContact();
     	String expectedResults2 = DataUtils.titleContactTabs;
     	String actualResults2 = contactPage.titleContact();
@@ -101,6 +105,7 @@ public class Contacts extends BaseWebDriver {
 	@Story("User melakukan pencarian kontak berdasarkan nama")
 	@Test
     public void searchContactWithName() {
+		commonPage.navigateBrowser("refresh");
     	contactPage.tabsContact();
     	String expectedResults2 = DataUtils.titleContactTabs;
     	String actualResults2 = contactPage.titleContact();
@@ -132,15 +137,14 @@ public class Contacts extends BaseWebDriver {
 	@Description("1. User dapat melakukan pencarian kontak berdasarkan job position\n"
 			+ "2. Result\n"
 			+ " type: pro\n"
-			+ " \n"
 			+ "muncul: \n"
 			+ "Product Manager\n"
-			+ "Project Manager\n"
-			+ "\n")
+			+ "Project Manager\n")
 	@Feature("Test Case ID : MC-007-04")
 	@Story("User melakukan pencarian kontak berdasarkan job position")
 	@Test
     public void searchContactWithJobs() {
+		commonPage.navigateBrowser("refresh");
     	contactPage.tabsContact();
     	String expectedResults2 = DataUtils.titleContactTabs;
     	String actualResults2 = contactPage.titleContact();
@@ -172,7 +176,8 @@ public class Contacts extends BaseWebDriver {
 	@Feature("Test Case ID : MC-007-05")
 	@Story("User mengakses private chat room melalui tab Contacts")
 	@Test
-    public void accessPrivateRoomFromTabsContacts() {   	
+    public void accessPrivateRoomFromTabsContacts() {   
+		commonPage.navigateBrowser("refresh");
     	contactPage.tabsContact();
     	String expectedResults2 = DataUtils.titleContactTabs;
     	String actualResults2 = contactPage.titleContact();

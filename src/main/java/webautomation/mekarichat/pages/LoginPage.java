@@ -38,6 +38,12 @@ public class LoginPage extends BasePage {
 		ShareUtils.hardWait(10);
 	}
 	
+	@Step("# user input password{0}")
+	public void clearText() {
+		clearText(inputEmail);
+		clearText(inputPassword);
+	}
+	
 	@Step("# verifikasi login berhasil")
 	public String getUrlPage() {
 		return getUrl();
@@ -45,7 +51,7 @@ public class LoginPage extends BasePage {
 	
 	@Step("# verifikasi login gagal")
 	public boolean notifFailed() {
-		return findElement(notifMessage);	
+		return displayElement(notifMessage);	
 	}
 	
 	public String getNotif() {

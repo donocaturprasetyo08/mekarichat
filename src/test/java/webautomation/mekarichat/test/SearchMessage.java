@@ -16,7 +16,6 @@ import io.qameta.allure.Story;
 import webautomation.mekarichat.BaseWebDriver;
 import webautomation.mekarichat.TestAllureListener;
 import webautomation.mekarichat.pages.ChatListPage;
-import webautomation.mekarichat.pages.LoginPage;
 import webautomation.mekarichat.pages.SearchMessagePage;
 import webautomation.mekarichat.utils.DataUtils;
 import webautomation.mekarichat.utils.ShareUtils;
@@ -25,7 +24,6 @@ import webautomation.mekarichat.utils.ShareUtils;
 @Epic("Search Message")
 public class SearchMessage extends BaseWebDriver {
 
-	LoginPage loginPage = new LoginPage(driver, explicitWait);
 	SearchMessagePage searchMessage = new SearchMessagePage(driver, explicitWait);
 	ChatListPage chatList = new ChatListPage(driver, explicitWait);
 	

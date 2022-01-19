@@ -37,19 +37,19 @@ public class AccountTabs extends BasePage {
 	@Step("# verify img display")
 	public boolean findElementImg() {
 		ShareUtils.hardWait(2);
-		return findElement(img);
+		return displayElement(img);
 	}
 	
 	@Step("# verify nama display")
 	public boolean findElementNama() {
 		ShareUtils.hardWait(2);
-		return findElement(nama);
+		return displayElement(nama);
 	}
 	
 	@Step("# verify job display")
 	public boolean findElementJobs() {
 		ShareUtils.hardWait(2);
-		return findElement(jobs);
+		return displayElement(jobs);
 	}
 	
 	@Step("# user change profile picture")

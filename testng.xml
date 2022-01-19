@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite" verbose="1">
+  <test name="Test">
+    <classes>
+      <class name="webautomation.mekarichat.test.ChannelChat"/>
+      <class name="webautomation.mekarichat.test.Account"/>
+      <class name="webautomation.mekarichat.test.Channels"/>
+      <class name="webautomation.mekarichat.test.ChatList"/>
+      <class name="webautomation.mekarichat.test.Contacts"/>
+      <class name="webautomation.mekarichat.test.NewChat"/>
+      <class name="webautomation.mekarichat.test.PrivateChat"/>
+      <class name="webautomation.mekarichat.test.SearchChat"/>
+      <class name="webautomation.mekarichat.test.SearchMessage"/>
+      <class name="webautomation.mekarichat.test.Logout"/>
+      <class name="webautomation.mekarichat.test.Login"/>
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->

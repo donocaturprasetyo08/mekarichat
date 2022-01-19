@@ -1,6 +1,7 @@
 package webautomation.mekarichat.test;
 
 import org.testng.Assert;
+
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
@@ -13,6 +14,7 @@ import io.qameta.allure.Story;
 import webautomation.mekarichat.BaseWebDriver;
 import webautomation.mekarichat.TestAllureListener;
 import webautomation.mekarichat.pages.AccountTabs;
+
 import webautomation.mekarichat.utils.DataUtils;
 import webautomation.mekarichat.utils.ShareUtils;
 
@@ -20,7 +22,7 @@ import webautomation.mekarichat.utils.ShareUtils;
 @Epic("Account")
 public class Account extends BaseWebDriver {
 	AccountTabs account = new AccountTabs(driver, explicitWait);
-
+	
 	@Severity(SeverityLevel.CRITICAL)	
 	@Description("User akan dapat melihat Info Akun : \n"
 			+ "1. Foto Profile \n"

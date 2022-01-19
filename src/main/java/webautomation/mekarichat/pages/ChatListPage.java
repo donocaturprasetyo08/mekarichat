@@ -45,7 +45,7 @@ public class ChatListPage extends BasePage {
 	
 	@Step("# Verify pin chat")
 	public boolean findPinImage() {
-		return findElement(pinImage);
+		return displayElement(pinImage);
 	}
 	
 	@Step("# verify status online/offline : {0}")

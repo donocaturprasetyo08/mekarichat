@@ -15,7 +15,6 @@ import io.qameta.allure.SeverityLevel;
 import io.qameta.allure.Story;
 import webautomation.mekarichat.BaseWebDriver;
 import webautomation.mekarichat.TestAllureListener;
-import webautomation.mekarichat.pages.LoginPage;
 import webautomation.mekarichat.pages.PrivateChatPage;
 import webautomation.mekarichat.utils.DataUtils;
 import webautomation.mekarichat.utils.ShareUtils;
@@ -25,7 +24,6 @@ import org.openqa.selenium.support.Color;
 @Epic("Private Chat")
 public class PrivateChat extends BaseWebDriver {
 	
-	LoginPage loginPage = new LoginPage(driver, explicitWait);
 	PrivateChatPage privateChat = new PrivateChatPage(driver, explicitWait);
 	
 	@Severity(SeverityLevel.CRITICAL)	
@@ -45,6 +43,37 @@ public class PrivateChat extends BaseWebDriver {
 		ShareUtils.hardWait(3);
 		boolean verifyMessage = privateChat.verifyMessage();
 		Assert.assertTrue(verifyMessage);
+		
+		ShareUtils.hardWait(2);
+		privateChat.screenShootAfterTest();
+	}
+	
+	@Severity(SeverityLevel.CRITICAL)	
+	@Description("User akan dapat mengirim pesan text dan emoji")
+	@Feature("Test Case ID : MC-04-02")
+	@Story("User mengirim pesan text dan emoji")
+	@Test
+	public void userSendMessageTextAndEmoji() {
+		privateChat.tabChatList();
+		ShareUtils.hardWait(2);
+		
+		privateChat.chatRoom();
+		ShareUtils.hardWait(2);
+		
+		String text = DataUtils.sendMessage;
+		privateChat.inputMessageText(text);
+		
+		ShareUtils.hardWait(2);
+		privateChat.inputEmoji();
+		
+		ShareUtils.hardWait(2);
+		privateChat.sendText();
+		
+		ShareUtils.hardWait(2);
+		Assert.assertTrue(privateChat.verifyMessageEmoji());
+		
+		ShareUtils.hardWait(2);
+		privateChat.screenShootAfterTest();
 	}
 	
 	@Severity(SeverityLevel.CRITICAL)	
@@ -72,6 +101,9 @@ public class PrivateChat extends BaseWebDriver {
 		String contains = "testUpload.png";
 		boolean uploaded = privateChat.verifyPictureUploaded(value, contains);
 		Assert.assertTrue(uploaded);
+		
+		ShareUtils.hardWait(2);
+		privateChat.screenShootAfterTest();
 	}
 	
 	@Severity(SeverityLevel.CRITICAL)	
@@ -111,6 +143,38 @@ public class PrivateChat extends BaseWebDriver {
 		
 		boolean verifyStatusVideoPenerima = privateChat.statusVideoPenerima();
 		Assert.assertFalse(verifyStatusVideoPenerima);
+		
+		ShareUtils.hardWait(2);
+		privateChat.screenShootAfterTest();
+	}
+	
+	@Severity(SeverityLevel.CRITICAL)	
+	@Description("User dapat mengirim dokumen/file (untuk saat ini tidak ada batasan ekstensi)")
+	@Feature("Test Case ID : MC-04-05")
+	@Story("User mengirim pesan dokumen(ex:.ppt, .docx, .xlsx, etc)")
+	@Test
+	public void userSendDoc() {	
+		privateChat.tabChatList();
+		ShareUtils.hardWait(2);
+		privateChat.chatRoom();
+		ShareUtils.hardWait(5);
+		
+		List<String> doc = DataUtils.fileDoc;
+		for(int i = 0; i<doc.size();i++) {
+			privateChat.upload(doc.get(i));
+			ShareUtils.hardWait(2);
+			boolean verifyDoc = privateChat.previewDoc();
+			try {
+				Assert.assertTrue(verifyDoc);
+			}catch (Exception e) {
+				System.out.println("Can not preview");
+			}
+			privateChat.send();
+			ShareUtils.hardWait(5);
+		}
+		
+		ShareUtils.hardWait(2);
+		privateChat.screenShootAfterTest();
 	}
 	
 	@Severity(SeverityLevel.CRITICAL)	
@@ -151,6 +215,9 @@ public class PrivateChat extends BaseWebDriver {
 		} catch (Exception e) {
 			System.out.println(privateChat.getMessage());
 		}
+		
+		ShareUtils.hardWait(2);
+		privateChat.screenShootAfterTest();
 	}
 	
 	@Severity(SeverityLevel.CRITICAL)	
@@ -167,6 +234,9 @@ public class PrivateChat extends BaseWebDriver {
 		
 		boolean lastSeen = privateChat.lastSeen();
 		Assert.assertTrue(lastSeen);
+		
+		ShareUtils.hardWait(2);
+		privateChat.screenShootAfterTest();
 	}
 	
 	@Severity(SeverityLevel.CRITICAL)	
@@ -216,9 +286,13 @@ public class PrivateChat extends BaseWebDriver {
 			System.out.println("Media list is not found");
 		}
 		
+		ShareUtils.hardWait(2);
+		privateChat.screenShootAfterTest();
+		
 		privateChat.profileImg();
 		ShareUtils.hardWait(2);
 		boolean imgProfie = privateChat.imgLoaded();
 		Assert.assertTrue(imgProfie);
+		
 	}
 }

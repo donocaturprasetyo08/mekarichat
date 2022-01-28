@@ -13,7 +13,7 @@ import io.qameta.allure.Story;
 import webautomation.mekarichat.BaseWebDriver;
 import webautomation.mekarichat.TestAllureListener;
 import webautomation.mekarichat.pages.LogoutTest;
-import webautomation.mekarichat.utils.ShareUtils;
+import webautomation.mekarichat.utils.TimesUtils;
 
 @Listeners({TestAllureListener.class})
 @Epic("Logout")
@@ -28,9 +28,9 @@ public class Logout extends BaseWebDriver{
     @Test
     public void logoutFromMekariChat()
     {
-    	ShareUtils.hardWait(5);
+    	TimesUtils.hardWait(5);
     	logoutTest.logOut();
-    	ShareUtils.hardWait(5);
+    	TimesUtils.hardWait(5);
     	boolean actualResults2 = logoutTest.verifyLogout();
     	Assert.assertTrue(actualResults2);
     }

@@ -6,7 +6,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import io.qameta.allure.Step;
 import webautomation.mekarichat.navigation.BasePage;
-import webautomation.mekarichat.utils.ShareUtils;
+import webautomation.mekarichat.utils.TimesUtils;
 
 public class ChatListPage extends BasePage {
 	
@@ -32,14 +32,14 @@ public class ChatListPage extends BasePage {
 	@Step("# user melakukan pin chat")
 	public void pinChat() {
 		clickAndWaitByJavaScript(dropdownChat);
-		ShareUtils.hardWait(3);
+		TimesUtils.hardWait(3);
 		clickAndWaitByJavaScript(pinChat);
 	}
 	
 	@Step("# user melakukan unpin chat")
 	public void unpinChat() {
 		clickAndWaitByJavaScript(dropdownChat);
-		ShareUtils.hardWait(3);
+		TimesUtils.hardWait(3);
 		clickAndWaitByJavaScript(unpinChat);
 	}
 	

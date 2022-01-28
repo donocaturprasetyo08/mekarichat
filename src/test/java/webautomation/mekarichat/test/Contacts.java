@@ -18,8 +18,8 @@ import webautomation.mekarichat.BaseWebDriver;
 import webautomation.mekarichat.TestAllureListener;
 import webautomation.mekarichat.navigation.CommonPage;
 import webautomation.mekarichat.pages.ContactPage;
-import webautomation.mekarichat.utils.DataUtils;
-import webautomation.mekarichat.utils.ShareUtils;
+import webautomation.mekarichat.utils.TestData;
+import webautomation.mekarichat.utils.TimesUtils;
 
 @Listeners({TestAllureListener.class})
 @Epic("Contacts")
@@ -41,7 +41,7 @@ public class Contacts extends BaseWebDriver {
     public void listContact() {
 		commonPage.navigateBrowser("refresh");
     	contactPage.tabsContact();
-    	String expectedResults2 = DataUtils.titleContactTabs;
+    	String expectedResults2 = TestData.titleContactTabs;
     	String actualResults2 = contactPage.titleContact();
     	Assert.assertEquals(actualResults2, expectedResults2);
     	
@@ -80,7 +80,7 @@ public class Contacts extends BaseWebDriver {
     public void statusOnlineOfflineListContact() {  
 		commonPage.navigateBrowser("refresh");
     	contactPage.tabsContact();
-    	String expectedResults2 = DataUtils.titleContactTabs;
+    	String expectedResults2 = TestData.titleContactTabs;
     	String actualResults2 = contactPage.titleContact();
     	Assert.assertEquals(actualResults2, expectedResults2);
     	
@@ -107,14 +107,14 @@ public class Contacts extends BaseWebDriver {
     public void searchContactWithName() {
 		commonPage.navigateBrowser("refresh");
     	contactPage.tabsContact();
-    	String expectedResults2 = DataUtils.titleContactTabs;
+    	String expectedResults2 = TestData.titleContactTabs;
     	String actualResults2 = contactPage.titleContact();
     	Assert.assertEquals(actualResults2, expectedResults2);
     	
     	String text = "den";
     	contactPage.searchText(text);
     	
-    	ShareUtils.hardWait(5);
+    	TimesUtils.hardWait(5);
     	List<WebElement> listData;
 		try {
 			listData = contactPage.listName();
@@ -146,13 +146,13 @@ public class Contacts extends BaseWebDriver {
     public void searchContactWithJobs() {
 		commonPage.navigateBrowser("refresh");
     	contactPage.tabsContact();
-    	String expectedResults2 = DataUtils.titleContactTabs;
+    	String expectedResults2 = TestData.titleContactTabs;
     	String actualResults2 = contactPage.titleContact();
     	Assert.assertEquals(actualResults2, expectedResults2);
     	
     	String text = "pro";
     	contactPage.searchText(text);
-    	ShareUtils.hardWait(5);
+    	TimesUtils.hardWait(5);
     	List<WebElement> listData;
 		try {
 			listData = contactPage.listJobs();
@@ -179,13 +179,13 @@ public class Contacts extends BaseWebDriver {
     public void accessPrivateRoomFromTabsContacts() {   
 		commonPage.navigateBrowser("refresh");
     	contactPage.tabsContact();
-    	String expectedResults2 = DataUtils.titleContactTabs;
+    	String expectedResults2 = TestData.titleContactTabs;
     	String actualResults2 = contactPage.titleContact();
     	Assert.assertEquals(actualResults2, expectedResults2);
     	
     	String text = "delta";
     	contactPage.searchText(text);
-    	ShareUtils.hardWait(2);
+    	TimesUtils.hardWait(2);
     	
     	contactPage.listChat();
     	boolean startChat = contactPage.getStartChat();

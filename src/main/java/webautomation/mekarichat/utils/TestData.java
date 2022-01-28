@@ -3,7 +3,7 @@ package webautomation.mekarichat.utils;
 import java.util.Arrays;
 import java.util.List;
 
-public class DataUtils {
+public class TestData {
 	public static final String titlePageLogin = "Mekari Account";
 	public static final String emailMekari = "donocatur@qiscus.cx";
 	public static final String passwordMekari = "tanpapassword08";
@@ -29,6 +29,22 @@ public class DataUtils {
 	public static final String titleAccountTabs = "Account";
 	public static final String titleContactTabs = "Contacts";
 	
-	public static final String sendMessage = "Hello Test 9234";
+	public static final String sendMessage = "Hello Test "+randomAngka();
 	public static final String emoji = "monkey";
+	
+	public static final String nameChannel = "test";
+	public static final String channelType = "Private channel";
+	public static final String channelTypes = "Private Channel";
+	public static final String whoInvite = "Admin";
+	public static final String changeNameChannel = "group test";
+	public static final String changeChannelType = "Public channel";
+	public static final String changeChannelTypes = "Public Channel";
+	public static final String changeWhoInvite = "Everyone";
+	public static final String changePurpose = "hello world 2022";
+	
+	public static String randomAngka() {
+		int i = ((int)(Math.random()*9000)+1000);
+		String s=Integer.toString(i);
+		return s;
+	}
 }

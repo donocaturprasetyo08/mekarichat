@@ -6,7 +6,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import io.qameta.allure.Step;
 import webautomation.mekarichat.navigation.BasePage;
-import webautomation.mekarichat.utils.ShareUtils;
+import webautomation.mekarichat.utils.TimesUtils;
 
 public class LogoutTest extends BasePage{
 	
@@ -22,7 +22,7 @@ public class LogoutTest extends BasePage{
 	@Step("# user melakukan logout")
 	public void logOut() {
 		clickAndWaitByXpath(tabMenu);
-		ShareUtils.hardWait(5);
+		TimesUtils.hardWait(5);
 		clickAndWaitByXpath(signOut);
 	}
 	

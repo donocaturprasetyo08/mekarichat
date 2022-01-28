@@ -13,8 +13,8 @@ import io.qameta.allure.Story;
 import webautomation.mekarichat.BaseWebDriver;
 import webautomation.mekarichat.TestAllureListener;
 import webautomation.mekarichat.pages.ChatListPage;
-import webautomation.mekarichat.utils.DataUtils;
-import webautomation.mekarichat.utils.ShareUtils;
+import webautomation.mekarichat.utils.TestData;
+import webautomation.mekarichat.utils.TimesUtils;
 
 @Listeners({TestAllureListener.class})
 @Epic("Chat List")
@@ -29,9 +29,9 @@ public class ChatList extends BaseWebDriver{
     @Test
     public void checkStatusChatOnlineOffline() {
 		chatList.tabChatList();
-		ShareUtils.hardWait(2);
+		TimesUtils.hardWait(2);
     	
-    	String expectedResults2 = DataUtils.titleChatTabs;
+    	String expectedResults2 = TestData.titleChatTabs;
     	String actualResults2 = chatList.titleTabChat();
     	Assert.assertEquals(expectedResults2, actualResults2);
     	
@@ -55,21 +55,21 @@ public class ChatList extends BaseWebDriver{
 	@Test
     public void pinTest() {
 		chatList.tabChatList();
-		ShareUtils.hardWait(2);
+		TimesUtils.hardWait(2);
     	
-    	String expectedResults2 = DataUtils.titleChatTabs;
+    	String expectedResults2 = TestData.titleChatTabs;
     	String actualResults2 = chatList.titleTabChat();
     	Assert.assertEquals(expectedResults2, actualResults2);
     	
-    	ShareUtils.hardWait(5);
+    	TimesUtils.hardWait(5);
     	chatList.pinChat();
-    	ShareUtils.hardWait(5);
+    	TimesUtils.hardWait(5);
     	
     	boolean checkPin = chatList.findPinImage();
     	Assert.assertTrue(checkPin);
     	
-    	ShareUtils.hardWait(5);
+    	TimesUtils.hardWait(5);
     	chatList.unpinChat();
-    	ShareUtils.hardWait(3);
+    	TimesUtils.hardWait(3);
     }
 }

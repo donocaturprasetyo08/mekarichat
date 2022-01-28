@@ -13,8 +13,8 @@ import io.qameta.allure.Story;
 import webautomation.mekarichat.BaseWebDriver;
 import webautomation.mekarichat.TestAllureListener;
 import webautomation.mekarichat.pages.NewChatTabs;
-import webautomation.mekarichat.utils.DataUtils;
-import webautomation.mekarichat.utils.ShareUtils;
+import webautomation.mekarichat.utils.TestData;
+import webautomation.mekarichat.utils.TimesUtils;
 
 @Listeners({TestAllureListener.class})
 @Epic("New Chat")
@@ -29,18 +29,18 @@ public class NewChat extends BaseWebDriver{
 	@Test
 	public void newChat() {	
     	newChat.tabsNewChat();
-    	ShareUtils.hardWait(2);
+    	TimesUtils.hardWait(2);
     	
     	String select = "deni istika";
     	newChat.selectTo(select);
     	
-    	ShareUtils.hardWait(2);
+    	TimesUtils.hardWait(2);
     	boolean selectTo = newChat.verifySelect();
     	Assert.assertTrue(selectTo);
 
-    	String text = DataUtils.sendMessage;
+    	String text = TestData.sendMessage;
     	newChat.sendMessage(text);
-    	ShareUtils.hardWait(8);
+    	TimesUtils.hardWait(8);
     	
     	boolean verifyMessage = newChat.verifyMessage();
 		Assert.assertTrue(verifyMessage);

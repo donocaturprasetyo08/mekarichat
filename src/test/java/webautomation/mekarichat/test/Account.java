@@ -15,8 +15,8 @@ import webautomation.mekarichat.BaseWebDriver;
 import webautomation.mekarichat.TestAllureListener;
 import webautomation.mekarichat.pages.AccountTabs;
 
-import webautomation.mekarichat.utils.DataUtils;
-import webautomation.mekarichat.utils.ShareUtils;
+import webautomation.mekarichat.utils.TestData;
+import webautomation.mekarichat.utils.TimesUtils;
 
 @Listeners({TestAllureListener.class})
 @Epic("Account")
@@ -33,7 +33,7 @@ public class Account extends BaseWebDriver {
 	@Test
 	public void infoAccount() {   	
     	account.accountTabs();
-    	String expectedResults2 = DataUtils.titleAccountTabs;
+    	String expectedResults2 = TestData.titleAccountTabs;
     	String actualResults2 = account.titleAccountTabs();
     	Assert.assertEquals(actualResults2, expectedResults2);
     	
@@ -45,6 +45,8 @@ public class Account extends BaseWebDriver {
 		
 		boolean jobs = account.findElementJobs();
 		Assert.assertTrue(jobs);
+		
+		account.afterTest();
 	}
 	
 	@Severity(SeverityLevel.CRITICAL)	
@@ -54,22 +56,22 @@ public class Account extends BaseWebDriver {
 	@Test
 	public void changeProfileAccount() {  	
     	account.accountTabs();
-    	String expectedResults2 = DataUtils.titleAccountTabs;
+    	String expectedResults2 = TestData.titleAccountTabs;
     	String actualResults2 = account.titleAccountTabs();
     	Assert.assertEquals(actualResults2, expectedResults2);
 		
-		String location = DataUtils.fotoProfile;
+		String location = TestData.fotoProfile;
 		account.changePicture(location);
 		
-		ShareUtils.hardWait(3);
+		TimesUtils.hardWait(3);
 		String value = "src";
 		String contains = "testUpload.png";
 		boolean uploaded = account.verifyPictureUploaded(value, contains);
 		Assert.assertTrue(uploaded);
 		
-		String location1 = DataUtils.fotoProfileOri;
+		String location1 = TestData.fotoProfileOri;
 		account.changePicture(location1);
-		ShareUtils.hardWait(2);
+		TimesUtils.hardWait(2);
 		
 		
 	}

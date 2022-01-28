@@ -9,8 +9,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import io.qameta.allure.Step;
 import webautomation.mekarichat.navigation.BasePage;
-import webautomation.mekarichat.utils.DataUtils;
-import webautomation.mekarichat.utils.ShareUtils;
+import webautomation.mekarichat.utils.TestData;
+import webautomation.mekarichat.utils.TimesUtils;
 
 public class ChannelsTabs extends BasePage {
 	
@@ -32,7 +32,7 @@ public class ChannelsTabs extends BasePage {
 	By titleChannel = By.xpath("//div[normalize-space()='Halo Jumat']");
 	
 	By buttonEmoji = By.xpath("//img[@class='emoji cursor-pointer']");
-	By emoji = By.xpath("//button[@title='"+DataUtils.emoji+"']");
+	By emoji = By.xpath("//button[@title='"+TestData.emoji+"']");
 	
 	By img = By.xpath("//img[@class='c-attachment-preview__file c-attachment-preview__file--image rounded-top rounded-bottom']");
 	By uploadPicture = By.xpath("//input[@id='chat-room-attach']");
@@ -45,17 +45,20 @@ public class ChannelsTabs extends BasePage {
 	By buttonDot = By.xpath("//span[@class='ic ic-small ic-kebab']");
 	By channelInfo = By.xpath("//a[normalize-space()='Channel info']");
 	By searchChat = By.xpath("//a[normalize-space()='Search chat']");
+	By inviteTo = By.xpath("//a[normalize-space()='Invite to channel']");
+	
 	By buttonLeave = By.xpath("//span[@class='text-danger font-weight-bold']");
 	By buttonConfirmLeave = By.xpath("//button[@id='confirmButtonModal']");
 	By inputSearchChat = By.xpath("//input[@id='inputSearchChat']");
 	By keyword = By.xpath("//span[@class='bg-info']");
 	By message = By.xpath("//span[@class='text-slate']");
 	
-	By testChannel = By.xpath("//span[normalize-space()='test']");
+	By testChannel = By.xpath("//span[normalize-space()='"+TestData.nameChannel+"']");
 	By inputText = By.xpath("//div[@id='customINputMessageForChannel']");
-	By verifyText = By.xpath("//span[normalize-space()='"+DataUtils.sendMessage+"']");
+	By verifyText = By.xpath("//span[normalize-space()='"+TestData.sendMessage+"']");
 	
 	By titleChannelSearch = By.xpath("//div[@class='flex-row d-flex align-items-center justify-content-center cursor-pointer margin-vertical-small channel-list-your-channel-test']//span[@class='text-truncate']");
+
 	
 	public ChannelsTabs(ThreadLocal<WebDriver> driver, ThreadLocal<WebDriverWait> explicitWait) {
 		super(driver, explicitWait);
@@ -117,7 +120,7 @@ public class ChannelsTabs extends BasePage {
 	@Step("# user melakukan join channel")
 	public void joinChannel() {
 		clickAndWaitByXpath(generalChannel);
-		ShareUtils.hardWait(2);
+		TimesUtils.hardWait(2);
 		clickAndWaitByJavaScript(buttonJoin);
 	}
 	
@@ -136,9 +139,9 @@ public class ChannelsTabs extends BasePage {
 	public void leaveGroup() {
 		clickAndWaitByXpath(buttonDot);
 		clickAndWaitByJavaScript(channelInfo);
-		ShareUtils.hardWait(2);
+		TimesUtils.hardWait(2);
 		clickAndWaitByJavaScript(buttonLeave);
-		ShareUtils.hardWait(2);
+		TimesUtils.hardWait(2);
 		clickAndWaitByJavaScript(buttonConfirmLeave);
 	}
 	
@@ -163,7 +166,7 @@ public class ChannelsTabs extends BasePage {
 	@Step("# user input emoji")
 	public void inputEmoji() {
 		clickAndWaitByXpath(buttonEmoji);
-		ShareUtils.hardWait(2);
+		TimesUtils.hardWait(2);
 		clickAndWaitByJavaScript(emoji);
 	}
 	@Step("# user send text and emoji")
@@ -174,7 +177,7 @@ public class ChannelsTabs extends BasePage {
 	@Step("# user upload picture")
 	public void upload(String location) {
 		uploadPicture(uploadPicture, location);
-		ShareUtils.hardWait(3);
+		TimesUtils.hardWait(3);
 	}
 	@Step("# verify preview picture can display")
 	public boolean preview() {
@@ -204,10 +207,17 @@ public class ChannelsTabs extends BasePage {
 	public boolean previewDoc() {
 		return displayElement(doc);
 	}
+	@Step("# click more dot - search chat on header")
 	public void searchChatOnGroup() {
 		clickAndWaitByXpath(buttonDot);
 		clickAndWaitByJavaScript(searchChat);
-		ShareUtils.hardWait(2);
+		TimesUtils.hardWait(2);
+	}
+	@Step("# click more dot - channel info on header")
+	public void channelInfoChats() {
+		clickAndWaitByXpath(buttonDot);
+		clickAndWaitByJavaScript(channelInfo);
+		TimesUtils.hardWait(2);
 	}
 	@Step("# user melakukan pencarian dengan kata : {0}")
 	public void searchChatChannel(String text) {
@@ -220,5 +230,13 @@ public class ChannelsTabs extends BasePage {
 	@Step("# verify result search")
 	public List<WebElement> getList(){
 		return getList(keyword);
+	}
+	@Step("# verify url profile picture")
+	public boolean verifyPictureUrl(String value, String contains) {
+		return getAttributeVerify(img, value, contains);
+	}
+	@Step("# verify profile picture displayed")
+	public boolean verifyPictureDisplayed() {
+		return displayElement(img);
 	}
 }

@@ -37,6 +37,14 @@ public class CommonPage extends BasePage {
 		JavascriptExecutor js = (JavascriptExecutor) driver.get();
 		js.executeScript(inputCommand);
 	}
+	public void scrollDown() {
+		JavascriptExecutor js = (JavascriptExecutor) driver.get();
+		js.executeScript("window.scrollBy(0,250)");
+	}
+	public void scrollUp() {
+		JavascriptExecutor js = (JavascriptExecutor) driver.get();
+		js.executeScript("window.scrollBy(0,-250)");
+	}
 	public void acceptAlert() {
 		driver.get().switchTo().alert().accept();
 	}

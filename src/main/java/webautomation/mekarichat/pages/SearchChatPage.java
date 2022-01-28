@@ -9,7 +9,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import io.qameta.allure.Step;
 import webautomation.mekarichat.navigation.BasePage;
-import webautomation.mekarichat.utils.ShareUtils;
+import webautomation.mekarichat.utils.TimesUtils;
 
 public class SearchChatPage extends BasePage {
 	
@@ -43,41 +43,41 @@ public class SearchChatPage extends BasePage {
 	@Step("# user melakukan pencarian dengan kata: {0} dan filter form : {1}")
 	public void searchChatFilterFrom(String text, String select) {
 		setText(inputSearching, text);
-		ShareUtils.hardWait(5);
+		TimesUtils.hardWait(5);
 		clickAndWaitByXpath(buttonFilterFrom);
-		ShareUtils.hardWait(2);
+		TimesUtils.hardWait(2);
 		searchText(filterSelect, select);
-		ShareUtils.hardWait(5);
+		TimesUtils.hardWait(5);
 	}
 
 	@Step("# user melakukan pencarian dengan kata: {0} dan filter post in : {1}")
 	public void searchChatFilterPostIn(String text, String select) {
 		setText(inputSearching, text);
-		ShareUtils.hardWait(5);
+		TimesUtils.hardWait(5);
 		clickAndWaitByXpath(buttonFilterPostIn);
-		ShareUtils.hardWait(2);
+		TimesUtils.hardWait(2);
 		searchText(buttonFilterPostIn, select);
-		ShareUtils.hardWait(5);
+		TimesUtils.hardWait(5);
 	}
 	
 	@Step("# user melakukan pencarian dengan kata: {0}, filter post in : {1} dan filter from : {2}")
 	public void searchChatFilterFromAndPostIn(String text, String selectPostIn, String selectFrom) {
 		setText(inputSearching, text);
-		ShareUtils.hardWait(5);
+		TimesUtils.hardWait(5);
 		clickAndWaitByXpath(buttonFilterPostIn);
-		ShareUtils.hardWait(2);
+		TimesUtils.hardWait(2);
 		searchText(buttonFilterPostIn, selectPostIn);
-		ShareUtils.hardWait(5);
+		TimesUtils.hardWait(5);
 		clickAndWaitByXpath(buttonFilterFrom);
-		ShareUtils.hardWait(2);
+		TimesUtils.hardWait(2);
 		searchText(filterSelect, selectFrom);
-		ShareUtils.hardWait(5);
+		TimesUtils.hardWait(5);
 	}
 	
 	@Step("# user melakukan pencarian dengan kata: {0}")
 	public void searchChatNoFilter(String text) {
 		setText(inputSearching, text);
-		ShareUtils.hardWait(5);
+		TimesUtils.hardWait(5);
 	}
 	
 	public List<WebElement> listSearchChat() {

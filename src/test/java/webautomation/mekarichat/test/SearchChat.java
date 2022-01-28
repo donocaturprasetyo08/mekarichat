@@ -17,8 +17,8 @@ import webautomation.mekarichat.BaseWebDriver;
 import webautomation.mekarichat.TestAllureListener;
 import webautomation.mekarichat.navigation.CommonPage;
 import webautomation.mekarichat.pages.SearchChatPage;
-import webautomation.mekarichat.utils.DataUtils;
-import webautomation.mekarichat.utils.ShareUtils;
+import webautomation.mekarichat.utils.TestData;
+import webautomation.mekarichat.utils.TimesUtils;
 
 @Listeners({TestAllureListener.class})
 @Epic("Search Message")
@@ -35,17 +35,17 @@ public class SearchChat extends BaseWebDriver {
 	public void searchOnTabSearchWithFilterFrom() {	
 		commonPage.navigateBrowser("refresh");
     	searchChat.tabsSearch();
-    	String expectedResults2 = DataUtils.titleSearchTabs;
+    	String expectedResults2 = TestData.titleSearchTabs;
     	String actualResults2 = searchChat.getTitleTab();
     	Assert.assertEquals(actualResults2, expectedResults2);
-    	ShareUtils.hardWait(3);
+    	TimesUtils.hardWait(3);
     	
     	String text = "test";
     	String select = "deni";
     	searchChat.searchChatFilterFrom(text, select);
     	
     	//Filter Chat From
-    	ShareUtils.hardWait(5);
+    	TimesUtils.hardWait(5);
     	List<WebElement> listChat;
 		try {
 			listChat = searchChat.listSearchChat();
@@ -77,17 +77,17 @@ public class SearchChat extends BaseWebDriver {
     public void searchChatWithFilterPostIn() { 
 		commonPage.navigateBrowser("refresh");
     	searchChat.tabsSearch();
-    	String expectedResults2 = DataUtils.titleSearchTabs;
+    	String expectedResults2 = TestData.titleSearchTabs;
     	String actualResults2 = searchChat.getTitleTab();
     	Assert.assertEquals(actualResults2, expectedResults2);
-    	ShareUtils.hardWait(3);
+    	TimesUtils.hardWait(3);
     	
     	String text = "test";
     	String select = "General Channel";
     	searchChat.searchChatFilterPostIn(text, select);
     	
     	//Filter Chat From
-    	ShareUtils.hardWait(5);
+    	TimesUtils.hardWait(5);
     	List<WebElement> listChat;
 		try {
 			listChat = searchChat.listSearchChat();
@@ -119,16 +119,16 @@ public class SearchChat extends BaseWebDriver {
     public void searchChatWithNoFilter() {
 		commonPage.navigateBrowser("refresh");
     	searchChat.tabsSearch();
-    	String expectedResults2 = DataUtils.titleSearchTabs;
+    	String expectedResults2 = TestData.titleSearchTabs;
     	String actualResults2 = searchChat.getTitleTab();
     	Assert.assertEquals(actualResults2, expectedResults2);
-    	ShareUtils.hardWait(3);
+    	TimesUtils.hardWait(3);
     	
     	String text = "test";
     	searchChat.searchChatNoFilter(text);
     	
     	//Filter Chat From
-    	ShareUtils.hardWait(5);
+    	TimesUtils.hardWait(5);
     	List<WebElement> listChat;
 		try {
 			listChat = searchChat.listSearchChat();
@@ -160,10 +160,10 @@ public class SearchChat extends BaseWebDriver {
     public void searchChatWithFilterPostInAndFrom() {
 		commonPage.navigateBrowser("refresh");
     	searchChat.tabsSearch();
-    	String expectedResults2 = DataUtils.titleSearchTabs;
+    	String expectedResults2 = TestData.titleSearchTabs;
     	String actualResults2 = searchChat.getTitleTab();
     	Assert.assertEquals(actualResults2, expectedResults2);
-    	ShareUtils.hardWait(3);
+    	TimesUtils.hardWait(3);
     	
     	String text = "test";
     	String selectPostIn = "General Channel";
@@ -171,7 +171,7 @@ public class SearchChat extends BaseWebDriver {
     	searchChat.searchChatFilterFromAndPostIn(text, selectPostIn, selectFrom);
     	
     	//Filter Chat From
-    	ShareUtils.hardWait(5);
+    	TimesUtils.hardWait(5);
     	List<WebElement> listChat;
 		try {
 			listChat = searchChat.listSearchChat();

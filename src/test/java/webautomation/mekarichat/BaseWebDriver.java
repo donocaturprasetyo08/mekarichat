@@ -18,7 +18,7 @@ import com.google.common.collect.ImmutableMap;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import webautomation.mekarichat.pages.LoginPage;
-import webautomation.mekarichat.utils.DataUtils;
+import webautomation.mekarichat.utils.TestData;
 
 import static com.github.automatedowl.tools.AllureEnvironmentWriter.allureEnvironmentWriter;
 
@@ -30,8 +30,8 @@ public class BaseWebDriver implements DriverManager {
 	
 
 	public void login() {
-		String email = DataUtils.emailMekari;
-    	String password = DataUtils.passwordMekari;
+		String email = TestData.emailMekari;
+    	String password = TestData.passwordMekari;
     	loginPage.inputEmailPassword(email, password);
 	}
 	

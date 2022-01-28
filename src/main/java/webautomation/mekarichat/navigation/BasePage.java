@@ -9,12 +9,13 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import io.qameta.allure.Attachment;
-import webautomation.mekarichat.utils.ShareUtils;
+import webautomation.mekarichat.utils.TimesUtils;
 
 public class BasePage {
 	
@@ -41,7 +42,11 @@ public class BasePage {
 		explicitWait.get().until(ExpectedConditions.elementToBeClickable(locator));
 		driver.get().findElement(locator).sendKeys(text);
 	}
-	
+	protected final void changeText(By locator, String text) {
+		explicitWait.get().until(ExpectedConditions.elementToBeClickable(locator));
+		driver.get().findElement(locator).clear();
+		driver.get().findElement(locator).sendKeys(text);
+	}
 	protected final void clearText(By locator) {
 		explicitWait.get().until(ExpectedConditions.elementToBeClickable(locator));
 		driver.get().findElement(locator).clear();
@@ -92,8 +97,17 @@ public class BasePage {
 		element.sendKeys(location);
 		js.executeScript("arguments[0].style.display='none!important';", element);	
 	}
-	
-	protected final void selectFromOptions(By locator, String select) {
+	protected final void changeVisibility(By locator) {
+		WebElement element = driver.get().findElement(locator);
+		JavascriptExecutor js = (JavascriptExecutor) driver.get();
+		js.executeScript("arguments[0].style.visibility='visible';", element);
+	}
+	protected final void setStyle(By locator) {
+		WebElement element = driver.get().findElement(locator);
+		JavascriptExecutor js = (JavascriptExecutor) driver.get();
+		js.executeScript("arguments[0].setAttribute('style', 'visibility:visible')", element);
+	}
+	protected final void selectDropdown(By locator, String select) {
 		explicitWait.get().until(ExpectedConditions.elementToBeClickable(locator));
 		Select clickData = new Select(driver.get().findElement(locator));
 		clickData.selectByVisibleText(select);
@@ -108,6 +122,12 @@ public class BasePage {
 		WebElement element = driver.get().findElement(locator);
 		return element.getAttribute("href");
 	}
+	
+	protected final String getLinkSrc(By locator) {
+		explicitWait.get().until(ExpectedConditions.elementToBeClickable(locator));
+		WebElement element = driver.get().findElement(locator);
+		return element.getAttribute("src");
+	}
 	protected final String getCssValue(By locator, String value) {
 		explicitWait.get().until(ExpectedConditions.elementToBeClickable(locator));
 		WebElement element = driver.get().findElement(locator);
@@ -118,18 +138,21 @@ public class BasePage {
 		//explicitWait.get().until(ExpectedConditions.elementToBeClickable(locator));
 		WebElement element = driver.get().findElement(locator);
 		element.sendKeys(text);
-		ShareUtils.hardWait(2);
+		TimesUtils.hardWait(2);
 		element.sendKeys(Keys.RETURN);
 	}
 	protected final List<WebElement> getList(By locator) {
 		explicitWait.get().until(ExpectedConditions.elementToBeClickable(locator));
-		List<WebElement> listData = 
-				driver.get().findElements(locator);
+		List<WebElement> listData = driver.get().findElements(locator);
 		return listData;
 	}
 	protected final boolean displayElement(By locator) {
+		try {
 		explicitWait.get().until(ExpectedConditions.elementToBeClickable(locator));
 		return driver.get().findElement(locator).isDisplayed();
+		}catch(Exception e) {
+			return false;
+		}
 	}
 	protected final boolean selectElement(By locator) {
 		explicitWait.get().until(ExpectedConditions.elementToBeClickable(locator));
@@ -183,9 +206,15 @@ public class BasePage {
 		WebElement element = driver.get().findElement(locator);
 		element.sendKeys(Keys.ENTER);
 	}
+	protected final void moveCursor(By locator) {
+		Actions actions = new Actions(driver.get());
+		WebElement element = driver.get().findElement(locator);
+		actions.moveToElement(element).perform();
+	}
 	
 	@Attachment(value = "Screenshot", type = "image/png")
 	public byte[] screenshot() {
-	    return ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
+	    return ((TakesScreenshot) driver.get()).getScreenshotAs(OutputType.BYTES);
 	}
+	
 }

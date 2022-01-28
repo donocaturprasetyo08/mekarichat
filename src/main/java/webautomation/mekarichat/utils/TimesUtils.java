@@ -1,6 +1,6 @@
 package webautomation.mekarichat.utils;
 
-public class ShareUtils {
+public class TimesUtils {
 	public static void hardWait(int seconds) {
 		try {
 			Thread.sleep(1000 * seconds);

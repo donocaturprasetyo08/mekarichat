@@ -14,8 +14,8 @@ import webautomation.mekarichat.pages.ContactPage;
 import webautomation.mekarichat.pages.LoginPage;
 import webautomation.mekarichat.pages.LogoutTest;
 import webautomation.mekarichat.pages.SearchMessagePage;
-import webautomation.mekarichat.utils.DataUtils;
-import webautomation.mekarichat.utils.ShareUtils;
+import webautomation.mekarichat.utils.TestData;
+import webautomation.mekarichat.utils.TimesUtils;
 
 /**
  * Unit test for simple App.
@@ -31,10 +31,10 @@ public class AppTest extends BaseWebDriver
 	ContactPage contactPage = new ContactPage(driver, explicitWait);
     
     public void listContactSortByAlphabet() {
-    	String email = DataUtils.emailMekari;
-    	String password = DataUtils.passwordMekari;
+    	String email = TestData.emailMekari;
+    	String password = TestData.passwordMekari;
     	loginPage.inputEmailPassword(email, password);
-    	ShareUtils.hardWait(5);
+    	TimesUtils.hardWait(5);
     	
     	contactPage.tabsContact();;
     	

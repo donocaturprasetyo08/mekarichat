@@ -17,8 +17,8 @@ import webautomation.mekarichat.BaseWebDriver;
 import webautomation.mekarichat.TestAllureListener;
 import webautomation.mekarichat.pages.ChatListPage;
 import webautomation.mekarichat.pages.SearchMessagePage;
-import webautomation.mekarichat.utils.DataUtils;
-import webautomation.mekarichat.utils.ShareUtils;
+import webautomation.mekarichat.utils.TestData;
+import webautomation.mekarichat.utils.TimesUtils;
 
 @Listeners({TestAllureListener.class})
 @Epic("Search Message")
@@ -34,16 +34,16 @@ public class SearchMessage extends BaseWebDriver {
 	@Test
     public void searchOnChatTab() {
     	
-    	String expectedResults2 = DataUtils.titleChatTabs;
+    	String expectedResults2 = TestData.titleChatTabs;
     	String actualResults2 = chatList.titleTabChat();
     	Assert.assertEquals(expectedResults2, actualResults2);
-    	ShareUtils.hardWait(3);
+    	TimesUtils.hardWait(3);
     	
     	String text = "deni";
     	searchMessage.searchText(text);
     	
     	//Recent Chat
-    	ShareUtils.hardWait(5);
+    	TimesUtils.hardWait(5);
     	List<WebElement> listData;
 		try {
 			listData = searchMessage.listSearchRecent();

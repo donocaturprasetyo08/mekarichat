@@ -9,8 +9,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import io.qameta.allure.Step;
 import webautomation.mekarichat.navigation.BasePage;
-import webautomation.mekarichat.utils.DataUtils;
-import webautomation.mekarichat.utils.ShareUtils;
+import webautomation.mekarichat.utils.TestData;
+import webautomation.mekarichat.utils.TimesUtils;
 
 public class PrivateChatPage extends BasePage {
 	
@@ -18,8 +18,15 @@ public class PrivateChatPage extends BasePage {
 	By chatRoom = By.xpath("//span[@title='Deni Istika Handayani']");
 	By textArea = By.xpath("//textarea[@placeholder='Type a message...']");
 	
-	By verifyMessage = By.xpath("//span[contains(text(),'"+DataUtils.sendMessage+"')]");
-	By verifyMessageEmoji = By.xpath("//span[contains(text(),'"+DataUtils.sendMessage+"🐒"+"')]");
+	By confirmDeleted = By.xpath("//button[@id='confirmButtonModal']");
+	By verifyMessageTest = By.xpath("//p[@class='overflow-break c-caption']//span[contains(text(),'Hello Test 776655')]");
+	By lastDeleteMessage = By.xpath("//div[@class='c-bubble__options'][last()]//div[3]");
+	By options = By.xpath("//div[@class='mr-2 options-container bg-cloud']");
+	
+	
+	
+	By verifyMessage = By.xpath("//p[@class='overflow-break c-caption']//span[contains(text(),'"+TestData.sendMessage+"')]");
+	By verifyMessageEmoji = By.xpath("//span[contains(text(),'"+TestData.sendMessage+"🐒"+"')]");
 	By uploadPicture = By.xpath("//input[@id='chat-room-attach']");
 	By send = By.xpath("//div[@id='chat-room-attach-send']");
 	By displayImg = By.xpath("//img[@class='c-attachment-preview__content p-5']");
@@ -50,19 +57,11 @@ public class PrivateChatPage extends BasePage {
 	By media = By.xpath("//img[@class='bg-cloud rounded mr-3']");
 	
 	By buttonEmoji = By.xpath("//img[@class='emoji cursor-pointer']");
-	By emoji = By.xpath("//button[@title='"+DataUtils.emoji+"']");
+	By emoji = By.xpath("//button[@title='"+TestData.emoji+"']");
 	
 	public PrivateChatPage(ThreadLocal<WebDriver> driver, ThreadLocal<WebDriverWait> explicitWait) {
 		super(driver, explicitWait);
 		// TODO Auto-generated constructor stub
-	}
-	@Step("Before test")
-	public void screenShootBeforeTest() {
-		screenshot();
-	}
-	@Step("Results passed after test")
-	public void screenShootAfterTest() {
-		screenshot();
 	}
 	public void tabChatList() {
 		clickAndWaitByXpath(tabChatList);
@@ -94,7 +93,7 @@ public class PrivateChatPage extends BasePage {
 	@Step("# user upload picture")
 	public void upload(String location) {
 		uploadPicture(uploadPicture, location);
-		ShareUtils.hardWait(3);
+		TimesUtils.hardWait(3);
 	}
 	
 	@Step("# verify preview picture can display")
@@ -213,7 +212,7 @@ public class PrivateChatPage extends BasePage {
 	@Step("# user input emoji")
 	public void inputEmoji() {
 		clickAndWaitByXpath(buttonEmoji);
-		ShareUtils.hardWait(2);
+		TimesUtils.hardWait(2);
 		clickAndWaitByJavaScript(emoji);
 	}
 	@Step("# user send text and emoji")
@@ -221,6 +220,18 @@ public class PrivateChatPage extends BasePage {
 		clickAndWaitByJavaScript(textArea);
 		sendText(textArea);
 	}	
-	
+	@Step("# click delete chat")
+	public void deletedChat() {
+		clickAndWaitByJavaScript(lastDeleteMessage);
+		TimesUtils.hardWait(2);
+		clickAndWaitByJavaScript(confirmDeleted);
+	}
+	@Step("# click delete chat")
+	public void setOptions() {
+		setStyle(options);
+	}
+	public void scrollChat() {
+		scrollUntilElement(verifyMessageTest);
+	}
 
 }

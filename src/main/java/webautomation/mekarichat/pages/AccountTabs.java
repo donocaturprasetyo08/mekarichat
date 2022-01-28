@@ -6,7 +6,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import io.qameta.allure.Step;
 import webautomation.mekarichat.navigation.BasePage;
-import webautomation.mekarichat.utils.ShareUtils;
+import webautomation.mekarichat.utils.TimesUtils;
 
 public class AccountTabs extends BasePage {
 	
@@ -24,31 +24,32 @@ public class AccountTabs extends BasePage {
 		// TODO Auto-generated constructor stub
 	}
 	
-	@Step("# user klik account tabs")
+	@Step("When : user klik account tabs")
 	public void accountTabs() {
 		clickAndWaitByXpath(accountTabs);
+		TimesUtils.hardWait(2);
 	}
 	
-	@Step("# verify halaman account tabs")
+	@Step("Then : user can view info account")
 	public String titleAccountTabs() {
 		return getText(titleAccountTabs);
 	}
 	
-	@Step("# verify img display")
+	@Step("And : verify img display")
 	public boolean findElementImg() {
-		ShareUtils.hardWait(2);
+		TimesUtils.hardWait(2);
 		return displayElement(img);
 	}
 	
-	@Step("# verify nama display")
+	@Step("And : verify nama display")
 	public boolean findElementNama() {
-		ShareUtils.hardWait(2);
+		TimesUtils.hardWait(2);
 		return displayElement(nama);
 	}
 	
-	@Step("# verify job display")
+	@Step("And : verify job display")
 	public boolean findElementJobs() {
-		ShareUtils.hardWait(2);
+		TimesUtils.hardWait(2);
 		return displayElement(jobs);
 	}
 	
@@ -56,7 +57,7 @@ public class AccountTabs extends BasePage {
 	public void changePicture(String location) {
 		//clickAndWaitByXpath(changePicture);
 		uploadPicture(uploadPicture, location);
-		ShareUtils.hardWait(2);
+		TimesUtils.hardWait(2);
 	}
 	
 	@Step("# verify url profile picture uploaded")
@@ -64,6 +65,9 @@ public class AccountTabs extends BasePage {
 		return getAttributeVerify(img, value, contains);
 	}
 	
-	
+	@Step("And : passed test with screenshoot")
+	public void afterTest() {
+		screenshot();
+	}
 
 }

@@ -14,8 +14,8 @@ import webautomation.mekarichat.BaseWebDriver;
 import webautomation.mekarichat.TestAllureListener;
 import webautomation.mekarichat.pages.LoginPage;
 import webautomation.mekarichat.pages.LogoutTest;
-import webautomation.mekarichat.utils.DataUtils;
-import webautomation.mekarichat.utils.ShareUtils;
+import webautomation.mekarichat.utils.TestData;
+import webautomation.mekarichat.utils.TimesUtils;
 
 @Listeners({TestAllureListener.class})
 @Epic("Login")
@@ -32,17 +32,17 @@ public class Login extends BaseWebDriver {
     public void loginWithValidEmailandPassword()
     {
 		String actualResults = loginPage.getTitlePage();
-		String expectedResults = DataUtils.titlePageLogin;
+		String expectedResults = TestData.titlePageLogin;
 		Assert.assertEquals(actualResults, expectedResults);
 		
 		loginPage.clearText();
-		ShareUtils.hardWait(2);
+		TimesUtils.hardWait(2);
 		
-		String email = DataUtils.emailMekari;
-    	String password = DataUtils.passwordMekari;
+		String email = TestData.emailMekari;
+    	String password = TestData.passwordMekari;
     	loginPage.inputEmailPassword(email, password);
     	
-    	String expectedResults1 = DataUtils.urlDashboard;
+    	String expectedResults1 = TestData.urlDashboard;
     	String actualResults1 = loginPage.getUrlPage();
     	Assert.assertEquals(actualResults1, expectedResults1);
     }
@@ -54,17 +54,17 @@ public class Login extends BaseWebDriver {
     @Test(priority=1)
     public void loginWithValidEmailandWrongPassword()
     {
-		ShareUtils.hardWait(2);
+		TimesUtils.hardWait(2);
     	logoutTest.logOut();
-    	ShareUtils.hardWait(2);
+    	TimesUtils.hardWait(2);
 		String actualResults = loginPage.getTitlePage();
-		String expectedResults = DataUtils.titlePageLogin;
+		String expectedResults = TestData.titlePageLogin;
 		Assert.assertEquals(actualResults, expectedResults);
 		
 		loginPage.clearText();
-		ShareUtils.hardWait(2);
+		TimesUtils.hardWait(2);
 		
-		String email = DataUtils.emailMekari;
+		String email = TestData.emailMekari;
     	String password = "12345678";
     	loginPage.inputEmailPassword(email, password);
     	
@@ -80,14 +80,14 @@ public class Login extends BaseWebDriver {
     public void loginWithWrongEmailandValidPassword()
     {
 		String actualResults = loginPage.getTitlePage();
-		String expectedResults = DataUtils.titlePageLogin;
+		String expectedResults = TestData.titlePageLogin;
 		Assert.assertEquals(actualResults, expectedResults);
 		
 		loginPage.clearText();
-		ShareUtils.hardWait(2);
+		TimesUtils.hardWait(2);
 		
 		String email = "abcd@mail.co";
-    	String password = DataUtils.passwordMekari;
+    	String password = TestData.passwordMekari;
     	loginPage.inputEmailPassword(email, password);
     	
     	boolean actualResults1 = loginPage.notifFailed();
@@ -102,11 +102,11 @@ public class Login extends BaseWebDriver {
     public void loginWithWrongEmailandPassword()
     {
 		String actualResults = loginPage.getTitlePage();
-		String expectedResults = DataUtils.titlePageLogin;
+		String expectedResults = TestData.titlePageLogin;
 		Assert.assertEquals(actualResults, expectedResults);
 		
 		loginPage.clearText();
-		ShareUtils.hardWait(2);
+		TimesUtils.hardWait(2);
 		
 		String email = "abcd@mail.co";
     	String password = "12345678";
@@ -124,11 +124,11 @@ public class Login extends BaseWebDriver {
     public void checkPasswordShowed()
     {
 		String actualResults = loginPage.getTitlePage();
-		String expectedResults = DataUtils.titlePageLogin;
+		String expectedResults = TestData.titlePageLogin;
 		Assert.assertEquals(actualResults, expectedResults);
 		
 		loginPage.clearText();
-		ShareUtils.hardWait(2);
+		TimesUtils.hardWait(2);
 		
     	String password = "12345678";
     	loginPage.setPassword(password);
@@ -145,11 +145,11 @@ public class Login extends BaseWebDriver {
     public void checkPasswordHidden()
     {
 		String actualResults = loginPage.getTitlePage();
-		String expectedResults = DataUtils.titlePageLogin;
+		String expectedResults = TestData.titlePageLogin;
 		Assert.assertEquals(actualResults, expectedResults);
 		
 		loginPage.clearText();
-		ShareUtils.hardWait(2);
+		TimesUtils.hardWait(2);
 		
 		String password = "12345678";
     	loginPage.setPassword(password);

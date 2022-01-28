@@ -15,9 +15,10 @@ import io.qameta.allure.SeverityLevel;
 import io.qameta.allure.Story;
 import webautomation.mekarichat.BaseWebDriver;
 import webautomation.mekarichat.TestAllureListener;
+import webautomation.mekarichat.navigation.CommonPage;
 import webautomation.mekarichat.pages.PrivateChatPage;
-import webautomation.mekarichat.utils.DataUtils;
-import webautomation.mekarichat.utils.ShareUtils;
+import webautomation.mekarichat.utils.TestData;
+import webautomation.mekarichat.utils.TimesUtils;
 import org.openqa.selenium.support.Color;
 
 @Listeners({TestAllureListener.class})
@@ -25,6 +26,7 @@ import org.openqa.selenium.support.Color;
 public class PrivateChat extends BaseWebDriver {
 	
 	PrivateChatPage privateChat = new PrivateChatPage(driver, explicitWait);
+	CommonPage commonPage = new CommonPage(driver, explicitWait);
 	
 	@Severity(SeverityLevel.CRITICAL)	
 	@Description("User akan dapat mengirim pesan text")
@@ -33,19 +35,17 @@ public class PrivateChat extends BaseWebDriver {
 	@Test
 	public void userSendMessage() {
 		privateChat.tabChatList();
-		ShareUtils.hardWait(2);
+		TimesUtils.hardWait(2);
 		privateChat.chatRoom();
-		ShareUtils.hardWait(2);
+		TimesUtils.hardWait(2);
 		
-		String text = DataUtils.sendMessage;
+		String text = TestData.sendMessage;
 		privateChat.sendMessage(text);
 		
-		ShareUtils.hardWait(3);
+		TimesUtils.hardWait(3);
 		boolean verifyMessage = privateChat.verifyMessage();
 		Assert.assertTrue(verifyMessage);
-		
-		ShareUtils.hardWait(2);
-		privateChat.screenShootAfterTest();
+
 	}
 	
 	@Severity(SeverityLevel.CRITICAL)	
@@ -55,25 +55,24 @@ public class PrivateChat extends BaseWebDriver {
 	@Test
 	public void userSendMessageTextAndEmoji() {
 		privateChat.tabChatList();
-		ShareUtils.hardWait(2);
+		TimesUtils.hardWait(2);
 		
 		privateChat.chatRoom();
-		ShareUtils.hardWait(2);
+		TimesUtils.hardWait(2);
 		
-		String text = DataUtils.sendMessage;
+		String text = TestData.sendMessage;
 		privateChat.inputMessageText(text);
 		
-		ShareUtils.hardWait(2);
+		TimesUtils.hardWait(2);
 		privateChat.inputEmoji();
 		
-		ShareUtils.hardWait(2);
+		TimesUtils.hardWait(2);
 		privateChat.sendText();
 		
-		ShareUtils.hardWait(2);
+		TimesUtils.hardWait(2);
 		Assert.assertTrue(privateChat.verifyMessageEmoji());
 		
-		ShareUtils.hardWait(2);
-		privateChat.screenShootAfterTest();
+		TimesUtils.hardWait(2);
 	}
 	
 	@Severity(SeverityLevel.CRITICAL)	
@@ -83,27 +82,26 @@ public class PrivateChat extends BaseWebDriver {
 	@Test
 	public void userSendImage() {
 		privateChat.tabChatList();
-		ShareUtils.hardWait(2);
+		TimesUtils.hardWait(2);
 		privateChat.chatRoom();
-		ShareUtils.hardWait(5);
+		TimesUtils.hardWait(5);
 		
-		String location = DataUtils.fotoProfile;
+		String location = TestData.fotoProfile;
 		privateChat.upload(location);
 		
-		ShareUtils.hardWait(2);
+		TimesUtils.hardWait(2);
 		boolean verifyImg = privateChat.preview();
 		Assert.assertTrue(verifyImg);
 		
 		privateChat.send();
 		
-		ShareUtils.hardWait(3);
+		TimesUtils.hardWait(3);
 		String value = "src";
 		String contains = "testUpload.png";
 		boolean uploaded = privateChat.verifyPictureUploaded(value, contains);
 		Assert.assertTrue(uploaded);
 		
-		ShareUtils.hardWait(2);
-		privateChat.screenShootAfterTest();
+		TimesUtils.hardWait(2);
 	}
 	
 	@Severity(SeverityLevel.CRITICAL)	
@@ -115,37 +113,35 @@ public class PrivateChat extends BaseWebDriver {
 	@Test
 	public void userSendVideo() {	
 		privateChat.tabChatList();
-		ShareUtils.hardWait(2);
+		TimesUtils.hardWait(2);
 		privateChat.chatRoom();
-		ShareUtils.hardWait(5);
+		TimesUtils.hardWait(5);
 		
-		String location = DataUtils.locationVideo;
+		String location = TestData.locationVideo;
 		privateChat.upload(location);
 		
-		ShareUtils.hardWait(2);
+		TimesUtils.hardWait(2);
 		privateChat.playVideoPengirim();
-		ShareUtils.hardWait(2);
+		TimesUtils.hardWait(2);
 		
 		boolean verifyStatusVideo = privateChat.statusVideoPengirim();
 		Assert.assertFalse(verifyStatusVideo);
 		
 		privateChat.send();
 		
-		ShareUtils.hardWait(3);
+		TimesUtils.hardWait(3);
 		String value = "src";
 		String contains = "mp4-1mb.mp4";
 		boolean sended = privateChat.verifyVideoSended(value, contains);
 		Assert.assertTrue(sended);
 		
-		ShareUtils.hardWait(2);
+		TimesUtils.hardWait(2);
 		privateChat.playVideoPenerima();
-		ShareUtils.hardWait(2);
+		TimesUtils.hardWait(2);
 		
 		boolean verifyStatusVideoPenerima = privateChat.statusVideoPenerima();
 		Assert.assertFalse(verifyStatusVideoPenerima);
 		
-		ShareUtils.hardWait(2);
-		privateChat.screenShootAfterTest();
 	}
 	
 	@Severity(SeverityLevel.CRITICAL)	
@@ -155,14 +151,14 @@ public class PrivateChat extends BaseWebDriver {
 	@Test
 	public void userSendDoc() {	
 		privateChat.tabChatList();
-		ShareUtils.hardWait(2);
+		TimesUtils.hardWait(2);
 		privateChat.chatRoom();
-		ShareUtils.hardWait(5);
+		TimesUtils.hardWait(5);
 		
-		List<String> doc = DataUtils.fileDoc;
+		List<String> doc = TestData.fileDoc;
 		for(int i = 0; i<doc.size();i++) {
 			privateChat.upload(doc.get(i));
-			ShareUtils.hardWait(2);
+			TimesUtils.hardWait(2);
 			boolean verifyDoc = privateChat.previewDoc();
 			try {
 				Assert.assertTrue(verifyDoc);
@@ -170,12 +166,32 @@ public class PrivateChat extends BaseWebDriver {
 				System.out.println("Can not preview");
 			}
 			privateChat.send();
-			ShareUtils.hardWait(5);
+			TimesUtils.hardWait(5);
 		}
 		
-		ShareUtils.hardWait(2);
-		privateChat.screenShootAfterTest();
 	}
+	
+//	@Severity(SeverityLevel.CRITICAL)	
+//	@Description("User akan dapat menghapus pesan")
+//	@Feature("Test Case ID : MC-04-10")
+//	@Story("User menghapus bubble chat")
+//	@Test
+//	public void userCanDeletedMessage() {
+//		privateChat.tabChatList();
+//		TimesUtils.hardWait(2);
+//		
+//		privateChat.chatRoom();
+//		TimesUtils.hardWait(2);
+//		
+//		commonPage.navigateBrowser("refresh");
+//		TimesUtils.hardWait(2);
+//		
+//		privateChat.setOptions();
+//		TimesUtils.hardWait(5);
+//		
+//		privateChat.deletedChat();
+//		TimesUtils.hardWait(5);
+//	}
 	
 	@Severity(SeverityLevel.CRITICAL)	
 	@Description("1. User akan dapat mencari pesan yang diinginkan sesuai keyword \n"
@@ -185,17 +201,17 @@ public class PrivateChat extends BaseWebDriver {
 	@Test
 	public void userSearchMessageOnChat() {  	
 		privateChat.tabChatList();
-		ShareUtils.hardWait(2);
+		TimesUtils.hardWait(2);
 		
 		privateChat.chatRoom();
-		ShareUtils.hardWait(2);
+		TimesUtils.hardWait(2);
 		
 		privateChat.searchChat();
-		ShareUtils.hardWait(2);
+		TimesUtils.hardWait(2);
 		
 		String text = "feedback";
 		privateChat.inputSearch(text);
-		ShareUtils.hardWait(2);
+		TimesUtils.hardWait(2);
 		
 		List<WebElement> listChat;
 		try {
@@ -215,9 +231,7 @@ public class PrivateChat extends BaseWebDriver {
 		} catch (Exception e) {
 			System.out.println(privateChat.getMessage());
 		}
-		
-		ShareUtils.hardWait(2);
-		privateChat.screenShootAfterTest();
+
 	}
 	
 	@Severity(SeverityLevel.CRITICAL)	
@@ -227,16 +241,14 @@ public class PrivateChat extends BaseWebDriver {
 	@Test
 	public void userStatusLastSeen() {
 		privateChat.tabChatList();
-		ShareUtils.hardWait(2);
+		TimesUtils.hardWait(2);
 		
 		privateChat.chatRoom();
-		ShareUtils.hardWait(2);
+		TimesUtils.hardWait(2);
 		
 		boolean lastSeen = privateChat.lastSeen();
 		Assert.assertTrue(lastSeen);
-		
-		ShareUtils.hardWait(2);
-		privateChat.screenShootAfterTest();
+
 	}
 	
 	@Severity(SeverityLevel.CRITICAL)	
@@ -254,13 +266,13 @@ public class PrivateChat extends BaseWebDriver {
 	@Test
 	public void userViewProfileContact() {	
 		privateChat.tabChatList();
-		ShareUtils.hardWait(2);
+		TimesUtils.hardWait(2);
 		
 		privateChat.chatRoom();
-		ShareUtils.hardWait(2);
+		TimesUtils.hardWait(2);
 		
 		privateChat.viewProfile();
-		ShareUtils.hardWait(2);
+		TimesUtils.hardWait(2);
 		
 		boolean nama = privateChat.nama();
 		Assert.assertTrue(nama);
@@ -285,12 +297,10 @@ public class PrivateChat extends BaseWebDriver {
 		} catch (Exception e) {
 			System.out.println("Media list is not found");
 		}
-		
-		ShareUtils.hardWait(2);
-		privateChat.screenShootAfterTest();
+
 		
 		privateChat.profileImg();
-		ShareUtils.hardWait(2);
+		TimesUtils.hardWait(2);
 		boolean imgProfie = privateChat.imgLoaded();
 		Assert.assertTrue(imgProfie);
 		

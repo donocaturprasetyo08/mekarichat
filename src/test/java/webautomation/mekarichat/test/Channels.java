@@ -19,8 +19,8 @@ import webautomation.mekarichat.TestAllureListener;
 import webautomation.mekarichat.navigation.CommonPage;
 import webautomation.mekarichat.pages.ChannelsTabs;
 
-import webautomation.mekarichat.utils.DataUtils;
-import webautomation.mekarichat.utils.ShareUtils;
+import webautomation.mekarichat.utils.TestData;
+import webautomation.mekarichat.utils.TimesUtils;
 
 @Listeners({TestAllureListener.class})
 @Epic("Channels")
@@ -37,7 +37,7 @@ public class Channels extends BaseWebDriver {
 	@Test(priority=1)
 	public void tabsChannelForSeeDaftarChannel() {
     	channels.tabsChannel();
-    	String expectedResults2 = DataUtils.titleChannelTabs;
+    	String expectedResults2 = TestData.titleChannelTabs;
     	String actualResults2 = channels.titleTab();
     	Assert.assertEquals(actualResults2, expectedResults2);
     	
@@ -48,7 +48,7 @@ public class Channels extends BaseWebDriver {
     	boolean activeTabs = channels.availableActive(value, contains);
     	Assert.assertTrue(activeTabs);
     	
-    	ShareUtils.hardWait(3);
+    	TimesUtils.hardWait(3);
     	List<WebElement> listChannels;
 		try {
 			listChannels = channels.listChannelAvailable();
@@ -61,14 +61,14 @@ public class Channels extends BaseWebDriver {
 		}
 		
 		//Your Channels Tabs
-		ShareUtils.hardWait(5);
+		TimesUtils.hardWait(5);
     	channels.tabsYourChannel();
     	String value1 = "class";
     	String contains1 = "active";
     	boolean yourTabs = channels.yourActive(value1, contains1);
     	Assert.assertTrue(yourTabs);
     	
-    	ShareUtils.hardWait(3);
+    	TimesUtils.hardWait(3);
     	List<WebElement> listYourChannels;
 		try {
 			listYourChannels = channels.listYourChannel();
@@ -89,7 +89,7 @@ public class Channels extends BaseWebDriver {
 	public void searchOnAvailableChannel() {
 		commonPage.navigateBrowser("refresh");
     	channels.tabsChannel();
-    	String expectedResults2 = DataUtils.titleChannelTabs;
+    	String expectedResults2 = TestData.titleChannelTabs;
     	String actualResults2 = channels.titleTab();
     	Assert.assertEquals(actualResults2, expectedResults2);
     	
@@ -100,11 +100,11 @@ public class Channels extends BaseWebDriver {
     	boolean activeTabs = channels.availableActive(value, contains);
     	Assert.assertTrue(activeTabs);
     	
-    	ShareUtils.hardWait(2);
+    	TimesUtils.hardWait(2);
     	String text = "per";
     	channels.searchChannel(text);
     	
-    	ShareUtils.hardWait(2);
+    	TimesUtils.hardWait(2);
     	List<WebElement> listChannels;
 		try {
 			listChannels = channels.listSearchChannelAvailable();
@@ -127,23 +127,23 @@ public class Channels extends BaseWebDriver {
 	public void searchOnYourChannel() {
 		commonPage.navigateBrowser("refresh");
     	channels.tabsChannel();
-    	String expectedResults2 = DataUtils.titleChannelTabs;
+    	String expectedResults2 = TestData.titleChannelTabs;
     	String actualResults2 = channels.titleTab();
     	Assert.assertEquals(actualResults2, expectedResults2);
     	
     	//Your Channels Tabs
-    	ShareUtils.hardWait(5);
+    	TimesUtils.hardWait(5);
     	channels.tabsYourChannel();
     	String value1 = "class";
     	String contains1 = "active";
        	boolean yourTabs = channels.yourActive(value1, contains1);
  	    Assert.assertTrue(yourTabs);
     	    	
- 	    ShareUtils.hardWait(2);
+ 	    TimesUtils.hardWait(2);
  	    String text = "tes";
  	   	channels.searchChannel(text);
  	   
-    	ShareUtils.hardWait(3);
+    	TimesUtils.hardWait(3);
        	List<WebElement> listYourChannels;
   		try {
    			listYourChannels = channels.listSearchChannelAvailable();
@@ -166,7 +166,7 @@ public class Channels extends BaseWebDriver {
 	public void joinChannel() {
 		commonPage.navigateBrowser("refresh");
     	channels.tabsChannel();
-    	String expectedResults2 = DataUtils.titleChannelTabs;
+    	String expectedResults2 = TestData.titleChannelTabs;
     	String actualResults2 = channels.titleTab();
     	Assert.assertEquals(actualResults2, expectedResults2);
     	
@@ -177,7 +177,7 @@ public class Channels extends BaseWebDriver {
     	Assert.assertTrue(activeTabs);
     	
     	channels.joinChannel();
-    	ShareUtils.hardWait(2);
+    	TimesUtils.hardWait(2);
     	boolean checkJoin = channels.verifyJoin();
     	Assert.assertTrue(checkJoin);
 	}
@@ -191,24 +191,24 @@ public class Channels extends BaseWebDriver {
 	public void accessJoinChannel() {
 		commonPage.navigateBrowser("refresh");
     	channels.tabsChannel();
-    	String expectedResults2 = DataUtils.titleChannelTabs;
+    	String expectedResults2 = TestData.titleChannelTabs;
     	String actualResults2 = channels.titleTab();
     	Assert.assertEquals(actualResults2, expectedResults2);
     	
-    	ShareUtils.hardWait(2);
+    	TimesUtils.hardWait(2);
     	channels.tabsYourChannel();
     	String value1 = "class";
     	String contains1 = "active";
        	boolean yourTabs = channels.yourActive(value1, contains1);
  	    Assert.assertTrue(yourTabs);
     	
- 	    ShareUtils.hardWait(2);
+ 	    TimesUtils.hardWait(2);
     	channels.clickChannel();
-    	ShareUtils.hardWait(2);
+    	TimesUtils.hardWait(2);
     	boolean checkJoin = channels.verifyJoin();
     	Assert.assertTrue(checkJoin);
     	
-    	ShareUtils.hardWait(2);
+    	TimesUtils.hardWait(2);
     	channels.leaveGroup();
 	}
 	

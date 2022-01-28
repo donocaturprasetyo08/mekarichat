@@ -7,7 +7,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import io.qameta.allure.Step;
 import webautomation.mekarichat.navigation.BasePage;
-import webautomation.mekarichat.utils.ShareUtils;
+import webautomation.mekarichat.utils.TimesUtils;
 
 public class LoginTest extends BasePage {
 
@@ -31,11 +31,11 @@ public class LoginTest extends BasePage {
 		
 	@Step("# login with username: {0} and password: {1}")
 	public void testLogin(String email, String password) {
-		ShareUtils.hardWait(5);
+		TimesUtils.hardWait(5);
 		setText(inputEmail, email);
 		setText(inputPassword, password);
 		clickAndWaitByXpath(buttonSignIn);
-		ShareUtils.hardWait(10);
+		TimesUtils.hardWait(10);
 	}
 	
 	public String getNotif() {
@@ -49,6 +49,6 @@ public class LoginTest extends BasePage {
 	public void showPassword(String password) {
 		setText(inputPassword, password);
 		clickAndWaitByXpath(showPassword);
-		ShareUtils.hardWait(5);
+		TimesUtils.hardWait(5);
 	}
 }

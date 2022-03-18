@@ -5,8 +5,8 @@ import java.util.List;
 
 public class TestData {
 	public static final String titlePageLogin = "Mekari Account";
-	public static final String emailMekari = "donocatur@qiscus.cx";
-	public static final String passwordMekari = "tanpapassword08";
+	public static final String emailMekari = "emailMekari";
+	public static final String passwordMekari = "passwordMekari";
 	
 	public static final String urlDashboard = "https://messenger.mekari.com/dashboard";
 	public static final String fotoProfile = "/Users/donocaturprasetyo/Pictures/testUpload.png";
